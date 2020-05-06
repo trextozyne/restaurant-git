@@ -473,7 +473,7 @@
       <workItem from="1588461339580" duration="645000" />
       <workItem from="1588543623149" duration="859000" />
       <workItem from="1588546937664" duration="6201000" />
-      <workItem from="1588716548556" duration="1437000" />
+      <workItem from="1588716548556" duration="2037000" />
     </task>
     <task id="LOCAL-00001" summary="add restaurant repo">
       <created>1588717762291</created>
@@ -486,7 +486,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1247266000" />
+    <option name="totallyTimeSpent" value="1247866000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
