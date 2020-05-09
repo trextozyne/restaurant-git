@@ -2,21 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ae3c312-a515-45f3-a985-c28b56dd8127" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/gallery/images2020-05-08T23-20-43.824Z.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/gallery/images2020-05-08T23-23-27.454Z.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/admin-add-category-list-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/admin-add-category-list-functionality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/gallery/images2019-11-25T03-35-26.221Z.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/todolist.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/todolist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/category.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/category.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/menu-item.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/menu-item.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/restaurant.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/restaurant.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/all-data/category-data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/category-data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/all-data/category-json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/category-json.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/all-data/data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/all-data/json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/json.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/menu-item-data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/menu-item-data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/menu-item-json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/menu-item-json.html" afterDir="false" />
     </list>
@@ -38,14 +23,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-add-menu-item-list-functionality.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin-add-menu-item-list-functionality.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="154" column="33" lean-forward="true" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="33" />
+            <state relative-caret-position="364">
+              <caret line="150" lean-forward="true" selection-start-line="150" selection-end-line="150" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/all-data/data.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1000">
+              <caret line="335" column="5" lean-forward="true" selection-start-line="335" selection-start-column="5" selection-end-line="335" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu-item-json.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-json.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="menu-item-data.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -109,8 +117,8 @@
       <find>menuItemId</find>
       <find>getMenuItemId</find>
       <find>22</find>
-      <find>findMenuItem</find>
       <find>for (let i=0; i&lt;json.menu.length; i++){</find>
+      <find>findMenuItem</find>
     </findStrings>
     <replaceStrings>
       <replace>bool_singleProduct</replace>
@@ -443,7 +451,7 @@
       <workItem from="1588546937664" duration="6201000" />
       <workItem from="1588716548556" duration="2637000" />
       <workItem from="1588800914076" duration="93000" />
-      <workItem from="1588901669927" duration="34836000" />
+      <workItem from="1588901669927" duration="35379000" />
     </task>
     <task id="LOCAL-00001" summary="add restaurant repo">
       <created>1588717762291</created>
@@ -452,11 +460,18 @@
       <option name="project" value="LOCAL" />
       <updated>1588717762291</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add restaurant repo">
+      <created>1589007188211</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589007188211</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1283395000" />
+    <option name="totallyTimeSpent" value="1283938000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -736,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/all-data/data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3791">
-          <caret line="335" column="5" lean-forward="true" selection-start-line="335" selection-start-column="5" selection-end-line="335" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data/category-data.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -807,23 +815,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data.html">
+    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
+        <state relative-caret-position="364">
+          <caret line="150" lean-forward="true" selection-start-line="150" selection-end-line="150" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/all-data/data.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="335" column="5" lean-forward="true" selection-start-line="335" selection-start-column="5" selection-end-line="335" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-json.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js">
+    <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="154" column="33" lean-forward="true" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="33" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="524">
+          <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
         </state>
       </provider>
     </entry>
