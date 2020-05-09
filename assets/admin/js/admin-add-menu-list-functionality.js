@@ -110,7 +110,7 @@ document.addEventListener('click', function (e) {
         addProduct(e.target.parentElement);
 debugger;
         if (boolfirstAdd === false) {
-            let alert = alertModal('Added!!!, Fill the form to add other choices to cutomers orders for that product: ' + document.getElementById('item-name-order').textContent);
+            let alert = alertModal('Added!!!, Fill the form to add other choices to customers orders for that product: ' + document.getElementById('item-name-order').textContent);
             if (document.querySelectorAll('.md-modal').length < 1)
                 document.body.insertAdjacentHTML('beforeend', alert);
 
@@ -123,10 +123,10 @@ debugger;
 
         if(e.target && (e.target.id === 'options' || e.target.id === 'optionList') && e.target.value !== '' && boolfirstAdd === true)
             createOptionRequiredList('requiredOption', totalInputItems);
-
-        e.target.parentElement.children[0].children[1].removeAttribute('hidden');
-        e.target.parentElement.children[0].children[4].removeAttribute('hidden');
-        e.target.parentElement.children[0].children[5].removeAttribute('hidden');
+debugger;
+        document.querySelector(['div[id="addProductForm"]']).children[1].removeAttribute('hidden');
+        document.querySelector(['div[id="addProductForm"]']).children[4].removeAttribute('hidden');
+        document.querySelector(['div[id="addProductForm"]']).children[5].removeAttribute('hidden');
         // make them visible, required field and option reqd to proceed select field
 
         e.preventDefault()
