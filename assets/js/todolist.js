@@ -69,7 +69,7 @@
                 debugger;
                 let li = document.createElement('li');
                 li.innerHTML = `<div class='form-check'><label class='form-check-label'><input onchange='getMenuItemId(this)' class='radio' name='radio' type='radio'/>` + item +
-                    `<i class='input-helper'></i></label></div><i class='remove mdi mdi-close-circle-outline'></i><i class='edit mdi mdi-pencil-outline'></i>`
+                    `<i class='input-helper'></i></label></div><i class='removeMenuItem mdi mdi-close-circle-outline'></i><i class='editMenuItem mdi mdi-pencil-outline'></i>`
                 menuItemListItem.appendChild(li);
 
                 document.getElementById("menuForm").reset();

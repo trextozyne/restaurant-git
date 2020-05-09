@@ -67,7 +67,12 @@ function writeFileContent(savPaths, menuItem) {
         function doWriteJsonFile(data) {
             let menuItems ;
             menuItems = JSON.parse(data); //now it an object
-            menuItems.menu.push(menuItem.menu[0]); //add some data
+            console.log(menuItems.menu.length);
+            console.log(menuItem.menu.length);
+            if(menuItem.menu.length === 1)
+                menuItems.menu.push(menuItem.menu[0]); //add some data
+            else
+                menuItems = menuItem;
 
             let jsonContent = JSON.stringify(menuItems, undefined, 4);
 
@@ -90,43 +95,53 @@ exports.read = function (req, res) {
     console.log('complete');
 };
 
-function checkItemOrderAvailable (menuItemId){
-    let boolFind = false;
+function checkItemOrderAvailable (menuItemId, callBack){
+    // let boolFind = false;
     getFileContent('./views/all-data/data.html', function(data) {
         let json = JSON.parse(data);
-        console.log(json.completeOrder);
-        if(typeof json.completeOrder.find(item => item.menuItemId === menuItemId) !== "undefined")
-            boolFind = true;
+
+        // if(typeof json.completeOrder.find(item => item.menuItemId === menuItemId) !== "undefined" &&
+        //            json.completeOrder.find(item => item.menuItemId === menuItemId))
+        //     return true;
+        // else
+        //     return false;
+        let menuItem = json.completeOrder.find(item => item.menuItemId === menuItemId);
+        return callBack(menuItem !== "" || menuItem !== null);
     });
-    return boolFind;
 }
 
 exports.update = function (req, res) {
     getFileContent('./views/all-data/menu-item-data.html', function (data) {
         let json = JSON.parse(data);
-        // res.send(json);//.slice(0, data.indexOf('<script>'))
-        for (let i=0; i<json.menu.length; i++){
-            if (json.menu[i].menuItemId === req.params.menuItemId) {
-                //OR
-                // json.menu[i] = {};
-                // json.menu[i] = req.body;
 
-                json.menu[i].itemName = req.body.itemName ? req.body.itemName : json.menu[i].itemName;
-                json.menu[i].itemDescription = req.body.itemDescription ? req.body.itemDescription : json.menu[i].itemDescription;
-                json.menu[i].itemIngredients = req.body.itemIngredients ? req.body.itemIngredients : json.menu[i].itemIngredients;
-                json.menu[i].itemRecipe = req.body.itemRecipe ? req.body.itemRecipe : json.menu[i].itemRecipe;
-                json.menu[i].itemPrice = req.body.itemPrice ? req.body.itemPrice : json.menu[i].itemPrice;
-                json.menu[i].itemActive =  json.menu[i].itemActive === false ? false : checkItemOrderAvailable(req.params.menuItemId);
-                json.menu[i].itemCategoryId = req.body.itemCategoryId ? req.body.itemCategoryId : json.menu[i].itemCategoryId;
+       checkItemOrderAvailable(req.params.menuItemId, function (response) {
+           for (let i=0; i<json.menu.length; i++){
+               // console.log(i);
+               if (json.menu[i].menuItemId === req.params.menuItemId) {
+                   //OR
+                   // json.menu[i] = {};
+                   // json.menu[i] = req.body;
+                   console.log(json.menu[i]);
 
-                if (req.file)
-                    fs.unlinkSync(json.menu[i].itemImgPath.toString());
+                   json.menu[i].itemName = req.body.itemName ? req.body.itemName : json.menu[i].itemName;
+                   json.menu[i].itemDescription = req.body.itemDescription ? req.body.itemDescription : json.menu[i].itemDescription;
+                   json.menu[i].itemIngredients = req.body.itemIngredients ? req.body.itemIngredients : json.menu[i].itemIngredients;
+                   json.menu[i].itemRecipe = req.body.itemRecipe ? req.body.itemRecipe : json.menu[i].itemRecipe;
+                   json.menu[i].itemPrice = req.body.itemPrice ? req.body.itemPrice : json.menu[i].itemPrice;
+                   json.menu[i].itemActive = response; //json.menu[i].itemActive === false ? false :
+                   json.menu[i].itemCategoryId = req.body.itemCategoryId ? req.body.itemCategoryId : json.menu[i].itemCategoryId;
 
-                json.menu[i].itemImgName = req.file ? req.file.path : json.menu[i].itemImgName;
-                json.menu[i].itemImgPath = req.file ? req.file.filename : json.menu[i].itemImgPath;
-                break;
-            }
-        }
+                   if (req.file)
+                       fs.unlinkSync(json.menu[i].itemImgPath.toString());
+
+                   json.menu[i].itemImgName = req.file ? req.file.filename : json.menu[i].itemImgName;
+                   json.menu[i].itemImgPath = req.file ? req.file.path : json.menu[i].itemImgPath;
+                   break;
+               }
+           }
+       });
+
+
 
         let dir = ['./views/all-data/menu-item-data.html','./views/all-data/menu-item-json.html'];
         dir.forEach(function(filePath, index) {
@@ -151,7 +166,7 @@ exports.update = function (req, res) {
 exports.delete = function (req, res) {
     getFileContent('./views/all-data/menu-item-data.html', function (data) {
         let json = JSON.parse(data);
-        json = json.menu.find(item => item.menuItemId === req.params.menuItemId);
+        // json = json.menu.find(item => item.menuItemId === req.params.menuItemId);
         (json === "" || json === null) ? res.status(400) : res.status(200);
 
         if (res.statusCode === 200) {

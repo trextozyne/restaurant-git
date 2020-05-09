@@ -1,3 +1,4 @@
+let id = null;
 
 (function () {
     getAllCategories();
@@ -8,12 +9,12 @@
 
     addCategoryBtn.addEventListener('click', (event) => {
         debugger;
-        if(event.target.innerText === 'Submit') {
-            saveCategory(categoryName.value, "submit");
+        if(event.target.innerText === 'Add' && categoryName.value !== "") {
+            saveUpdateCategory(categoryName.value, "Add");
         }
 
-        if(event.target.innerText === 'Update') {
-            saveCategory(categoryName.value, "update");
+        if(event.target.innerText === 'Update' && categoryName.value !== "") {
+            saveUpdateCategory(categoryName.value, "Update");
         }
     });
 })();
@@ -26,9 +27,10 @@ function activateCategoryItemnEdit_DeleteBtn(){
         editBtn[i].addEventListener("click", function (event) {debugger
             findMenuItem(event.target.getAttribute("data-editId"), "category", function (response) {debugger;
                 document.getElementById('categoryName').value = response.categoryName;
+                id = event.target.getAttribute("data-editId");
             });
 
-            document.getElementsByClassName('add-Category')[0].innerText = 'Update';
+            document.getElementsByClassName('add-category')[0].innerText = 'Update';
 
             // findMenuItemOrder(event.target.getAttribute("data-editId"))
         })
@@ -37,16 +39,17 @@ function activateCategoryItemnEdit_DeleteBtn(){
         removeBtn[i].addEventListener("click", function (event) {
             deleteMenuItem(event.target.getAttribute("data-deleteId"));
             event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+            id = event.target.getAttribute("data-deleteId");
         })
     }
 }
 
-function saveCategory(category_name, status) {
+function saveUpdateCategory(category_name, status) {
     let data ={
         category: []
     };
     data.category.push({categoryName: category_name});
-    if(status === "submit") {
+    if(status === "Add") {
         let settings = {
             "url": "http://localhost:1987/category/write",
             "method": "POST",
@@ -56,46 +59,47 @@ function saveCategory(category_name, status) {
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response)
+            console.log(response);
             // response = JSON.parse(response);
             let categoryAllList = document.getElementsByClassName("todo-list")[0];
 
             setTimeout(() => {
                 debugger;
                 let length = categoryAllList.querySelectorAll('input[type="radio"]').length - 1 || 0;
-                categoryAllList.querySelectorAll('input[type="radio"]')[length].setAttribute('value', response.categoryId);
-                let ilength = categoryAllList.querySelectorAll('.editCategory').length - 1 || 0;
-                categoryAllList.querySelectorAll('.editCategory')[ilength].setAttribute('data-editid', response.categoryId);
+                categoryAllList.querySelectorAll('input[type="radio"]')[length].setAttribute('value', response[0].categoryId);
+                let editlength = categoryAllList.querySelectorAll('.editCategory').length - 1 || 0;//get last added input
+                categoryAllList.querySelectorAll('.editCategory')[editlength].setAttribute('data-editid', response[0].categoryId);
+                let removelength = categoryAllList.querySelectorAll('.removeCategory').length - 1 || 0;//get last added input
+                categoryAllList.querySelectorAll('.removeCategory')[removelength].setAttribute('data-deleteId', response[0].categoryId);
 
                 activateCategoryItemnEdit_DeleteBtn();
             }, 400);
         });
     }
 
-    if (status === "update"){
+    if (status === "Update"){
         let settings = {
             "async": true,
             "crossDomain": true,
             "url": "http://localhost:1987/category/update/"+ id,
             "method": "PUT",
-            "headers": {
-                "cache-control": "no-cache",
-                "postman-token": "ba5e5919-6424-42d1-566d-969f65763853"
-            },
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": JSON.stringify(data)
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: 'json',
         };
 
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
 
-        document.getElementsByClassName("todo-list")[0].innerHTML = "";
-        //reload category list
-        getAllCategories();
-        document.getElementsByClassName('add-Category')[0].innerText = 'Submit'
+        setTimeout(() => {
+            document.getElementsByClassName("todo-list")[0].innerHTML = "";
+            document.getElementById('categoryName').value = "";
+            //reload category list
+            getAllCategories();
+            document.getElementsByClassName('add-category')[0].innerText = 'Add'
+        }, 400);
+
     }
 }
 
@@ -132,6 +136,7 @@ function getAllCategories(){
             input_helper.classList.add("input-helper");
             let remove = document.createElement('i');
             remove.classList.add("removeCategory", "mdi", "mdi-close-circle-outline");
+            remove.setAttribute('data-deleteId', category.categoryId);
             let edit = document.createElement('i');
             edit.classList.add("editCategory", "mdi", "mdi-pencil-outline");
             edit.setAttribute('data-editid', category.categoryId);

@@ -53,7 +53,7 @@ function writeFileContent(savPaths, category) {
                 });
             } else {
                 if (i === 1)content[i] = styles + content[i];
-                console.log(menuItem);
+                console.log(category);
                 fs.writeFile(savPaths.split(',')[i], content[i], function (err) {
                     if (err) throw err;
                     console.log('complete');
@@ -64,9 +64,11 @@ function writeFileContent(savPaths, category) {
         function doWriteJsonFile(data) {
             let categories ;
             categories = JSON.parse(data); //now it an object
-            // console.log(category.category[0])
-            categories.category.push(category.category[0]); //add some data
-            console.log(categories)
+
+            if(category.length === 1)
+                categories.category.push(category.category[0]); //add some data
+            else
+                categories = category;
 
             let jsonContent = JSON.stringify(categories, undefined, 4);
 
@@ -93,30 +95,34 @@ exports.update = function (req, res) {
     getFileContent('./views/all-data/category-data.html', function (data) {
         let json = JSON.parse(data);
         // res.send(json);//.slice(0, data.indexOf('<script>'))
-        const categoryname = req.body.categoryName;
+        const categoryname = req.body.category[0].categoryName;
+        console.log(categoryname)
+        console.log(json)
         for (let i=0; i<json.category.length; i++){
             if (json.category[i].categoryId === req.params.categoryId) {
                 json.category[i].categoryName = categoryname;
                 break;
             }
         }
+        console.log(json)
 
-        let dir = ['./views/all-data/category-data.html','./views/all-data/category-json.html'];
-        dir.forEach(function(filePath, index) {
-            fs.access(filePath, error => {
-                if (!error) {
-                    fs.unlinkSync(filePath, function (error) {
-                        console.log(error);
-                    });
-                } else {
-                    console.log(error);
-                }
-            });
-            if (index === dir.length - 1)
-                setTimeout(()=>{
-                    writeFileContent('./views/all-data/category-data.html,./views/all-data/category-json.html', json);
-                }, 1000);
-        });
+        writeFileContent('./views/all-data/category-data.html,./views/all-data/category-json.html', json);
+        // let dir = ['./views/all-data/category-data.html','./views/all-data/category-json.html'];
+        // dir.forEach(function(filePath, index) {
+        //     fs.access(filePath, error => {
+        //         if (!error) {
+        //             fs.unlinkSync(filePath, function (error) {
+        //                 console.log(error);
+        //             });
+        //         } else {
+        //             console.log(error);
+        //         }
+        //     });
+        //     if (index === dir.length - 1)
+        //         setTimeout(()=>{
+        //             writeFileContent('./views/all-data/category-data.html,./views/all-data/category-json.html', json);
+        //         }, 1000);
+        // });
     });
     res.send('complete');
 };
@@ -131,23 +137,24 @@ exports.delete = function (req, res) {
                 i--;//so it dont skip the next element
             }
         }
+        writeFileContent('./views/all-data/category-data.html,./views/all-data/category-json.html', json);
 
-        let dir = ['./views/all-data/category-data.html','./views/all-data/category-json.html'];
-        dir.forEach(function(filePath, index) {
-            fs.access(filePath, error => {
-                if (!error) {
-                    fs.unlinkSync(filePath, function (error) {
-                        console.log(error);
-                    });
-                } else {
-                    console.log(error);
-                }
-            });
-            if (index === dir.length - 1)
-                setTimeout(()=>{
-                    writeFileContent('./views/all-data/category-data.html,./views/all-data/category-json.html', json);
-                }, 1000);
-        });
+        // let dir = ['./views/all-data/category-data.html','./views/all-data/category-json.html'];
+        // dir.forEach(function(filePath, index) {
+        //     fs.access(filePath, error => {
+        //         if (!error) {
+        //             fs.unlinkSync(filePath, function (error) {
+        //                 console.log(error);
+        //             });
+        //         } else {
+        //             console.log(error);
+        //         }
+        //     });
+        //     if (index === dir.length - 1)
+        //         setTimeout(()=>{
+        //             writeFileContent('./views/all-data/category-data.html,./views/all-data/category-json.html', json);
+        //         }, 1000);
+        // });
     });
     res.send('Deleting complete');
 };

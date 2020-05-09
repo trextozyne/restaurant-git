@@ -58,7 +58,9 @@ debugger;
     }
 }
 //
-function saveMenuItem(menu_item_name, menu_item_descr, menu_item_ingredient, menu_item_recipe, menu_item_price, menu_item_is_active, itemCategoryId, status, id) {
+function saveMenuItem(menu_item_name, menu_item_descr, menu_item_ingredient, menu_item_recipe, menu_item_price,
+                      menu_item_is_active, itemCategoryId, status, id) {
+    debugger;
     let form = new FormData();
     form.append("itemName", menu_item_name);
     form.append("itemDescription", menu_item_descr);
@@ -96,12 +98,9 @@ function saveMenuItem(menu_item_name, menu_item_descr, menu_item_ingredient, men
                 debugger;
                 let length = menuItemAllList.querySelectorAll('input[type="radio"]').length - 1 || 0;
                 menuItemAllList.querySelectorAll('input[type="radio"]')[length].setAttribute('value', response.menuItemId);
-                let length2 = menuItemAllList.querySelectorAll('.removeMenuItem').length - 1 || 0;
-                menuItemAllList.querySelectorAll('.removeMenuItem')[length2].setAttribute('data-deleteid', response.menuItemId);
-                let length3 = menuItemAllList.querySelectorAll('.editMenuItem').length - 1 || 0;
-                menuItemAllList.querySelectorAll('.editMenuItem')[length3].setAttribute('data-editid', response.menuItemId);
-                let length4 = menuItemAllList.querySelectorAll('label').length - 1 || 0;
-                menuItemAllList.querySelectorAll('label')[length4].innerHTML += ' (NA)';
+                menuItemAllList.querySelectorAll('.removeMenuItem')[length].setAttribute('data-deleteid', response.menuItemId);
+                menuItemAllList.querySelectorAll('.editMenuItem')[length].setAttribute('data-editid', response.menuItemId);
+                menuItemAllList.querySelectorAll('abel')[length].innerHTML += ' (NA)';
 
                 activateMenuItemEdit_DeleteBtn();
             }, 400);
@@ -130,11 +129,11 @@ function saveMenuItem(menu_item_name, menu_item_descr, menu_item_ingredient, men
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
-
-        document.getElementsByClassName("todo-list")[1].innerHTML = "";
-        //reload menu item list
-        getMenuItem();
-        document.getElementsByClassName('add-menu-item')[0].innerText = 'Submit'
+        // setTimeout(() => {
+            //reload menu item list
+            getMenuItem();
+            document.getElementsByClassName('add-menu-item')[0].innerText = 'Submit'
+        // }, 400);
     }
 }
 
@@ -151,7 +150,8 @@ function getMenuItem() {
     };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
+        document.getElementsByClassName("todo-list")[1].innerHTML = "";
+        // console.log(response);
         let menuItems = response.menu;
         menuItems.forEach((menuItem) => {
             let menuItemAllList = document.getElementsByClassName("todo-list")[1];
@@ -209,6 +209,8 @@ function deleteMenuItem(id) {
 }
 
 function findMenuItem(id, data, callback) {
+    menuItemId = id;
+
     let settings = {
         "async": true,
         "crossDomain": true,
@@ -357,6 +359,7 @@ function activateMenuItemEdit_DeleteBtn(){
     for (let i = 0; i < editBtn.length; i++) {
         editBtn[i].addEventListener("click", function (event) {debugger
             findMenuItem(event.target.getAttribute("data-editId"), "menu-item", function (response) {debugger;
+                menuItemCategoryId = response.itemCategoryId;
                 document.getElementById('item-name').value = response.itemName;
                 document.getElementById('item-description').value = response.itemDescription;
                 document.getElementById('ingredients').value = response.itemIngredients;

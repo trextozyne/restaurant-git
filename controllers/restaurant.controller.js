@@ -67,7 +67,10 @@ function writeFileContent(savPaths, restaurant) {
 
         function doWriteJsonFile(data) {
             let orderItems = JSON.parse(data);
-            orderItems.completeOrder.push(restaurant.completeOrder[0]);
+            restaurant.completeOrder === 1 ?
+                orderItems.completeOrder.push(restaurant.completeOrder[0]) :
+                    orderItems = restaurant;
+
             let jsonContent = JSON.stringify(orderItems, undefined, 4);
             console.log(restaurant.completeOrder);
             console.log(orderItems.completeOrder);
@@ -122,22 +125,24 @@ exports.update = function (req, res) {
                     break;
                 }
             }
+
+            writeFileContent('./views/all-data/data.html,./views/all-data/json.html', json);
             let dir = ['./views/all-data/data.html', './views/all-data/json.html'];
-            dir.forEach(function (filePath, index) {
-                fs.access(filePath, error => {
-                    if (!error) {
-                        fs.unlinkSync(filePath, function (error) {
-                            console.log(error);
-                        });
-                    } else {
-                        console.log(error);
-                    }
-                });
-                if (index === dir.length - 1)
-                    setTimeout(() => {
-                        writeFileContent('./views/all-data/data.html,./views/all-data/json.html', json);
-                    }, 1000);
-            });
+            // dir.forEach(function (filePath, index) {
+            //     fs.access(filePath, error => {
+            //         if (!error) {
+            //             fs.unlinkSync(filePath, function (error) {
+            //                 console.log(error);
+            //             });
+            //         } else {
+            //             console.log(error);
+            //         }
+            //     });
+            //     if (index === dir.length - 1)
+            //         setTimeout(() => {
+            //
+            //         }, 1000);
+            // });
         }
         else if (res.statusCode === 404) return res.status(404).redirect('../../Views/not-found');
         else return res.status(500).redirect('../../Views/error-not-found');
@@ -148,7 +153,7 @@ exports.update = function (req, res) {
 exports.delete = function (req, res) {
     getFileContent('./views/all-data/data.html', function (data) {
         let json = JSON.parse(data);
-        json = json.completeOrder.find(item => item.menuItemId === req.params.menuItemId);
+        // json = json.completeOrder.find(item => item.menuItemId === req.params.menuItemId);
         (json === "" || json === null) ? res.status(400) : res.status(200);
 
         if (res.statusCode === 200) {
