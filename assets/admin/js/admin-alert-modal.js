@@ -13,3 +13,16 @@ $(function () {
 function RemoveClass(elem, newClass) {
     elem.className = elem.className.replace(new RegExp('(\\s|^)'+newClass+'(\\s|$)'), " ").trim();
 }
+
+function alertModal(alert) {
+    return `<div class="md-modal md-effect-12 md-show">
+    <div class="md-content">
+        <h3>${alert}</h3>
+        <div>
+            <button class="md-close">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="md-overlay"></div>`
+}

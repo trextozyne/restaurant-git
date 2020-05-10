@@ -62,20 +62,28 @@
             debugger
             event.preventDefault();
 
-            var item = $('#item-name').val();
+            let menuItemName = document.getElementById('item-name');
+            let menuItemDescription = document.getElementById('item-description');
+            let menuItemIngredients = document.getElementById('ingredients');
+            let menuItemRecipe = document.getElementById('recipe');
+            let menuItemPrice = document.getElementById('price');
+            //
+            // let addMenuItemBtn = document.getElementsByClassName('add-menu-item')[0];
+            //
+            // addMenuItemBtn.addEventListener('click', (event) => {
+            //     if(event.target.innerText === 'Submit') {
+           if (menuItemCategoryId !== null && !!menuItemName.value && !!menuItemDescription.value && menuImageItem.files.length > 0
+                        && !!menuItemIngredients.value && !!menuItemRecipe.value && !!menuItemPrice.value) {
+               debugger;
+               let li = document.createElement('li');
+               li.innerHTML = `<div class='form-check'><label class='form-check-label'><input onchange='getMenuItemId(this)' class='radio' name='radio' type='radio'/>` + menuItemName +
+                   `<i class='input-helper'></i></label></div><i class='removeMenuItem mdi mdi-close-circle-outline'></i><i class='editMenuItem mdi mdi-pencil-outline'></i>`
+               menuItemListItem.appendChild(li);
 
+               document.getElementById("menuForm").reset();
 
-            if (item && menuItemCategoryId !== null) {
-                debugger;
-                let li = document.createElement('li');
-                li.innerHTML = `<div class='form-check'><label class='form-check-label'><input onchange='getMenuItemId(this)' class='radio' name='radio' type='radio'/>` + item +
-                    `<i class='input-helper'></i></label></div><i class='removeMenuItem mdi mdi-close-circle-outline'></i><i class='editMenuItem mdi mdi-pencil-outline'></i>`
-                menuItemListItem.appendChild(li);
-
-                document.getElementById("menuForm").reset();
-
-                menuItemCategoryId = null;
-            }
+               menuItemCategoryId = null;
+           }
 
 
         });

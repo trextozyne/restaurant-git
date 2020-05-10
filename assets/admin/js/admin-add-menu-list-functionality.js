@@ -306,18 +306,18 @@ function preventFutherInputEntry(id) {
     });
 }
 
-function alertModal(alert) {
-    return `<div class="md-modal md-effect-12 md-show">
-    <div class="md-content">
-        <h3>${alert}</h3>
-        <div>
-            <button class="md-close">Close</button>
-        </div>
-    </div>
-</div>
-
-<div class="md-overlay"></div>`
-}
+// function alertModal(alert) {
+//     return `<div class="md-modal md-effect-12 md-show">
+//     <div class="md-content">
+//         <h3>${alert}</h3>
+//         <div>
+//             <button class="md-close">Close</button>
+//         </div>
+//     </div>
+// </div>
+//
+// <div class="md-overlay"></div>`
+// }
 
 String.prototype.replaceText = function(start, pre_end, end, what) {
     return this.substring(0, start) + what + this.substring(pre_end, end);

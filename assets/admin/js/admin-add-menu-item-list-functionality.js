@@ -22,13 +22,23 @@ let menuImageItem = document.getElementById('item-image');
                 && !!menuItemIngredients.value && !!menuItemRecipe.value && !!menuItemPrice.value)
                 saveMenuItem(menuItemName.value, menuItemDescription.value
                     , menuItemIngredients.value, menuItemRecipe.value, menuItemPrice.value, menuItemIsActive.checked, menuItemCategoryId, "submit", null);
-            else
-                alert('Please select a category in the left hand box and never leave a field above empty, wont work');
+            else {
+                let alert = alertModal('Please select a category in the left hand box and/or never leave a field above empty, wont work');
+                if (document.querySelectorAll('.md-modal').length < 1)
+                    document.body.insertAdjacentHTML('beforeend', alert);
+            }
         }
 
         if(event.target.innerText === 'Update') {
+            if (menuItemCategoryId !== null && !!menuItemName.value && !!menuItemDescription.value && menuImageItem.files.length > 0
+                && !!menuItemIngredients.value && !!menuItemRecipe.value && !!menuItemPrice.value)
                 saveMenuItem(menuItemName.value, menuItemDescription.value
                     , menuItemIngredients.value, menuItemRecipe.value, menuItemPrice.value, menuItemIsActive.checked, menuItemCategoryId, "update", menuItemId);
+            else {
+                let alert = alertModal('Please select a category in the left hand box and/or never leave a field above empty, wont work');
+                if (document.querySelectorAll('.md-modal').length < 1)
+                    document.body.insertAdjacentHTML('beforeend', alert);
+            }
         }
     });
 })();

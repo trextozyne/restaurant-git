@@ -67,7 +67,7 @@ function writeFileContent(savPaths, restaurant) {
 
         function doWriteJsonFile(data) {
             let orderItems = JSON.parse(data);
-            restaurant.completeOrder === 1 ?
+            restaurant.completeOrder.length === 1 ?
                 orderItems.completeOrder.push(restaurant.completeOrder[0]) :
                     orderItems = restaurant;
 
