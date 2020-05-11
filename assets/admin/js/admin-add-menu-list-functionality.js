@@ -152,7 +152,7 @@ function addProduct(form) {
     let productInfo = form.productInfo.value;
     let innerProductInfo = document.querySelectorAll('*[id^="inner-optionList"]');
 
-    let dataMax = form.dataMax.value;
+    let dataMax = form.dataMax.options[form.dataMax.selectedIndex];
     let innerOptionRequired = form.innerOptionRequired.checked;
     // let innerOptionTotal = form.innerOptionTotal.value;
 
