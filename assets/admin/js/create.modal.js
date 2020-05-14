@@ -5,7 +5,17 @@ let counter = 0;
 let container = null;
 let sectionContainer = null;
 let categoryRow = null;
+//===get true values, if value is boolean or string boolean
+let truthyVal = [true, 'true'];
+let listOfOptionClasses = [];
 
+function getBoolean(a) {
+    return truthyVal.some(function(t) {
+        return t === a;
+    });
+}
+
+//=========onload create the product cards/divs====================
 function createItemListHtml(menu_item, curr_index){
     if(menuItem[curr_index === 0 ? 0 : curr_index-1].itemCategoryId !== menu_item.itemCategoryId || counter === 0
         ) {
@@ -169,6 +179,7 @@ function getCategoryBy(_categoryId) {
         }
     });
 }
+
 function createMenuItems() {
     var settings = {
         "url": "http://localhost:1987/menu-item/read",
@@ -188,11 +199,13 @@ function createMenuItems() {
     });
 }
 
-// ============================================create modal========================================
 (function () {
     createMenuItems();
 })();
+//=========onload create the product cards/divs====================
 
+// ============================================create modal on product car/div click========================================
+//=======getmenudata gets the data saved and passes to createModalData(response)==============
 function getMenuData(menuItemId, callback) {
     let settings = {
         "url": "http://localhost:1987/restaurant/find/" + menuItemId.trim(),
@@ -202,8 +215,9 @@ function getMenuData(menuItemId, callback) {
 
     $.ajax(settings)
 }
+//=======getmenudata gets the data saved and passes to createModalData(response)==============
 
-function createMenuData(objData, i) {
+function createModalData(objData) {
     let menuOptionBoards = [];
     let optionBoard, innerOptionBoard, title, innerTitle, requiredTitle, innerRequiredTitle, optionList, innerOptionList, divRadio, divCheckbox, radioInput, checkboxInput, label4Input, divChecker;
 //replace i with o for first, the other i's would be a count from 1 then count++ so long as they are less than exteaoptions.lengt or something
@@ -213,6 +227,7 @@ function createMenuData(objData, i) {
     requiredTitle = createElement('p', [], '', [], [], '', `Required Field - Choose 1.`, count, '', '', '', '');//createElement('p', [], '', '', '', `Required Field - Choose ${objData.}`, count);
     optionList = createElement('div', ['option-list'], '', [], [], '', '', count, '', '', '', '');
     objData.name.forEach((name, iIndex)=>{
+        debugger;
         objData.price.forEach((price, jIndex)=>{
             if(iIndex === jIndex) {
                 divRadio = createElement('div', ['radio'], '', [], [], '', '', count, '', '', '', '');
@@ -249,14 +264,14 @@ function createMenuData(objData, i) {
         for (let i = 0; i < objData.extraOptions.length; i ++) {
             count++;
             optionBoard = createElement('div', ['option-board', 'option-'], '', ['data-max'], [(count+1)], '', '', count, '', '', '', '');
-            title = createElement('span', [], '', [], [], '', 'Would you like to add extras?', count, '', '', '', '');
+            title = createElement('span', [], '', [], [], '', objData.extraOptions[0].dataMax === 0 ? 'Would you like to add extras?' : 'Select what to go with it?', count, '', '', '', '');
             requiredTitle = createElement('p', [], '', [], [], '', `Required Field - Choose ${objData.extraOptions[0].dataMax}.`, count, '', '', '', '');//createElement('p', [], '', '', '', `Required Field - Choose ${objData.extraOptions[0].}`, count);
             optionList = createElement('div', ['option-list', 'option-horizontal'], '', [], [], '', '', '', '', '', '', '');
             objData.extraOptions[0].name.forEach((name, iIndex)=> {
                 objData.extraOptions[0].price.forEach((price, jIndex) => {
                     if(iIndex === jIndex) {
                         divCheckbox = createElement('div', ['checkbox'], '', [], [], '', '', count, '', '', '', '');;
-                        checkboxInput = createElement('input', [], `check${iIndex + 1}`, ['data-singleproduct', 'data-option'], [objData.extraOptions[0].dataSingleproduct, name], '', '', count, 'checkbox', name, price, 'checkbox');
+                        checkboxInput = createElement('input', [], `check${iIndex + 1}`, ['data-singleproduct', 'data-option'], [getBoolean(objData.extraOptions[0].dataSingleproduct), name], '', '', count, 'checkbox', name, price, 'checkbox');
                         label4Input = createElement('label', [], `check${iIndex + 1}`, [], [], '', '', count, 'for', '', '', '');
                         divChecker = createElement('div', ["checker"], ``, [], [], '', '', count, '', '', '', '');
 
@@ -295,17 +310,9 @@ function createMenuData(objData, i) {
                                             divRadioArray.push(divRadio);
                                             radioCount++;
 
-                                            let quotient = Math.floor(objData.extraOptions[0].innerOptions[x].name.length / 3 || objData.extraOptions[0].innerOptions[x].price.length / 3);
+                                            // let quotient = Math.floor(objData.extraOptions[0].innerOptions[x].name.length / 3 || objData.extraOptions[0].innerOptions[x].price.length / 3);
                                             let remainder = objData.extraOptions[0].innerOptions[x].name.length % 3 || objData.extraOptions[0].innerOptions[x].price.length % 3;
-                                            // if (quotient === 0 && (inner_iIndex + 1) === remainder % 3 && iIndex === x) {
-                                            //     innerOptionList = createElement('div', ['option-list'], '', [], [], '', '', count-1, '', '', '', '');
-                                            //     divRadioArray.forEach((radioDiv)=>{
-                                            //         innerOptionList.appendChild(radioDiv);
-                                            //     });
-                                            //
-                                            //     innerOptionBoard.appendChild(innerOptionList);
-                                            // }
-                                            // // if (quotient > 0) {
+
                                             if ((remainder === 0 && (inner_iIndex + 1) % 3 === 0)  &&
                                                 iIndex === x){
                                                 innerOptionList = createElement('div', ['option-list'], '', [], [], '', '', count-1, '', '', '', '');
@@ -374,37 +381,39 @@ function createMenuData(objData, i) {
             });
             console.log(optionBoard);
             menuOptionBoards.push(optionBoard.outerHTML);
+
+            let textAreaOptionBoard = document.createElement('div');
+            textAreaOptionBoard.classList.add("option-board");
+            textAreaOptionBoard.innerHTML = `
+                 <span>Special instructions</span>
+                 <div class="option-list">
+                  <textarea data-gramm_editor="false" name="instructions" id="instructions" placeholder="Dressing on the side? No pickles? Let us know here."
+                  cols="100" rows="4" style="padding: 5px; border-radius: 5px; margin-top: 5px"></textarea>
+                  </div>`;
+            menuOptionBoards.push(textAreaOptionBoard.outerHTML);
+            let optionBoardsClone = [];
+            menuOptionBoards.forEach((options, index)=>{
+                let optionBoardSpacer = document.createElement('div');
+                optionBoardSpacer.setAttribute("style", "margin: 10px;");
+                optionBoardsClone.push(options);
+                if(index < menuOptionBoards.length-1){
+                    optionBoardsClone.push(optionBoardSpacer.outerHTML)
+                }
+            });
+
             menuOptionBoards = ('' + [...menuOptionBoards]).replace(/,/g , "");
             return menuOptionBoards;
 
         }
     }
-
-    let textAreaOptionBoard = document.createElement('div');
-    textAreaOptionBoard.classList.add("option-board");
-    textAreaOptionBoard.innerHTML = `
-                 <span>Special instructions</span>
-                 <div class="option-list">
-                  <textarea name="instructions" id="instructions" placeholder="Dressing on the side? No pickles? Let us know here."
-                  cols="100" rows="4" style="padding: 5px; border-radius: 5px; margin-top: 5px"></textarea>
-                  </div>`;
-    menuOptionBoards.push(textAreaOptionBoard.outerHTML);
-    let optionBoardsClone = [];
-    menuOptionBoards.forEach((options, index)=>{
-        let optionBoardSpacer = document.createElement('div');
-        optionBoardSpacer.setAttribute("style", "margin: 10px;");
-        optionBoardsClone.push(options);
-        if(index < menuOptionBoards.length-1){
-            optionBoardsClone.push(optionBoardSpacer.outerHTML)
-        }
-    });
-    menuOptionBoards = optionBoardsClone;
+    // menuOptionBoards = optionBoardsClone;
     // console.log(optionBoards); return optionBoards;
 
     console.log(menuOptionBoards)
     // }
 }
 
+//==============create the HTML Element here and add their data attributes for the menu data =====================
 function createElement(Element, $class, id, data, dataVal, innerHtml, innerText, index, type, name, value, eleName) {
     let htmlElement = document.createElement(Element);
     if(id !== '' && Element !== 'label')
@@ -412,6 +421,8 @@ function createElement(Element, $class, id, data, dataVal, innerHtml, innerText,
     if ($class !== [])
         $class.forEach((cl)=>{
             if ((cl.startsWith("option-")|| cl.startsWith("inner-option-")) && (cl !== "inner-option-board" && cl !== "option-board" && cl !== "option-list" && cl !== "option-horizontal")) {
+                if(cl.startsWith("option-")|| cl.startsWith("inner-option-"))
+                    listOfOptionClasses.push(cl+(index+1));
                 htmlElement.classList.add(cl+(index+1));
             }else
                 htmlElement.classList.add(cl);
@@ -423,8 +434,6 @@ function createElement(Element, $class, id, data, dataVal, innerHtml, innerText,
         htmlElement.setAttribute("for", id);
     if(type === "checkbox" && dataVal[0] === false)
         htmlElement.setAttribute("disabled", "disabled");
-
-
     if (data !== [])
         data.forEach(($data, i)=> {
             htmlElement.setAttribute($data, dataVal[i]);
@@ -438,3 +447,4 @@ function createElement(Element, $class, id, data, dataVal, innerHtml, innerText,
 
     return htmlElement;
 }
+//================================end of create modal on product car/div click=========================

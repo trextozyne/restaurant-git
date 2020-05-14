@@ -273,12 +273,12 @@ button:active {
 
 .icon {
   background: transparent;
-  position: absolute;
+  position: relative;
   width: 24px;
   height: 23px;
   border-radius: 3.5px;
   z-index: 1;
-  right: 30px;
+  right: 0px;
   transition: box-shadow .2s ease;
   text-align: center;
   cursor: pointer;

@@ -438,10 +438,10 @@
                                 <p class="card-description"> Optional Choice Items </p>
                                 <form id="orderForm" class="forms-sample">
 
-                                    <div class="form-check form-check-flat form-check-primary">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" id="options-required" class="form-check-input"> Option Choice required before purchase </label>
-                                    </div>
+                                    <!--<div class="form-check form-check-flat form-check-primary">-->
+                                        <!--<label class="form-check-label">-->
+                                            <!--<input type="checkbox" id="options-required" class="form-check-input"> Option Choice required before purchase </label>-->
+                                    <!--</div>-->
                                     <div id="addProductForm">
                                         <div class="form-group">
                                             <label for="optionDescription">Option Description</label>
@@ -461,7 +461,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="optionList">List Available Option & prices(separated by commas)</label>
-                                            <textarea name="productInfo" class="form-control" id="optionList" rows="4"></textarea>
+                                            <textarea data-gramm_editor="false" name="productInfo" class="form-control" id="optionList" rows="4"></textarea>
                                         </div>
                                         <div hidden class="form-group">
                                             <label for="requiredOption">Select how many options required to proceed</label>
@@ -477,10 +477,10 @@
                                         <!--<div class="form-group" style="display: none">-->
                                             <!--<label for="inner-options">How many options or choices</label>-->
                                             <!--<input name="innerOptionTotal" type="number" class="form-control col-md-3" id="inner-options" placeholder="Options or Choices" min="1" max="100">-->
-                                        <!--</div>-->
+                                        <!--</div>
                                         <!--<div class="form-group" style="display: none">-->
                                             <!--<label for="inner-optionList">List Available Option & prices(separated by commas)</label>-->
-                                            <!--<textarea name="innerProductInfo" class="form-control" id="inner-optionList" rows="4"></textarea>-->
+                                            <!--<textarea data-gramm_editor="false" name="innerProductInfo" class="form-control" id="inner-optionList" rows="4"></textarea>-->
                                         <!--</div>-->
                                     </div>
                                     <button type="button" id="add-options" class="btn btn-gradient-primary mr-2">Add</button>

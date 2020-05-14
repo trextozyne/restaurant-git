@@ -152,7 +152,7 @@ function addProduct(form) {
     let productInfo = form.productInfo.value;
     let innerProductInfo = document.querySelectorAll('*[id^="inner-optionList"]');
 
-    let dataMax = form.dataMax.options[form.dataMax.selectedIndex];
+    let dataMax = form.dataMax.selectedIndex;
     let innerOptionRequired = form.innerOptionRequired.checked;
     // let innerOptionTotal = form.innerOptionTotal.value;
 
@@ -368,7 +368,7 @@ function toggleInnerOptions($this) {
                 div = document.createElement('div');
                 div.classList.add('form-group');
                 div.innerHTML = ` <label for="inner-optionList${(i + 1)}">List Available Option & prices(separated by commas) for product ${arrayItemNames(textareaVal(productInfo, items, prices), previousElemnt('optionList'))[i]}</label>
-            <textarea name="inneroptionList" class="form-control inner-optionList" id="inner-optionList${(i + 1)}" rows="4"></textarea>`;
+            <textarea data-gramm_editor="false" name="inneroptionList" class="form-control inner-optionList" id="inner-optionList${(i + 1)}" rows="4"></textarea>`;
                 document.getElementById('addProductForm').appendChild(div);
                 createdDivs.push(div);
             }

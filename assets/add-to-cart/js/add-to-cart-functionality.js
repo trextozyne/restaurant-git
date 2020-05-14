@@ -1,6 +1,20 @@
-var previousThis = "";
+let qtyInput = null;//global element
+let addBtn = null;
+let cartBtn =null;
+let total = 0;
+let bool_singleProduct = false;
+let cart_item = null;
+let singleCartItems = [];
+let singleProductPrice = 0;
+let arraySaleNames = [];
 
-var mainPrice = 0;
+let test = null;
+
+let singleProcuctClicked = false;
+let singleProcuctEdited = false;
+
+let mainPrice = 0;
+
 function performInitialCalc() {
 
     let el = document.getElementsByClassName("modal-show");
@@ -11,6 +25,7 @@ function performInitialCalc() {
 
 
 function activateCloseModalForm() {
+    debugger;
     let modalClosingIds = document.querySelectorAll("#close-modal, #singleProdclose-modal");
     modalClosingIds.forEach((id) => {
         id.addEventListener('click', (event) => {
@@ -19,7 +34,7 @@ function activateCloseModalForm() {
     });
 }
 
-function createOrderModal($this, html, id) {
+function createModalWrapper($this, html, id) {
     let imgSrc = $this.children[0].children[0].children[0].children[0].children[0].src.trim();
     let productName = $this.children[0].children[0].children[1].children[0].children[0].children[0].textContent.trim();
     let productCost = $this.children[0].children[0].children[1].children[0].children[0].children[1].textContent.trim();
@@ -43,7 +58,7 @@ function createOrderModal($this, html, id) {
                     </h3>
                 </div>
             </div>
-                            `
+                            `;
     orderWrapper.appendChild(imageWrapper);
     const innerWrapper = document.createElement("div");
     innerWrapper.classList.add("inner-wrapper");
@@ -64,14 +79,27 @@ function createOrderModal($this, html, id) {
     orderWrapper.appendChild(optionWrapper);
     const innerFooter = document.createElement("footer");
     innerFooter.classList.add("inner-footer");
+
+    function removeDuplicates(data) {
+        return data.filter((value, index) => data.indexOf(value) === index)
+    }
+    listOfOptionClasses = removeDuplicates(listOfOptionClasses);
+
+    let optionClasses = "";
+
+    test === 'test' ? optionClasses = "add-btn option-1 option-2 option-3 inner-option-1 inner-option-2" :
+        listOfOptionClasses.forEach((option) => {
+            optionClasses += (option + " ");
+        });
+debugger;
     innerFooter.innerHTML = `
             <div class="add-button-wrapper">
-                <button id="add-btn" class="add-btn option-1 option-2 option-3 inner-option-1 inner-option-2" disabled="" data-item="1">
+                <button id="add-btn" class="add-btn ${optionClasses.trim()}" disabled="" data-item="1"><!--option-1 option-2 option-3 inner-option-1 inner-option-2"-->
                     <span id="item-add-value" class="s-btn">Add to bag : $0.00</span>
                 </button>
             </div>
 
-                            `
+                            `;
     orderWrapper.appendChild(innerFooter);
 
     let modals = document.getElementsByClassName("p-modal");
@@ -102,8 +130,8 @@ function createOrderModal($this, html, id) {
     }
 }
 
-function activateElements(parentItem, orderModalHtml, id){
-    createOrderModal(parentItem, orderModalHtml, id);
+function activeMenuElements(parentItem, orderModalHtml, id){
+    createModalWrapper(parentItem, orderModalHtml, id);
     performInitialCalc();
 
     qtyInput = document.getElementById('quantity');
@@ -120,16 +148,18 @@ function activateElements(parentItem, orderModalHtml, id){
     activateCloseModalForm();
 }
 
+//==================create modal on product card/div click============================
 function doCreateModal(parentItem, pModal, id, test) {
     let modals = [], orderModalHtml = null;
 debugger;
     if (pModal.length === 0) {
-        test === 'test' ? orderModalHtml = createModalHtml() : getMenuData(id, function (response) {
-            orderModalHtml = createMenuData(response, 0);
-            activateElements(parentItem, orderModalHtml, id);
+//=====the test(createModalHtml()) would be removed later, its just as it sounds the oiginal one creted to test against the other ones if accurate=====//
+        test === 'test' ? orderModalHtml = createModalHtml() : getMenuData(id, function (response) {//===getmenudata gets the data saved and passes to createModalData(response)
+            orderModalHtml = createModalData(response);
+            activeMenuElements(parentItem, orderModalHtml, id);//===creates the modal wrapper where createModalData(response) inserts its innerHTML
         });
         if (test !== null) {
-            activateElements(parentItem, orderModalHtml, id);
+            activeMenuElements(parentItem, orderModalHtml, id);//===creates the modal wrapper where createModalData(response) inserts its innerHTML
         }
     } else {
         debugger;
@@ -140,11 +170,11 @@ debugger;
         }
         if (!modals.find(item => item.id === parentItem.getAttribute("data-id"))) {
             test === 'test' ? orderModalHtml = createModalHtml(parentItem, id) : orderModalHtml = getMenuData(id, function (response) {
-                orderModalHtml = createMenuData(response, 0);
-                activateElements(parentItem, orderModalHtml, id);
+                orderModalHtml = createModalData(response, 0);
+                activeMenuElements(parentItem, orderModalHtml, id);
             });
             if (test !== null) {
-                activateElements(parentItem, orderModalHtml, id);
+                activeMenuElements(parentItem, orderModalHtml, id);
             }
         }
     }
@@ -155,27 +185,20 @@ debugger;
     let id = guid(15);
     document.getElementById('test').setAttribute('data-id', id);
     // toggles.forEach((toggle)=>{
-        document.addEventListener('click', (event)=>{
+        document.addEventListener('click', (event)=> {
             let pModal = document.querySelectorAll('.p-modal');
-            let test = null;
+            test = null;
             debugger;
-            if(findAncestor (event.target, 'toggle').classList.contains('toggle')) {
+ //==========================if product card/div is clicked=============================
+            if (findAncestor(event.target, 'toggle').classList.contains('toggle')) {
 
                 let parentItem = findAncestor(event.target, 'toggle');
+                if (parentItem.getAttribute('data-id').length === 15)
+                //====for test=============
+                    test = 'test';
 
-                // if (parentItem.getAttribute('data-id') === null) {
-                //     parentItem.setAttribute('data-id', id);
-                //     //====for test=============
-                //     test = 'test';
-                //     doCreateModal(parentItem, pModal, id, test);
-                // }else {
-                    if(parentItem.getAttribute('data-id').length === 15)
-                    //====for test=============
-                        test = 'test';
-
-                    id = parentItem.getAttribute('data-id');
-                    doCreateModal(parentItem, pModal, id, test);
-                // }
+                id = parentItem.getAttribute('data-id');
+                doCreateModal(parentItem, pModal, id, test);
 
                 parentItem.classList.toggle('toggled');
 
@@ -183,7 +206,6 @@ debugger;
                 item.classList.remove("toggled");
             }
         });
-    // });
 
     document.addEventListener("keyup", function(e) {
         debugger;
@@ -202,26 +224,16 @@ debugger;
     let $cart_list = document.querySelectorAll('.cart-btn, .close-icon');
     $cart_list.forEach((el) => {
         el.addEventListener('click', (event) => {
-            debugger
-            event.target.classList.toggle('active');
+            debugger;
+            (event.target).classList.toggle('active');
             document.getElementsByClassName('cart-drawer-push')[0].classList.toggle('cart-drawer-pushtoleft');
             $drawerRight.classList.toggle('cart-drawer-open');
         });
     });
 })();
 
-var qtyInput = null;//global element
-var addBtn = null;
-var cartBtn =null;
-var total = 0;
-var bool_singleProduct = false;
-var cart_item = null;
-var singleCartItems = [];
-var singleProductPrice = 0;
-var arraySaleNames = [];
-
 window.parseBoolean = function(string) {
-    var bool;
+    let bool;
     if(string !== null)
         bool = (function() {
             switch (false) {
@@ -306,10 +318,27 @@ function getParentDataMax(element) {
     return data;
 }
 
+function checkOptionClassExistence() {
+    let elClass = [];
+    elClass = [...document.querySelector("button.add-btn").classList];
+    debugger;
+    let arrClass = listOfOptionClasses.filter(function(item){
+        return elClass.indexOf(item) === -1;
+    });
+
+    if(arrClass.length > 0)
+        arrClass.forEach((item)=>{
+            document.querySelector("button.add-btn").classList.add(item);
+        })
+}
+
 function if_required(option_board_class, data_max, element) {
+    //first check if button has all option classes, not then return them
+    checkOptionClassExistence();
 
     return (addBtn.classList.contains(option_board_class) &&
-        (parseInt(data_max) === 0 && !addBtn.hasAttribute("disabled")) || (parseInt(data_max) !==0 && parseInt(data_max) === getCheckboxCount(data_max, document.querySelectorAll("div.option-board[class^=option-] input[type='checkbox']"))) &&
+        (parseInt(data_max) === 0 && !addBtn.hasAttribute("disabled")) || (parseInt(data_max) !==0 &&
+            parseInt(data_max) === getCheckboxCount(data_max, document.querySelectorAll("div.option-board[class^=option-] input[type='checkbox']"))) &&
         element[0].type === "checkbox")  || (addBtn.classList.contains(option_board_class) && (
         (getParentDataMax(element) === null && getCheckboxCount(data_max, document.querySelectorAll("div.option-board[class^=option-] input[type='checkbox']")) !== 0) ||
             parseInt(getParentDataMax(element)) === getCheckboxCount(data_max, document.querySelectorAll("div.option-board[class^=option-] input[type='checkbox']"))) &&
@@ -335,7 +364,7 @@ function changesingleProdValue(val, price){
 }
 
 function changeValue(val){
-    qtyInput = document.getElementById('quantity')
+    qtyInput = document.getElementById('quantity');
     let value = parseInt(qtyInput.value, 10);
     value = isNaN(value) ? 0 : value;
     if(val === "decrease")
@@ -372,9 +401,6 @@ function RemoveClass(elem, newClass) {
     elem.className = elem.className.replace(new RegExp('(\\s|^)'+newClass+'(\\s|$)'), " ").trim();
 }
 
-var singleProcuctClicked = false;
-var singleProcuctEdited = false;
-
 function singleProductTemplate(name, singleprice, data_singleProduct){
     const singleProdctcart_item = document.createElement("div");
     singleProdctcart_item.classList.add("single-product");
@@ -386,7 +412,7 @@ function singleProductTemplate(name, singleprice, data_singleProduct){
         "    <span class=\"quantity\">1</span>\n" +
         "    <span class=\"name\">"+ name +"</span>\n" +
         "    <span class=\"singleprice\">$"+ singleprice +"</span>\n" +
-        "    <span class=\"delete\">\n" +
+        "    <span class=\"delete\" onclick=\"alert('hit'); event.stopPropagation();\">\n" +
         "        <div class=\"icon\">\n" +
         "            <div class=\"lid\"></div>\n" +
         "            <div class=\"lidcap\"></div>\n" +
@@ -406,11 +432,13 @@ function mainProductTemplate(image, name, price, data_formId, quantity, arraySal
     cart_item.setAttribute("data-formId", data_formId);
 
     cart_item.innerHTML = `
+             <span class="delete" onclick="alert('hit'); event.stopPropagation();">
                     <div class="icon">
                     <div class="lid"></div>
                     <div class="lidcap"></div>
                     <div class="bin"></div>
                     </div>
+             </span>
                     <div data-formId="${data_formId}" class="cart-product quantity" style="background-image: url('${image}')">
                     ${quantity}
                     </div>
@@ -421,17 +449,17 @@ function mainProductTemplate(image, name, price, data_formId, quantity, arraySal
                     </div><!-- /.cart-item -->`;
 
     //===add any existing single product to cart html========
-    singleCartItems.forEach((cartItem)=>{
-        cart_item.innerHTML += cartItem.outerHTML;
+    singleCartItems.forEach((singleCartItem)=>{
+        cart_item.innerHTML += singleCartItem.outerHTML;
     });
     return cart_item;
 }
 
-function inputCheckedTotal(radios, checkboxs) {
-    mainPrice = $(".p-modal").find('.main-price')[0].textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0];
+function inputCheckedTotal(radios, checkboxes) {
+    mainPrice = document.querySelectorAll("div.p-modal .main-price")[0].textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0];
 
     total = 0;
-    if((radios !== null || checkboxs !== null) && (radios.length !== 0 || checkboxs.length !== 0)) {
+    if((radios !== null || checkboxes !== null) && (radios.length !== 0 || checkboxes.length !== 0)) {
         radios.forEach((radio) => {
             total += parseFloat(radio.value);
         });
@@ -440,7 +468,7 @@ function inputCheckedTotal(radios, checkboxs) {
         if(singleProcuctClicked === true){
             singleCartItems = [];
         }
-        checkboxs.forEach((checkbox) => {
+        checkboxes.forEach((checkbox) => {
             //get true of false if this is a single product unaffected by button activation, and total price, its a stand alone product
             bool_singleProduct = parseBoolean(checkbox.getAttribute("data-singleProduct"));
             if(bool_singleProduct === true && checkbox.checked) {//create object array here for cart
@@ -497,7 +525,8 @@ function initiateRadioandCheckboxInputs(radios, checkboxs){
                     if (if_required(checkbox.parentElement.parentElement.parentElement.className.split(/\s+/)[1],
                         checkbox.parentElement.parentElement.parentElement.getAttribute('data-max'), checkboxs) ||
                         (!addBtn.hasAttribute("disabled") && typeof checkbox[i] !== "undefined" &&
-                            parseBoolean(checkbox[i].getAttribute("data-singleProduct")) === true))//get true of false if this is a single product unaffected by button activation, and total price, its a stand alone product
+                            parseBoolean(checkbox[i].getAttribute("data-singleProduct")) === true) &&
+                        document.querySelectorAll("div.option-1 div.option-list  input[type='radio']:checked").length > 0)//get true of false if this is a single product unaffected by button activation, and total price, its a stand alone product
                         addBtn.removeAttribute("disabled");
                     else
                         addBtn.setAttribute("disabled", "disabled");
@@ -526,7 +555,7 @@ function initiateRadioandCheckboxInputs(radios, checkboxs){
 
             if(bool_outer_radio || bool_inner_radio) {
                 if (if_required(radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1],
-                    radio_Max, radios[i]))//set data-max in radio to zero("0") if there'll be requied no. of input to activate button and 1 since one radio click anyway
+                    radio_Max, radios[i]) && document.querySelectorAll("div.option-1 div.option-list  input[type='radio']:checked").length > 0)//if loophole on html, check would still work//set data-max in radio to zero("0") if there'll be requied no. of input to activate button and 1 since one radio click anyway
                     addBtn.removeAttribute("disabled");
                 else
                     addBtn.setAttribute("disabled", "disabled");
@@ -536,14 +565,36 @@ function initiateRadioandCheckboxInputs(radios, checkboxs){
     }
 }
 
+function finalCheckOnAddtoCart(radios) {
+    for (let i = 0; i < radios.length; i++) {
+        let bool_outer_radio = radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1].startsWith("option-");
+        let bool_inner_radio = radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1].startsWith("inner-option-");
+
+        let radio_Max;
+        radio_Max = radios[i].parentElement.parentElement.parentElement.getAttribute('data-max');
+
+        if (bool_outer_radio || bool_inner_radio) {
+            if (if_required(radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1],
+                radio_Max, radios[i]) && document.querySelectorAll("div.option-1 div.option-list  input[type='radio']:checked").length > 0)//if loophole on html, check would still work//set data-max in radio to zero("0") if there'll be requied no. of input to activate button and 1 since one radio click anyway
+                addBtn.removeAttribute("disabled");
+            else
+                addBtn.setAttribute("disabled", "disabled");
+        }
+    }
+}
+
 function initiateAddToCartButton(cartBtn){
     cartBtn.forEach(function (btn) {
         btn.addEventListener('click', function (event) {
 
+            let radios = document.querySelectorAll("input[type='radio']"); // or document.querySelectorAll("li");
+
+            finalCheckOnAddtoCart(radios);
+
             // singleProcuctClicked = false;//prevent the add template from being removed from the cart.
             //divOptionWrapper(addDataAtrribte).push(findancestor(button, class=optionwrappper)...save all the htmlstring for the each product modal for editing
 
-            if (event.target.parentElement.classList.contains("add-btn")) {//event.target.parentElement.classList.contains("add-button-wrapper") ||
+            if (event.target.parentElement.classList.contains("add-btn") && !document.getElementById("add-btn").getAttribute("disabled")) {//event.target.parentElement.classList.contains("add-button-wrapper") ||
                 let fullPath =event.target.parentElement.parentElement.parentElement.parentElement.children[0].children[0].children[0].src;
                 let positn = fullPath.indexOf("images") + 6;
 
@@ -583,14 +634,13 @@ function initiateAddToCartButton(cartBtn){
                 if (cartItemData !== null && cartItemData.getAttribute("data-formId") === cart_item.getAttribute("data-formId"))
                     cartItemData.parentNode.replaceChild(cart_item, cartItemData);
 
-                let new_Qty = 0;
                 if (cartItemData === null){debugger;
                     cart.insertBefore(cart_item, checkout);
                     //remove changed class from qtty input
                     RemoveClass(qtyInput, "changed");RemoveClass(qtyInput, "touched");
                 }else {debugger;
                     if ((!qtyInput.classList.contains("changed") || qtyInput.classList.contains("changed")) && !qtyInput.classList.contains("touched")) { //continuos button click just adds 1 total item
-                        new_Qty = qtyInput.value = parseInt(qtyInput.value) + 1;
+                        qtyInput.value = parseInt(qtyInput.value) + 1;
                         document.getElementById("decrease").disabled = false;
                         document.querySelectorAll(".quantity")[0].innerText = qtyInput.value;
                         cartItemData.children[2].children[1].innerText = "includes: " + arraySaleNames.join(", ");
@@ -598,7 +648,7 @@ function initiateAddToCartButton(cartBtn){
                         qtyInput.dispatchEvent(new Event("input"));
                     }
                     if (qtyInput.classList.contains("touched")) {
-                        new_Qty = parseInt(quantity)+1;
+                        // new_Qty = parseInt(quantity)+1;
                         document.querySelectorAll(".quantity")[0].innerText = '' + parseInt(quantity)+1;
                         cartItemData.children[2].children[1].innerText = "includes: " + arraySaleNames.join(", ");
                         //remove changed class from qtty input
@@ -632,11 +682,10 @@ function getTotalItem() {//total shown in icon on shop cart
         total.push(parseInt(item.textContent));
     });
 
-    const totalItem = total.reduce(function(total, item){
+    return total.reduce(function (total, item) {
         total += item;
         return total;
     }, 0);
-    return totalItem;
 }
 
 function getTotalPrice() {
@@ -715,7 +764,7 @@ function createEditHtmlForSingleProduct(formId, name, price, quantity) {
         return parseFloat(v);
     })[0].toString();
     let html = `
-                    <a href="javascript:void();" id="singleProdclose-modal" class="close">
+                    <a href="javascript:void(0);" id="singleProdclose-modal" class="close">
                     </a>
                     <div class="order-wrapper">
                         <div class="image-wrapper">
@@ -754,8 +803,6 @@ function createEditHtmlForSingleProduct(formId, name, price, quantity) {
     let modals = document.getElementsByClassName("p-modal");
     for (let i = 0; i < modals.length; i++) {
 
-        // modals.forEach((modal)=> {
-        let g = modals[i].children;
         if (modals[i].hasAttribute("data-formId") && modals[i].children.length > 0 && modals[i].children[0].getAttribute('id') === 'singleProdclose-modal') {
             modals[i].innerHTML = html;
             modals[i].classList.add("modal-show");
@@ -774,31 +821,41 @@ function createEditHtmlForSingleProduct(formId, name, price, quantity) {
 }
 
 //======perform all cart item click operation for edit===========
-function doEdit(clickedElement) {
+    //=======trigger click===========
+function triggerClick(target) {
+    let events = ["click"];//"mousemove", "mouseover", "focus", "mousedown", "mouseup",
+    let eventObject = new Event(events[0], {"bubbles": true, "cancelable": false});
+    target.dispatchEvent(eventObject);
+}
 
+function doEdit(clickedElement) {
     for (let i = 0; i < clickedElement.length; i++) {
         clickedElement[i].addEventListener('click', function() {debugger;
             let formId = clickedElement[i].getAttribute("data-formId").trim();
             if (clickedElement[i].classList.contains("cart-product") || clickedElement[i].classList.contains("cart-description")) {
                 document.querySelectorAll('.p-modal').forEach((element)=>{
                     if(element.hasAttribute('data-formId') && element.getAttribute('data-formId').trim() === formId) {
-                        $("body  #singleProdclose-modal").trigger("click");
+                        triggerClick(document.getElementById("singleProdclose-modal"));
+                        // $("body #singleProdclose-modal").trigger("click");
                         element.classList.add('modal-show');
                     }
                 });
 
             }else {
                 singleProductPrice = 0; //reset the price for other singleproduct
-                $("body  #close-modal").trigger("click");
+                triggerClick(document.getElementById("close-modal"));
+                // $("body #close-modal").trigger("click");
                 createEditHtmlForSingleProduct(formId, clickedElement[i].children[1].textContent, clickedElement[i].children[2].textContent,
                     clickedElement[i].children[0].textContent);
                 initializeSingleProductAddBtn();
+                activateCloseModalForm();
             }
         });
-    };
+    }
 }
+//======perform all cart item click operation for edit===================
 
-//add items to the cart
+//======================add items to the cart==========================
 (function () {
     //=============================Listen to Quantity input changes==================
 
@@ -816,7 +873,7 @@ function doEdit(clickedElement) {
             e.target.className += " changed";
     });
 
-    document.addEventListener("input", function(e) {debugger
+    document.addEventListener("input", function(e) {debugger;
         if(!e.target.classList.contains("changed") && (e.target && e.target.id === 'quantity'))
             e.target.className += " changed";
 
@@ -879,7 +936,4 @@ function doEdit(clickedElement) {
             triggerInput();
         }
     });
-
-    // document.getElementById('decrease').addEventListener('click', '', triggerInput, false);
-    // document.getElementById('increase').addEventListener('click', '', triggerInput, false);
 })();

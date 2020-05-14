@@ -4,7 +4,7 @@ function createModalHtml(){
     debugger;
     let html = `
              <div class="option-board option-1"><!--<div>--no data max-- data-max="1"</div>-->
-                <!--<div>1 single click anyway, 0 when no dependent is on it</div>-->
+                <!--1 single click anyway, 0 when no dependent is on it-->
                 <span>Choose your size</span>
                 <p>Required Field - Choose 1.</p>
                 <div class="option-list">
@@ -220,7 +220,7 @@ function createModalHtml(){
                 <span>Special instructions</span>
                 <!--<p>Optional - Choose as many as you like.</p>-->
                 <div class="option-list">
-                    <textarea name="instructions" id="instructions" placeholder="Dressing on the side? No pickles? Let us know here." cols="100" rows="4" style="padding: 5px; border-radius: 5px; margin-top: 5px"></textarea>
+                    <textarea data-gramm_editor="false" name="instructions" id="instructions" placeholder="Dressing on the side? No pickles? Let us know here." cols="100" rows="4" style="padding: 5px; border-radius: 5px; margin-top: 5px"></textarea>
                 </div>
             </div>
                             `;

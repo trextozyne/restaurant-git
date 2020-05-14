@@ -3,11 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="8ae3c312-a515-45f3-a985-c28b56dd8127" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/create.modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/create.modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/test.modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/test.modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/todolist.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/todolist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.mobirise" beforeDir="false" afterPath="$PROJECT_DIR$/project.mobirise" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/all-data/category-data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/category-data.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/all-data/category-json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/category-json.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/json.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/menu-item-data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/menu-item-data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/menu-item-json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/menu-item-json.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,20 +29,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="menu-item.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/menu-item.controller.js">
+      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1921">
-              <caret line="113" column="27" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
+            <state relative-caret-position="313">
+              <caret line="451" column="82" selection-start-line="451" selection-start-column="82" selection-end-line="451" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-add-menu-list-functionality.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js">
+      <file leaf-file-name="data.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/all-data/data.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="154" column="67" lean-forward="true" selection-start-line="154" selection-start-column="67" selection-end-line="154" selection-end-column="67" />
+            <state relative-caret-position="8500">
+              <caret line="500" column="37" selection-start-line="500" selection-start-column="37" selection-end-line="500" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category-data.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/all-data/category-data.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.modal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/admin/js/test.modal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -39,47 +68,46 @@
       <file leaf-file-name="add-to-cart-functionality.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="161" column="51" selection-start-line="161" selection-start-column="51" selection-end-line="161" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="448" column="46" lean-forward="true" selection-start-line="448" selection-start-column="46" selection-end-line="448" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin-add-menu-item-list-functionality.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2329">
-              <caret line="159" selection-start-line="159" selection-end-line="159" />
+            <state relative-caret-position="136">
+              <caret line="159" column="11" lean-forward="true" selection-start-line="159" selection-start-column="11" selection-end-line="159" selection-end-column="11" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="n#!!block;n#createOrderModal#0" />
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/category.controller.js">
+      <file leaf-file-name="create.modal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/admin/js/create.modal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+            <state relative-caret-position="361">
+              <caret line="219" column="24" selection-start-line="219" selection-start-column="9" selection-end-line="219" selection-end-column="24" />
+              <folding>
+                <element signature="n#!!block;n#createItemListHtml#0" />
+                <element signature="n#!!block;n#getCategoryBy#0" />
+                <element signature="n#!!block;n#createMenuItems#0" />
+                <element signature="n#!!block;n#getMenuData#0" />
+                <element signature="n#!!block;n#createElement#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-add-category-list-functionality.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-category-list-functionality.js">
+      <file leaf-file-name="admin-add-menu-list-functionality.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1768">
-              <caret line="104" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="2669">
+              <caret line="157" selection-start-line="157" selection-end-line="157" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restaurant.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/restaurant.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1156">
+              <caret line="68" column="46" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -97,41 +125,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sun</find>
-      <find>data-editid</find>
-      <find>saveCategory</find>
-      <find>id</find>
-      <find>writeFileContent</find>
-      <find>Update</find>
-      <find>text.modal</find>
-      <find>createErrorInfo</find>
-      <find>edit</find>
-      <find>opt</find>
-      <find>console</find>
-      <find>saveMenuItem</find>
-      <find>menuItemId</find>
-      <find>getMenuItemId</find>
-      <find>22</find>
-      <find>for (let i=0; i&lt;json.menu.length; i++){</find>
-      <find>findMenuItem</find>
-      <find>addProduct</find>
-      <find>orderCount</find>
-      <find>inner-optionList</find>
-      <find>toggleInnerOptions</find>
-      <find>hidden</find>
-      <find>alertModal</find>
-      <find>alert</find>
-      <find>dataMax</find>
-      <find>toggle</find>
-      <find>&quot;toggle</find>
-      <find>'toggle</find>
-      <find>F</find>
-      <find>anc</find>
+      <find>new_Qty</find>
+      <find>triggerInput</find>
+      <find>bubbles</find>
+      <find>createOrderModal</find>
+      <find>test</find>
+      <find>void();</find>
+      <find>children</find>
+      <find>children[</find>
+      <find>&lt;textarea</find>
+      <find>textarea</find>
+      <find>&lt;textaarea</find>
+      <find>&lt;textaread</find>
+      <find>close-modal</find>
+      <find>activateCloseModalForm</find>
+      <find>singleProdclose-modal</find>
+      <find>createEditHtmlForSingleProduct</find>
+      <find>bin</find>
+      <find>class=&quot;icon&quot;</find>
+      <find>.single-product .delete</find>
+      <find>delete</find>
+      <find>checkOptionClassExistence</find>
+      <find>if_required</find>
+      <find>singleCartItems</find>
+      <find>singleProductTemplate</find>
+      <find>inputCheckedTotal</find>
+      <find>initiateRadioandCheckboxInputs</find>
+      <find>activeMenuElements</find>
+      <find>doCreateModal</find>
+      <find>createItemListHtml</find>
+      <find>createMenuData</find>
     </findStrings>
     <replaceStrings>
-      <replace>bool_singleProduct</replace>
-      <replace>#add-singleproduct-value</replace>
-      <replace>#add-btn, #add-singleproduct-btn</replace>
       <replace>document</replace>
       <replace>formId</replace>
       <replace>parentElement</replace>
@@ -148,7 +173,6 @@
       <replace>||</replace>
       <replace>menuItem</replace>
       <replace>&amp;&amp;</replace>
-      <replace>let</replace>
       <replace>itemCategoryArea</replace>
       <replace>&lt;!!</replace>
       <replace>curr_index</replace>
@@ -159,6 +183,10 @@
       <replace>i</replace>
       <replace />
       <replace>statusCode</replace>
+      <replace>let</replace>
+      <replace>&lt;textaarea data-gramm_editor=&quot;false&quot;</replace>
+      <replace>&lt;textarea</replace>
+      <replace>&lt;textarea</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Tozyne\Desktop\Restaurant - Copy\assets\bootstrap</dir>
@@ -186,7 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin.html" />
         <option value="$PROJECT_DIR$/menu.html" />
         <option value="$PROJECT_DIR$/assets/add-to-cart/add-to-cart-functionality.js" />
         <option value="$PROJECT_DIR$/../Restaurant/app.js" />
@@ -200,9 +227,7 @@
         <option value="$PROJECT_DIR$/assets/admin/css/admin-categorylist-modal.css" />
         <option value="$PROJECT_DIR$/assets/admin/js/admin-categorylist-modal.js" />
         <option value="$PROJECT_DIR$/models/category.model.js" />
-        <option value="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" />
         <option value="$PROJECT_DIR$/models/restaurant.model.js" />
-        <option value="$PROJECT_DIR$/assets/admin/js/test.modal.js" />
         <option value="$PROJECT_DIR$/models/menu-item.model.js" />
         <option value="$PROJECT_DIR$/assets/admin/js/all-validations.js" />
         <option value="$PROJECT_DIR$/assets/admin/js/number-input-validation.js" />
@@ -216,27 +241,30 @@
         <option value="$PROJECT_DIR$/views/error-not-found.html" />
         <option value="$PROJECT_DIR$/views/not-found.html" />
         <option value="$PROJECT_DIR$/views/menu.html" />
-        <option value="$PROJECT_DIR$/assets/admin/js/create.modal.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" />
         <option value="$PROJECT_DIR$/views/all-data/category-json.html" />
         <option value="$PROJECT_DIR$/assets/admin/js/admin-add-category-list-functionality.js" />
         <option value="$PROJECT_DIR$/controllers/category.controller.js" />
         <option value="$PROJECT_DIR$/views/all-data/json.html" />
-        <option value="$PROJECT_DIR$/views/all-data/category-data.html" />
         <option value="$PROJECT_DIR$/views/all-data/menu-item-data.css" />
         <option value="$PROJECT_DIR$/controllers/menu-item.controller.js" />
         <option value="$PROJECT_DIR$/views/all-data/menu-item-data.html" />
         <option value="$PROJECT_DIR$/views/all-data/mwnu-item-data.html" />
         <option value="$PROJECT_DIR$/views/all-data/menu-item-json.html" />
-        <option value="$PROJECT_DIR$/views/all-data/data.html" />
         <option value="$PROJECT_DIR$/controllers/restaurant.controller.js" />
         <option value="$PROJECT_DIR$/assets/admin/js/admin-alert.js" />
         <option value="$PROJECT_DIR$/assets/admin/js/admin-alert-modal.js" />
         <option value="$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js" />
         <option value="$PROJECT_DIR$/assets/js/todolist.js" />
         <option value="$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js" />
+        <option value="$PROJECT_DIR$/assets/admin/js/test.modal.js" />
         <option value="$PROJECT_DIR$/views/admin.html" />
+        <option value="$PROJECT_DIR$/views/all-data/category-data.html" />
+        <option value="$PROJECT_DIR$/views/all-data/data.html" />
+        <option value="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" />
+        <option value="$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css" />
+        <option value="$PROJECT_DIR$/assets/admin/js/create.modal.js" />
+        <option value="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" />
       </list>
     </option>
   </component>
@@ -255,7 +283,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="421" />
+    <option name="x" value="690" />
+    <option name="y" value="18" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -269,44 +298,61 @@
         <subPane>
           <expand>
             <path>
-              <item name="restaurant-git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant-git" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="restaurant-git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant-git" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="restaurant-git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant-git" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="add-to-cart" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="restaurant-git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant-git" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="add-to-cart" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="restaurant-git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant-git" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="restaurant-git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant-git" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="restaurant-git" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant-git" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="all-data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -323,7 +369,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -423,6 +469,8 @@
       <workItem from="1589035258340" duration="8458000" />
       <workItem from="1589070355857" duration="4890000" />
       <workItem from="1589128315409" duration="3488000" />
+      <workItem from="1589177389239" duration="42744000" />
+      <workItem from="1589355675175" duration="24346000" />
     </task>
     <task id="LOCAL-00001" summary="add restaurant repo">
       <created>1588717762291</created>
@@ -449,24 +497,25 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1300783000" />
+    <option name="totallyTimeSpent" value="1373409000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.32838285" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32838285" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3277311" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.194375" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.20045386" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
+      <window_info anchor="bottom" x="22" y="264" width="1322" height="199" id="Find" order="1" sideWeight="0.49924356" type="FLOATING" weight="0.32838285" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -527,7 +576,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -536,20 +585,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="124" column="18" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/not-found/js/error-not-found.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -638,13 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/create.modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7072">
-          <caret line="416" column="46" selection-start-line="416" selection-start-column="46" selection-end-line="416" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/restaurant.model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -674,13 +702,6 @@
     <entry file="file://$PROJECT_DIR$/assets/js/todo.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/test.modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/all-data/json.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -701,13 +722,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data/category-data.html" />
-    <entry file="file://$PROJECT_DIR$/views/all-data/category-data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T02-38-21.745Z.jpg" />
     <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T02-43-18.014Z.jpg" />
     <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T02-38-21.745Z.jpg" />
@@ -723,13 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
           <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-category-list-functionality.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
         </state>
       </provider>
     </entry>
@@ -757,21 +764,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/menu-item.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="113" column="27" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/restaurant.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="68" column="46" lean-forward="true" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-alert.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/todolist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="70" column="88" lean-forward="true" selection-start-line="70" selection-start-column="88" selection-end-line="70" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-category-list-functionality.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-alert-modal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -779,48 +796,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/todolist.js">
+    <entry file="file://$PROJECT_DIR$/views/all-data/category-data.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="78" column="182" selection-start-line="78" selection-start-column="182" selection-end-line="78" selection-end-column="182" />
+        <state relative-caret-position="289">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/all-data/data.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6817">
-          <caret line="401" column="38" selection-start-line="401" selection-start-column="38" selection-end-line="401" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2329">
-          <caret line="159" selection-start-line="159" selection-end-line="159" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="448" column="46" lean-forward="true" selection-start-line="448" selection-start-column="46" selection-end-line="448" selection-end-column="46" />
+        <state relative-caret-position="8500">
+          <caret line="500" column="37" selection-start-line="500" selection-start-column="37" selection-end-line="500" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="154" column="67" lean-forward="true" selection-start-line="154" selection-start-column="67" selection-end-line="154" selection-end-column="67" />
+        <state relative-caret-position="2669">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/restaurant.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" column="46" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/menu-item.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="113" column="27" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="451" column="82" selection-start-line="451" selection-start-column="82" selection-end-line="451" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="326" column="1" lean-forward="true" selection-start-line="326" selection-start-column="1" selection-end-line="326" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="402" column="18" lean-forward="true" selection-start-line="402" selection-start-column="18" selection-end-line="402" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/admin/js/test.modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/admin/js/create.modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="219" column="24" selection-start-line="219" selection-start-column="9" selection-end-line="219" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!block;n#createItemListHtml#0" />
+            <element signature="n#!!block;n#getCategoryBy#0" />
+            <element signature="n#!!block;n#createMenuItems#0" />
+            <element signature="n#!!block;n#getMenuData#0" />
+            <element signature="n#!!block;n#createElement#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="161" column="51" selection-start-line="161" selection-start-column="51" selection-end-line="161" selection-end-column="51" />
+        <state relative-caret-position="136">
+          <caret line="159" column="11" lean-forward="true" selection-start-line="159" selection-start-column="11" selection-end-line="159" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!block;n#createOrderModal#0" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
