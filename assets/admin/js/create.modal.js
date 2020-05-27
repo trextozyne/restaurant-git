@@ -45,6 +45,7 @@ function createItemListHtml(menu_item, curr_index){
     menuItemCard.classList.add('card', 'col-12', 'pb-5');
     let menuItemCardWrapper = document.createElement('div');
     menuItemCardWrapper.classList.add('card-wrapper', 'toggle', 'media-container-row', 'media-container-row');
+    debugger;
     menuItemCardWrapper.setAttribute('data-id', `${menu_item.menuItemId}`);
     let menuItemCardBox = document.createElement('div');
     menuItemCardBox.classList.add('card-box');
