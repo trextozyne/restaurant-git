@@ -4,8 +4,6 @@
     <list default="true" id="8ae3c312-a515-45f3-a985-c28b56dd8127" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/create.modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/create.modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/menu.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,7 +17,7 @@
       <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="7667">
               <caret line="451" column="82" selection-start-line="451" selection-start-column="82" selection-end-line="451" selection-end-column="82" />
             </state>
           </provider>
@@ -46,8 +44,8 @@
       <file leaf-file-name="test.modal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/admin/js/test.modal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+            <state relative-caret-position="374">
+              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -55,42 +53,11 @@
       <file leaf-file-name="add-to-cart-functionality.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-112">
-              <caret line="523" column="9" selection-start-line="523" selection-start-column="9" selection-end-line="523" selection-end-column="9" />
+            <state relative-caret-position="153">
+              <caret line="615" column="8" selection-start-line="615" selection-start-column="8" selection-end-line="615" selection-end-column="8" />
               <folding>
-                <element signature="e#494#1598#0" />
-                <element signature="e#1759#3657#0" />
-                <element signature="e#3689#3957#0" />
-                <element signature="e#3996#4359#0" />
-                <element signature="e#4646#7255#0" />
-                <element signature="e#7292#7840#0" />
-                <element signature="e#7879#8253#0" />
-                <element signature="e#8315#9226#0" />
-                <element signature="e#9254#9366#0" />
-                <element signature="e#9426#13234#0" />
-                <element signature="e#13517#13731#0" />
-                <element signature="e#13764#13978#0" />
-                <element signature="e#18615#18915#0" />
-                <element signature="e#18968#19948#0" />
-                <element signature="e#19989#20957#0" />
-                <element signature="e#23414#23729#0" />
-                <element signature="e#23756#24417#0" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#25708#26766#0" />
-                <element signature="e#26803#26875#0" />
-                <element signature="e#26908#27213#0" />
-                <element signature="e#27276#27923#0" />
-                <element signature="e#36270#36773#0" />
-                <element signature="e#36800#37682#0" />
-                <element signature="e#37812#42019#0" />
-                <element signature="e#42181#42770#0" />
-                <element signature="e#42959#43833#0" />
-                <element signature="e#43975#44940#0" />
-                <element signature="e#44967#46896#0" />
-                <element signature="e#46941#47365#0" />
-                <element signature="e#47405#47507#0" />
-                <element signature="e#47537#48125#0" />
-                <element signature="e#48140#51766#0" />
+                <element signature="e#26022#26683#0" />
+                <element signature="e#34875#40207#0" />
               </folding>
             </state>
           </provider>
@@ -99,8 +66,8 @@
       <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="92" column="142" selection-start-line="92" selection-start-column="142" selection-end-line="92" selection-end-column="142" />
+            <state relative-caret-position="1292">
+              <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -109,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/models/restaurant.model.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="24" />
+              <caret line="4" column="24" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -150,28 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main-price</find>
-      <find>DOMParser</find>
-      <find>menu</find>
-      <find>admin</find>
-      <find>.main-price</find>
-      <find>total</find>
-      <find>data-id</find>
-      <find>createItemListHtml</find>
-      <find>-id</find>
-      <find>id</find>
-      <find>activateCloseModalForm</find>
-      <find>appendChild</find>
-      <find>getModal</find>
-      <find>.cart-items li[data-formId='${data_formId}</find>
-      <find>[data-formId='${data_formId}']</find>
-      <find>input[type='radio']:checked</find>
-      <find>cart-modal</find>
-      <find>isSameNode</find>
-      <find>initiateAddToCartButton</find>
-      <find>initiateRadioandCheckboxInputs</find>
-      <find>activeMenuElements</find>
-      <find>activeMenuElement</find>
       <find>performInitialCalc</find>
       <find>qtyInput</find>
       <find>qtyInput =</find>
@@ -180,10 +125,31 @@
       <find>background</find>
       <find>cached</find>
       <find>// Show modal</find>
+      <find>(e.target &amp;&amp; e.target.id === 'quantity')</find>
+      <find>changeValue</find>
+      <find>guid</find>
+      <find>cart_item.getAttribute(&quot;data-formId&quot;)</find>
+      <find>ances</find>
+      <find>cacheSaveCartItemData</find>
+      <find>single</find>
+      <find>firstChild.querySelectorAll</find>
+      <find>activeMenuElements</find>
+      <find>doModalFunctions</find>
+      <find>initiateRadioandCheckboxInputs</find>
+      <find>cart-modal-input</find>
+      <find>loadShoppingCartMenu</find>
+      <find>setModalInputs</find>
+      <find>you are about to make cha</find>
+      <find>initializeSingleProductAddBtn</find>
+      <find>singleCartItems</find>
+      <find>singleProductTemplate</find>
+      <find>deleteCartItem</find>
+      <find>mainProductTemplate</find>
+      <find>initiateAddToCartButton</find>
+      <find>.p-modal</find>
     </findStrings>
     <replaceStrings>
       <replace>document</replace>
-      <replace>formId</replace>
       <replace>parentElement</replace>
       <replace>&lt;p class=&quot;mbr-text description mbr-fonts-style display-7&quot;&gt;</replace>
       <replace>innerName</replace>
@@ -211,6 +177,8 @@
       <replace>let</replace>
       <replace>&lt;textaarea data-gramm_editor=&quot;false&quot;</replace>
       <replace>&lt;textarea</replace>
+      <replace>e.target &amp;&amp; (e.target.id === 'quantity' || e.target.id === 'singleProd-quantity')</replace>
+      <replace>formId</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Tozyne\Desktop\Restaurant - Copy\assets\bootstrap</dir>
@@ -507,7 +475,9 @@
       <workItem from="1589177389239" duration="42744000" />
       <workItem from="1589355675175" duration="65517000" />
       <workItem from="1589818643392" duration="47659000" />
-      <workItem from="1590282302425" duration="8065000" />
+      <workItem from="1590282302425" duration="10415000" />
+      <workItem from="1590614129849" duration="35702000" />
+      <workItem from="1590898435554" duration="13819000" />
     </task>
     <task id="LOCAL-00001" summary="add restaurant repo">
       <created>1588717762291</created>
@@ -537,17 +507,33 @@
       <option name="project" value="LOCAL" />
       <updated>1589484969487</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add restaurant repo">
+      <created>1590599068331</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590599068332</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1470304000" />
+    <option name="totallyTimeSpent" value="1522175000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2065053" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21255673" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.32838285" />
       <window_info anchor="right" id="Database" order="3" />
@@ -619,7 +605,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="42" />
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -628,7 +614,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/restaurant/not-found/js/error-not-found.js" />
     <entry file="file://$PROJECT_DIR$/views/not-found.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -847,13 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/test.modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -882,7 +860,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="7667">
           <caret line="451" column="82" selection-start-line="451" selection-start-column="82" selection-end-line="451" selection-end-column="82" />
         </state>
       </provider>
@@ -890,7 +868,7 @@
     <entry file="file://$PROJECT_DIR$/models/restaurant.model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="24" />
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -901,13 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="142" selection-start-line="92" selection-start-column="142" selection-end-line="92" selection-end-column="142" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/add-to-cart/js/Guid.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -915,44 +886,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/admin/js/test.modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="523" column="9" selection-start-line="523" selection-start-column="9" selection-end-line="523" selection-end-column="9" />
+        <state relative-caret-position="153">
+          <caret line="615" column="8" selection-start-line="615" selection-start-column="8" selection-end-line="615" selection-end-column="8" />
           <folding>
-            <element signature="e#494#1598#0" />
-            <element signature="e#1759#3657#0" />
-            <element signature="e#3689#3957#0" />
-            <element signature="e#3996#4359#0" />
-            <element signature="e#4646#7255#0" />
-            <element signature="e#7292#7840#0" />
-            <element signature="e#7879#8253#0" />
-            <element signature="e#8315#9226#0" />
-            <element signature="e#9254#9366#0" />
-            <element signature="e#9426#13234#0" />
-            <element signature="e#13517#13731#0" />
-            <element signature="e#13764#13978#0" />
-            <element signature="e#18615#18915#0" />
-            <element signature="e#18968#19948#0" />
-            <element signature="e#19989#20957#0" />
-            <element signature="e#23414#23729#0" />
-            <element signature="e#23756#24417#0" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#25708#26766#0" />
-            <element signature="e#26803#26875#0" />
-            <element signature="e#26908#27213#0" />
-            <element signature="e#27276#27923#0" />
-            <element signature="e#36270#36773#0" />
-            <element signature="e#36800#37682#0" />
-            <element signature="e#37812#42019#0" />
-            <element signature="e#42181#42770#0" />
-            <element signature="e#42959#43833#0" />
-            <element signature="e#43975#44940#0" />
-            <element signature="e#44967#46896#0" />
-            <element signature="e#46941#47365#0" />
-            <element signature="e#47405#47507#0" />
-            <element signature="e#47537#48125#0" />
-            <element signature="e#48140#51766#0" />
+            <element signature="e#26022#26683#0" />
+            <element signature="e#34875#40207#0" />
           </folding>
         </state>
       </provider>

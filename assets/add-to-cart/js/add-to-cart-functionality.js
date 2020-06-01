@@ -15,18 +15,20 @@ let singleProcuctEdited = false;
 
 let mainPrice = 0;
 //=====================create the cart template for single products============================
-function singleProductTemplate(name, singleprice, data_singleProduct){
+function singleProductTemplate(name, singleprice, data_singleProduct, id){
+    let formId = guid(15);
+
     const singleProdctcart_item = document.createElement("div");
     singleProdctcart_item.classList.add("single-product");
     singleProdctcart_item.setAttribute('data-singleProduct', data_singleProduct);
-    singleProdctcart_item.setAttribute('data-formId', guid(15));
+    singleProdctcart_item.setAttribute('data-formId', formId);
 
     singleProdctcart_item.innerHTML = "\n" +
         // "<div class=\"single-product\" data-singleProduct=\"true\">\n" +
         "    <span class=\"quantity\">1</span>\n" +
         "    <span class=\"name\">"+ name +"</span>\n" +
         "    <span class=\"singleprice\">$"+ singleprice +"</span>\n" +
-        "    <span class=\"delete\" onclick=\"alert('hit'); event.stopPropagation();\">\n" +
+        "    <span class=\"delete\" onclick=\"deleteCartItem(this, '" + id + "', 'single-product', '" + formId + "'); \">\n" +
         "        <div class=\"icon\">\n" +
         "            <div class=\"lid\"></div>\n" +
         "            <div class=\"lidcap\"></div>\n" +
@@ -42,6 +44,7 @@ function singleProductTemplate(name, singleprice, data_singleProduct){
 
 //==================calcualte all the checked inputs(radio, checbox) price total===============================
 function inputCheckedTotal(radios, checkboxes) {
+    debugger;
     mainPrice = document.querySelectorAll("div.p-modal .main-price")[0].textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0];
 
     total = 0;
@@ -68,6 +71,7 @@ function inputCheckedTotal(radios, checkboxes) {
                 item.name = name.trim();
                 item.singleprice = singleprice;
                 item.data_singleProduct = data_singleProduct;
+                item.id = checkbox.id
 
                 if(singleProcuctEdited === false)
                 {
@@ -75,7 +79,7 @@ function inputCheckedTotal(radios, checkboxes) {
                     singleProcuctClicked = true;//allow the add template to be put in the cart.
                 }
 
-                singleProductTemplate(item.name, singleprice, item.data_singleProduct);
+                singleProductTemplate(item.name, singleprice, item.data_singleProduct, item.id);
             }
 
             if(bool_singleProduct === false)//dont add it to total
@@ -98,12 +102,28 @@ function performInitialCalc() {
     printTotal(inputCheckedTotal(radios, checkboxs));
 }
 
-function findAncestor (element, cls) {
+function findClassAncestor (element, cls) {
     // while ((el = el.parentElement));
     // return el;
 
     let els = [], stop = false;
     while (element && stop!==true && !element.classList.contains(cls)) {
+        els.unshift(element);
+        if(element.parentNode.nodeName !== "#document") {
+            element = element.parentNode;
+        }else
+            stop = true;
+
+    }
+    return element;
+}
+
+function findDataAncestor (element, data) {
+    // while ((el = el.parentElement));
+    // return el;
+
+    let els = [], stop = false;
+    while (element && stop!==true && !element.getAttribute(data)) {
         els.unshift(element);
         if(element.parentNode.nodeName !== "#document") {
             element = element.parentNode;
@@ -221,15 +241,17 @@ function initiateRadioandCheckboxInputs(radios, checkboxs){
 
             checkboxs.forEach((checkbox) => {
                 checkbox.removeAttribute("disabled");
-                checkbox.onclick = function () {debugger;
-
-                    if (parseBoolean(checkbox.getAttribute("data-singleProduct")) === true && cart_item !== null) {
-                        if (confirm("you are about to make changes to the extra products, please note that any changes you've made would have to be redone, " +
-                            "would you like to proceed")) {
-                            singleProcuctEdited = false;//prevent the edit template from been put in the cart.
-                            singleProcuctClicked = true;//allow the add template to be put in the cart.
+                checkbox.onclick = function () {
+                    debugger;
+                    if(cart_item !== null)
+                        if (parseBoolean(checkbox.getAttribute("data-singleProduct")) === true &&
+                                findDataAncestor(cart_item, "data-option").getAttribute("data-option") === checkbox.getAttribute("data-option")) {
+                            if (confirm("you are about to make changes, these would affect the extra products, please note that any changes you've made would be discarded, " +
+                                "would you like to proceed")) {
+                                singleProcuctEdited = false;//prevent the edit template from been put in the cart.
+                                singleProcuctClicked = true;//allow the add template to be put in the cart.
+                            }
                         }
-                    }
 
                     printTotal(inputCheckedTotal(document.querySelectorAll("input[type='radio']:checked"),
                         document.querySelectorAll("input[type='checkbox']:checked")));
@@ -295,24 +317,33 @@ function triggerChange(target) {
 function initializeSingleProductAddBtn() {
 
     let singleProductBtn = document.getElementById("add-singleproduct-btn");
+    let increaseSingleProductBtn = document.getElementById("singleProd-increase");
+
     singleProductBtn.addEventListener('click', function (event) {
+        triggerClick(increaseSingleProductBtn);
+        document.getElementById("singleProd-decrease").disabled = false;
+
 debugger;
         singleCartItems = [];
         singleProcuctEdited = true;//allow the Edit template to be put in the cart.
         singleProcuctClicked = false;//prevent the normal add template from been put in the cart
 
-        let modal = findAncestor(event.target, "p-modal");
+        let modal = findClassAncestor(event.target, "p-modal");
         let formId = modal.getAttribute("data-formId");
+
+        let cart_Item = null;
 
         let cartItemList = document.getElementsByClassName("cart-item");
         'use strict';
         Array.from(cartItemList).forEach((cartItem)=>{
             cartItem.querySelectorAll(".single-product").forEach((singleProduct)=>{
                 if(singleProduct.hasAttribute("data-formId") && singleProduct.getAttribute("data-formId") === formId){
-                    let parentEl =  findAncestor(event.target, "order-wrapper");
+                    let parentEl =  findClassAncestor(event.target, "order-wrapper");
                     let singleProductQtty = parentEl.children[1].children[0].children[2];
                     singleProduct.children[0].textContent = singleProductQtty.value;
                     singleProduct.children[2].textContent = "$" + singleProductBtn.textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0].toString();
+
+                    cart_Item = singleProduct;
                 }
 
                 singleCartItems.push(singleProduct);
@@ -320,6 +351,9 @@ debugger;
         });
 
         document.getElementById("total").textContent = "$" + getTotalPrice();
+
+        cacheSaveCartItemData(modal, formId, cart_Item, true);
+        singleCartItems = [];
     });
 }
 
@@ -397,9 +431,15 @@ function createEditHtmlForSingleProduct(formId, name, price, quantity) {
 function activateCloseModalForm() {
     debugger;
     let modalClosingIds = document.querySelectorAll("#close-modal, #singleProdclose-modal");
+
     modalClosingIds.forEach((id) => {
         id.addEventListener('click', (event) => {
-            findAncestor(event.target, 'p-modal').classList.remove("modal-show");
+            let pModal = findClassAncestor(event.target, 'p-modal');
+
+            if(pModal.firstElementChild.id === "singleProdclose-modal")
+                pModal.remove();
+            else
+                pModal.classList.remove("modal-show");
         });
     });
 }
@@ -438,7 +478,15 @@ function loadShoppingCartMenu(element) {
                     }
                 }
                 cartMenuData.firstChild.classList.add("cached");
-                document.body.appendChild(cartMenuData)
+                document.body.appendChild(cartMenuData);
+
+                if(document.querySelectorAll(`input[type='checkbox'][data-singleproduct='true']`).length > 0){
+                   if (confirm("you are about to make changes, these would affect the extra products, please note that any changes you make would be discarded on clicking the Add Button, " +
+                            "would you like to proceed")) {
+                            // singleProcuctEdited = false;//prevent the edit template from been put in the cart.
+                            // singleProcuctClicked = true;//allow the add template to be put in the cart.
+                        }
+                }
             }
         });
     }
@@ -451,7 +499,7 @@ function doEdit(clickedElement) {
             let formId = clickedElement[i].getAttribute("data-formId").trim();
             if ((clickedElement[i].classList.contains("cart-product") ||
                 clickedElement[i].classList.contains("cart-description"))) {
-                if(!findAncestor(clickedElement[i], "cached") && document.querySelectorAll('.p-modal').length > 0)
+                if(!findClassAncestor(clickedElement[i], "cached") && document.querySelectorAll('.p-modal').length > 0)
                     document.querySelectorAll('.p-modal').forEach((element)=>{
                         if(element.hasAttribute('data-formId') && element.getAttribute('data-formId').trim() === formId) {
                             if(document.getElementById("close-modal"))
@@ -521,17 +569,78 @@ function getTotalPrice() {
     return totalPrice.toFixed(2);
 }
 
+//======START delete saved/cahed menu item modal/cart item============================================
+function deleteCartItem($this, id, status, formId) {
+    debugger;
+    event.stopPropagation();
+
+    let parentEl =  $this.parentElement.classList.contains("cart-item") ? "" : $this.parentElement.parentElement;
+
+    $this.parentElement.remove();
+
+    let cartItems = [], cartModal = [], savedModalInputs = [];
+
+    if(localStorage.getItem('cart'))
+        cartItems = JSON.parse(localStorage.getItem('cart'));
+
+    if(localStorage.getItem('cart-modal'))
+        cartModal = JSON.parse(localStorage.getItem('cart-modal'));
+
+    if(localStorage.getItem('cart-modal-input'))
+        savedModalInputs = JSON.parse(localStorage.getItem('cart-modal-input'));
+
+    cartItems.forEach((cartData, outerindex)=>{
+        let cart = createNodeElement(cartData).firstChild.querySelectorAll('[data-formId][data-formid]');
+        cart.forEach((cartelement, index)=> {
+            if (cartelement.getAttribute("data-formid") === formId) {
+                cartItems.splice(outerindex, 1);
+
+                if(parentEl !== "")
+                    cartItems.push(parentEl.outerHTML);
+            }
+        });
+    });
+
+    cartModal.forEach((cartModalData, index)=>{
+        if (createNodeElement(cartModalData).firstChild.getAttribute("data-formid") === formId && status === "full-product") {
+            cartModal.splice(index, 1);
+        }
+    });
+
+    savedModalInputs.forEach((modalInput, index)=> {
+        modalInput.inputs.forEach(function (inputs, index) {
+            if ((inputs.type === "checkbox") && status === "single-product" && inputs.id === id)
+                inputs.status = false;
+        });
+
+        if (modalInput.id === formId && status === "full-product")
+            savedModalInputs.splice(index, 1);
+    });
+
+    localStorage.setItem('cart-modal-input', JSON.stringify(savedModalInputs));
+
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    localStorage.setItem('cart-modal', JSON.stringify(cartModal));
+
+    if(document.querySelectorAll("div.p-modal #close-modal").length !== 0)
+        triggerClick(document.querySelectorAll("div.p-modal #close-modal")[0]);
+
+    document.getElementById("total-purchase").textContent = getTotalItem();
+}
+//======END delete saved/cahed menu item modal/cart item============================================
+
 function mainProductTemplate(image, name, price, data_formId, quantity, arraySaleNames) {
     cart_item = document.createElement("li");
     cart_item.classList.add("cart-item");
     cart_item.setAttribute("data-formId", data_formId);
 
     cart_item.innerHTML = `
-             <span class="delete" onclick="alert('hit'); event.stopPropagation();">
+             <span class="delete" onclick= "deleteCartItem(this, 'null', 'full-product', '${data_formId}');">
                     <div class="icon">
-                    <div class="lid"></div>
-                    <div class="lidcap"></div>
-                    <div class="bin"></div>
+                        <div class="lid"></div>
+                            <div class="lidcap"></div>
+                        <div class="bin"></div>
                     </div>
              </span>
                     <div data-formId="${data_formId}" class="cart-product quantity" style="background-image: url('${image}')">
@@ -544,6 +653,7 @@ function mainProductTemplate(image, name, price, data_formId, quantity, arraySal
                     </div><!-- /.cart-item -->`;
 
     //===add any existing single product to cart html========
+    debugger;
     singleCartItems.forEach((singleCartItem)=>{
         cart_item.innerHTML += singleCartItem.outerHTML;
     });
@@ -598,7 +708,7 @@ function createmodalInputsJSON(modalInputs, modalInputsJSON) {
     return modalInputsJSON;
 }
 
-function cacheSaveCartItemData(getModal, data_formId) {
+function cacheSaveCartItemData(getModal, data_formId, cart_item, boolSingle) {
     let counterDel = 0;
     debugger;
     let cartItems = [], cartModal = [], cartModalInputStatus = [];
@@ -613,9 +723,16 @@ function cacheSaveCartItemData(getModal, data_formId) {
         cartModalInputStatus = JSON.parse(localStorage.getItem('cart-modal-input'));
 
     cartItems.forEach((cartData, index)=>{
-        if(createNodeElement(cartData).firstChild.getAttribute("data-formId") === cart_item.getAttribute("data-formId")){
-            cartItems.splice(index - counterDel, 1);
-            counterDel++;
+        if(boolSingle === true) {
+            if (createNodeElement(cartData).firstChild.getAttribute("data-formId") === cart_item.parentElement.getAttribute("data-formId")) {
+                cartItems.splice(index - counterDel, 1);
+                counterDel++;
+            }
+        } else {
+            if (createNodeElement(cartData).firstChild.getAttribute("data-formId") === cart_item.getAttribute("data-formId")) {
+                cartItems.splice(index - counterDel, 1);
+                counterDel++;
+            }
         }
     });
 
@@ -643,6 +760,10 @@ function cacheSaveCartItemData(getModal, data_formId) {
 
     modalInputsJSON = createmodalInputsJSON(modalInputs, modalInputsJSON);
 
+    boolSingle === true ?
+        cart_item = document.querySelector(`.cart-items li[data-formId='${cart_item.parentElement.getAttribute("data-formId")}']`) :
+            cart_item
+
     cartModalInputStatus.push(modalInputsJSON);
     localStorage.setItem('cart-modal-input', JSON.stringify(cartModalInputStatus));
     cartItems.push(cart_item.outerHTML);
@@ -652,8 +773,10 @@ function cacheSaveCartItemData(getModal, data_formId) {
 }
 
 function initiateAddToCartButton(cartBtn){
+    let target = null;
     cartBtn.forEach(function (btn) {
-        btn.addEventListener('click', function (event) {
+        btn.addEventListener('click', function (event) {debugger;
+            target = event.target;
 
             let radios = document.querySelectorAll("input[type='radio']"); // or document.querySelectorAll("li");
 
@@ -680,7 +803,7 @@ function initiateAddToCartButton(cartBtn){
                 let data_option = document.querySelector('input[name^="radio"]:checked').getAttribute('data-option');
 
                 // ----get the modal data formId to set on the cart list description or image-------------------
-                let getModal = findAncestor(event.target, 'p-modal');
+                let getModal = findClassAncestor(event.target, 'p-modal');
                 let data_formId = getModal.getAttribute('data-formId');
 
                 const item = {};
@@ -693,6 +816,9 @@ function initiateAddToCartButton(cartBtn){
 
                 const cart_item = mainProductTemplate(item.image, item.name, item.price, item.data_formId, quantity, arraySaleNames);
 
+                if(!event.target.isSameNode(target))
+                    singleCartItems = [];
+
                 // console.log(item);
                 const cart = document.getElementById("cart");
                 // const total = document.querySelectorAll("");
@@ -702,7 +828,7 @@ function initiateAddToCartButton(cartBtn){
                 if (cartItemData !== null && cartItemData.getAttribute("data-formId") === cart_item.getAttribute("data-formId"))
                     cartItemData.parentNode.replaceChild(cart_item, cartItemData);
 
-                if (cartItemData === null){debugger;
+                if (cartItemData === null){
                     cart.insertBefore(cart_item, checkout);
                     //remove changed class from qtty input
                     RemoveClass(qtyInput, "changed");RemoveClass(qtyInput, "touched");
@@ -725,14 +851,13 @@ function initiateAddToCartButton(cartBtn){
                     cartItemData.children[2].children[2].innerText = "$" + document.getElementById('item-add-value').textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0].toString();
                 }
 
-                cacheSaveCartItemData(getModal, data_formId);
+                cacheSaveCartItemData(getModal, data_formId, cart_item, false);
      // ---------------check if cart item already exist-----------------
 
                 document.getElementById("total").textContent = "$" + getTotalPrice();
                 document.getElementById("total-purchase").textContent = getTotalItem();
 
                activateCartDataBtn();
-                // singleCartItems = [];
             }
         });
 
@@ -757,7 +882,6 @@ function changesingleProdValue(val, price){
     map(function(v)  {
         return parseFloat(v)*value;
     })[0].toFixed(2);
-
 }
 
 function changeValue(val){
@@ -947,9 +1071,9 @@ function doCreateModal(parentItem, pModal, id, test) {
             let pModal = document.querySelectorAll('.p-modal');
             test = null;
             debugger;
-            let parentItem = findAncestor(event.target, 'toggle');
+            let parentItem = findClassAncestor(event.target, 'toggle');
  //==========================if product card/div is clicked=============================
-            if (findAncestor(event.target, 'toggle').classList.contains('toggle') && !document.querySelector(`.cart-items li[data-formId='${parentItem.getAttribute('data-id')}']`)) {
+            if (findClassAncestor(event.target, 'toggle').classList.contains('toggle') && !document.querySelector(`.cart-items li[data-formId='${parentItem.getAttribute('data-id')}']`)) {
 
                 if (parentItem.getAttribute('data-id').length === 15)
                 //====for test=============
@@ -1058,7 +1182,7 @@ function loadShoppingCart() {
             e.target.className += " changed";
 
         // ----get the modal data formId to set on the cart list description or image-------------------
-        let getModal = findAncestor(event.target, 'p-modal');
+        let getModal = findClassAncestor(event.target, 'p-modal');
         let data_formId = getModal.getAttribute('data-formId');
         // ---------------check if cart item already exist-----------------
         let cartItemData = document.querySelector(`.cart-items li[data-formId='${data_formId}']`);
