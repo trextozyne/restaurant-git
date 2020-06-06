@@ -14,6 +14,7 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
+    <link rel="stylesheet" href="../add-to-cart/css/add-to-cart-functionality.css">
     <link rel="stylesheet" href="../admin/css/admin-alert-modal.css">
     <link rel="stylesheet" href="../css/style.css">
     <!-- End layout styles -->
@@ -93,7 +94,7 @@
             overflow: hidden;
         }
         #editOrder.filled {
-            max-height: 1500px;
+            max-height: max-content;
             transition: max-height 0.25s ease-in;
         }
         .editDone {
@@ -434,6 +435,7 @@
                     <div id="order" class="col-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
+                                <a href="javascript:void(0);" class="preview" style="float: right;">Preview Menu Arrangements</a>
                                 <h4 class="card-title">Create Optional Choices Fields <span id="item-name-order"></span></h4>
                                 <p class="card-description"> Optional Choice Items </p>
                                 <form id="orderForm" class="forms-sample">
@@ -444,17 +446,12 @@
                                     <!--</div>-->
                                     <div id="addProductForm">
                                         <div class="form-group">
+                                            <h3>Start with Adding the First Menu-Item here.</h3>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="optionDescription">Option Description</label>
                                             <input type="text" name="optionDescription" class="form-control" id="optionDescription" placeholder="Enter the option description i.e choose your size/You can add extras">
                                         </div>
-                                        <div hidden class="form-check form-check-flat form-check-primary">
-                                            <label for="isExtraOptionRequired" class="form-check-label">
-                                                <input type="checkbox" name="required" id="isExtraOptionRequired" class="form-check-input"> Required Field (required before product can be added to order list)</label>
-                                        </div>
-                                        <!--<div class="form-group">-->
-                                            <!--<label for="defaultSubOption">Option Description</label>-->
-                                            <!--<input type="text" class="form-control" id="defaultSubOption" placeholder="Enter the sub-option description i.e choose your size">-->
-                                        <!--</div>-->
                                         <div class="form-group">
                                             <label for="options">How many options or choices</label>
                                             <input type="text" name="optionTotal" class="numbers-only form-control col-md-3" id="options" placeholder="Options or Choices" min="1" max="100">
@@ -469,19 +466,6 @@
                                                 <option>Options are available after you supply option</option>
                                             </select>
                                         </div>
-                                        <div hidden class="form-check form-check-flat form-check-primary">
-                                            <label for="isInnerOptionRequired" class="form-check-label">
-                                                <input type="checkbox" name="innerOptionRequired" id="isInnerOptionRequired" onchange="toggleInnerOptions(this)"
-                                                       class="form-check-input"> Required Field (required before product can be added to order list)</label>
-                                        </div>
-                                        <!--<div class="form-group" style="display: none">-->
-                                            <!--<label for="inner-options">How many options or choices</label>-->
-                                            <!--<input name="innerOptionTotal" type="number" class="form-control col-md-3" id="inner-options" placeholder="Options or Choices" min="1" max="100">-->
-                                        <!--</div>
-                                        <!--<div class="form-group" style="display: none">-->
-                                            <!--<label for="inner-optionList">List Available Option & prices(separated by commas)</label>-->
-                                            <!--<textarea data-gramm_editor="false" name="innerProductInfo" class="form-control" id="inner-optionList" rows="4"></textarea>-->
-                                        <!--</div>-->
                                     </div>
                                     <button type="button" id="add-options" class="btn btn-gradient-primary mr-2">Add</button>
                                     <button type="button" id="submit-options" hidden class="btn btn-gradient-primary mr-2">Submit</button>
@@ -512,6 +496,7 @@
 <script src="../admin/js/admin-alert-modal.js"></script>
 <script src="../admin/js/number-input-validation.js"></script>
 <script src="../admin/js/all-validations.js"></script>
+<script src="../admin/js/create.modal.js"></script>
 <script src="../admin/js/admin-add-category-list-functionality.js"></script>
 <script src="../admin/js/admin-add-menu-item-list-functionality.js"></script>
 <script src="../admin/js/admin-add-menu-list-functionality.js"></script>

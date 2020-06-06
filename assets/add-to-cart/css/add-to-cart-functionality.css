@@ -239,8 +239,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: left;
     justify-content: space-between;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }
 .option-horizontal {
     display: block !important;

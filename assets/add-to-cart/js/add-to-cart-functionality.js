@@ -107,7 +107,7 @@ function findClassAncestor (element, cls) {
     // return el;
 
     let els = [], stop = false;
-    while (element && stop!==true && !element.classList.contains(cls)) {
+    while (element.parentNode !== null && element && stop!==true && !element.classList.contains(cls)) {
         els.unshift(element);
         if(element.parentNode.nodeName !== "#document") {
             element = element.parentNode;
@@ -1032,6 +1032,12 @@ function doModalFunctions(orderModalHtml, parentItem, id, test) {
         orderModalHtml = createModalData(response);
         createModalWrapper(parentItem, orderModalHtml, id);//===creates the modal wrapper where createModalData(response) inserts its innerHTML
         activeMenuElements();//====activate or initialise all menu-modal controls
+
+   //==========================remove any extra font some stupid app adds to it./==========================
+        var text =  document.getElementById("add-btn").innerHTML;
+        text.replace(/<span([^>]*)><\/span><font[^>]*>(.+?)<\/font>/gi,'<span$1>$2</span>')
+        document.getElementById("add-btn").innerHTML = text;
+        console.log(text);
     });
     if (test !== null) {
         createModalWrapper(parentItem, orderModalHtml, id);//===creates the modal wrapper where createModalData(response) inserts its innerHTML

@@ -215,7 +215,7 @@ exports.find = function (req, res) {
 
 
 exports.write = async (req, res, next) => {
-        let data = {
+    let data = {
         menu: []
     };
 

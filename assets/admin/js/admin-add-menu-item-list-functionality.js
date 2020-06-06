@@ -110,7 +110,7 @@ function saveMenuItem(menu_item_name, menu_item_descr, menu_item_ingredient, men
                 menuItemAllList.querySelectorAll('input[type="radio"]')[length].setAttribute('value', response.menuItemId);
                 menuItemAllList.querySelectorAll('.removeMenuItem')[length].setAttribute('data-deleteid', response.menuItemId);
                 menuItemAllList.querySelectorAll('.editMenuItem')[length].setAttribute('data-editid', response.menuItemId);
-                menuItemAllList.querySelectorAll('abel')[length].innerHTML += ' (NA)';
+                menuItemAllList.querySelectorAll('label')[length].innerHTML += ' (NA)';
 
                 activateMenuItemEdit_DeleteBtn();
             }, 400);
