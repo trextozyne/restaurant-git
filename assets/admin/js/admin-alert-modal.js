@@ -6,7 +6,7 @@ function closeModalForm() {
     mdOverlay.parentNode.removeChild(mdOverlay);
 }
 
-$(function () {
+(function () {
     document.addEventListener('click', (e)=> {
         if(e.target && (e.target.classList.contains('md-close') || e.target.classList.contains('md-cancel'))) {
             closeModalForm();
@@ -16,7 +16,7 @@ $(function () {
             closeModalForm();
         }
     })
-});
+})();
 
 function RemoveClass(elem, newClass) {
     elem.className = elem.className.replace(new RegExp('(\\s|^)'+newClass+'(\\s|$)'), " ").trim();

@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css">
@@ -460,6 +460,15 @@
                                             <label for="optionList">List Available Option & prices(separated by commas)</label>
                                             <textarea data-gramm_editor="false" name="productInfo" class="form-control" id="optionList" rows="4"></textarea>
                                         </div>
+                                        <div id="checkboxMultiple">
+                                            <div class="form-check form-check-flat form-check-primary">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" id="multiple" class="form-check-input multiple">
+                                                    Multiple Selection (Leave unchecked if its single selection) Items
+                                                </label>
+                                            </div>
+                                        </div>
+
                                         <div hidden class="form-group">
                                             <label for="requiredOption">Select how many options required to proceed</label>
                                             <select class="form-control" name="dataMax" id="requiredOption">

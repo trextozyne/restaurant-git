@@ -10,6 +10,7 @@
   <meta name="description" content="List of our menu">
   
   <title>Menu</title>
+  <link rel="stylesheet" href="../admin/css/admin-alert-modal.css">cript>
   <link rel="stylesheet" href="../web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="../tether/tether.min.css">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -23,15 +24,63 @@
 
 </head>
 
+<style type="text/css">
+    .md-modal {
+        width: 80%;
+        height: 100%;
+        overflow-y: auto;
+    }
+    .md-modal::-webkit-scrollbar {
+        width: 0.5em;
+    }
+    .md-modal::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+    .md-modal::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+    .md-effect-12 .md-content h3 {
+        font-size: 16px;
+    }
+
+    .navbar-res {
+        background-color: #ffffff;
+        position: fixed;
+        top: -50px;
+        width: inherit;
+        display: block;
+        transition: top 0.3s;
+        padding: 10px;
+    }
+
+    .navbar-res p {
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 0;
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    /*.navbar a:hover {*/
+        /*background-color: #ddd;*/
+        /*color: black;*/
+    /*}*/
+</style>
+
 <body  class="cart-drawer-push">
 <!--=======================For Cart================================-->
+<!--<div class="cart-wrapper"></div>-->
 <div id="cart" class="cart-drawer cart-items cart-drawer-right">
     <span>Your Cart</span>
     <div class="close-btn">
         <a href="javascript:void(0);" id="close" class="close close-icon">
         </a>
     </div><!-- /.close-btn -->
-    <footer class="checkout-total" style="padding: 10px;">
+    <footer class="checkout-total checkout-total-left" style="padding: 10px;">
         <span id="total" style="float: left;font-weight: 800;">
          Total: $0.00
         </span>
@@ -90,7 +139,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="javascript:void(0)" onclick="localStorage.removeItem('cart-modal-input');localStorage.removeItem('cart-modal');localStorage.removeItem('cart');">
+                    <a class="nav-link link text-white display-4" href="javascript:void(0)" onclick="localStorage.removeItem('sales');localStorage.removeItem('cart-modal-input');localStorage.removeItem('cart-modal');localStorage.removeItem('cart');">
                         reset
                     </a>
                 </li>
@@ -487,13 +536,27 @@
     </div>
 </section>
 
+
 <script src="../web/assets/jquery/jquery.min.js"></script>
 <script src="../admin/js/number-input-validation.js"></script>
-<script src="../add-to-cart/js/Guid.js"></script>
 <script src="../admin/js/test.modal.js"></script>
 <script src="../admin/js/create.modal.js"></script>
+<script src="../add-to-cart/js/Guid.js"></script>
 
+<script src="../customers-restaurants/models/city.js"></script>
+<script type="text/javascript">
+    let cty = new City("chicago", "60644");
+
+    console.log(cty);
+    document.addEventListener("click", ()=>{
+        console.log(cty.zip_code);
+    })
+</script>
+
+<script src="../add-to-cart/js/scrolltop.menu.js"></script>
+<script src="../admin/js/admin-alert-modal.js"></script>
 <script src="../add-to-cart/js/add-to-cart-functionality.js"></script>
+<script src="../add-to-cart/js/checkout.js"></script>
   <script src="../popper/popper.min.js"></script>
   <script src="../tether/tether.min.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>

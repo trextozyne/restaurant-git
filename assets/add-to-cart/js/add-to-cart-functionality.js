@@ -1,4 +1,5 @@
 let qtyInput = null;//global element
+let singleprodqtyInput  = null;
 let addBtn = null;
 let cartBtn =null;
 let total = 0;
@@ -6,9 +7,12 @@ let bool_singleProduct = false;
 let cart_item = null;
 let singleCartItems = [];
 let singleProductPrice = 0;
+let itemSales = [];
 let arraySaleNames = [];
+let arraySalePrices = [];
 
 let test = null;
+let response = true;
 
 let singleProcuctClicked = false;
 let singleProcuctEdited = false;
@@ -17,11 +21,12 @@ let mainPrice = 0;
 //=====================create the cart template for single products============================
 function singleProductTemplate(name, singleprice, data_singleProduct, id){
     let formId = guid(15);
-
+debugger;
     const singleProdctcart_item = document.createElement("div");
     singleProdctcart_item.classList.add("single-product");
     singleProdctcart_item.setAttribute('data-singleProduct', data_singleProduct);
     singleProdctcart_item.setAttribute('data-formId', formId);
+    singleProdctcart_item.setAttribute('data-priceVal', singleprice);
 
     singleProdctcart_item.innerHTML = "\n" +
         // "<div class=\"single-product\" data-singleProduct=\"true\">\n" +
@@ -39,29 +44,56 @@ function singleProductTemplate(name, singleprice, data_singleProduct, id){
 
     if (singleProcuctEdited === false && singleProcuctClicked === true) {
         singleCartItems.push(singleProdctcart_item);
+
+        itemSales.push({
+            salesId : formId,
+            quantity : !singleprodqtyInput ? 1 : parseInt(singleprodqtyInput.value),
+            boolSingle : true,
+            arraySaleNames : [name],
+            arraySalePrices : [singleprice],
+            sale: []
+        })
     }
+
+
 }
 
-//==================calcualte all the checked inputs(radio, checbox) price total===============================
+//==================START calcualte all the checked inputs(radio, checbox) price total and create singleProcuct cart template here===============================
 function inputCheckedTotal(radios, checkboxes) {
-    debugger;
     mainPrice = document.querySelectorAll("div.p-modal .main-price")[0].textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0];
 
-    total = 0;
+    total = mainPrice;
     if((radios !== null || checkboxes !== null) && (radios.length !== 0 || checkboxes.length !== 0)) {
         radios.forEach((radio) => {
             total += parseFloat(radio.value);
         });
 
+
         if(singleProcuctClicked === true){
             singleCartItems = [];
+
+            if(itemSales.length !== 0){
+                for (let i=0; i<itemSales.length; i++)  {
+                    if(itemSales[i].boolSingle) {
+                        // get index of object
+                        let removeIndex = itemSales.map(function(item) { return item.boolSingle; }).indexOf(true);
+                        // remove object
+                        itemSales.splice(removeIndex, 1);
+
+                        i--;//decrement loop once the array is reduced in length
+                    }
+                }
+            }
         }
 
         checkboxes.forEach((checkbox) => {
+            debugger;
+            bool_singleProduct = false;
             //get true of false if this is a single product unaffected by button activation, and total price, its a stand alone product
-            bool_singleProduct = parseBoolean(checkbox.getAttribute("data-singleProduct"));
+           if(checkbox.hasAttribute("data-singleProduct"))
+               bool_singleProduct = parseBoolean(checkbox.getAttribute("data-singleProduct"));
 
-            if(bool_singleProduct === true && checkbox.checked) {//create object array here for cart
+            if(bool_singleProduct === true && checkbox.hasAttribute("data-singleProduct") && checkbox.checked) {//create object array here for cart
 
                 let data_singleProduct = checkbox.getAttribute("data-singleProduct");
                 let name = checkbox.getAttribute("data-option");
@@ -71,7 +103,7 @@ function inputCheckedTotal(radios, checkboxes) {
                 item.name = name.trim();
                 item.singleprice = singleprice;
                 item.data_singleProduct = data_singleProduct;
-                item.id = checkbox.id
+                item.id = checkbox.id;
 
                 if(singleProcuctEdited === false)
                 {
@@ -82,6 +114,15 @@ function inputCheckedTotal(radios, checkboxes) {
                 singleProductTemplate(item.name, singleprice, item.data_singleProduct, item.id);
             }
 
+            if (if_required(checkbox.parentElement.parentElement.parentElement.className.split(/\s+/)[1],
+                checkbox.parentElement.parentElement.parentElement.getAttribute('data-max'), document.querySelectorAll('div.option-board[class^=option-][data-max]:not([data-max="0"]) input[type="checkbox"]:not([id^=inner-check])')) ||
+                (!addBtn.hasAttribute("disabled") && typeof checkbox !== "undefined" &&
+                    parseBoolean(checkbox.getAttribute("data-singleProduct")) === true) &&
+                document.querySelectorAll('div.option-board[class^=option-][data-max]:not([data-max="0"]) input[id^=inner-]').length > 0)//get true of false if this is a single product unaffected by button activation, and total price, its a stand alone product
+                addBtn.removeAttribute("disabled");
+            else
+                addBtn.setAttribute("disabled", "disabled");
+
             if(bool_singleProduct === false)//dont add it to total
                 total += parseFloat(checkbox.value);
         });
@@ -91,21 +132,50 @@ function inputCheckedTotal(radios, checkboxes) {
         else
             total *= parseInt(qtyInput.value);
     }
-    return total+mainPrice;
+    return total;
 }
+//==================END calcualte all the checked inputs(radio, checbox) price total and create singleProcuct cart template here===============================
+
 
 function performInitialCalc() {
-
     let el = document.getElementsByClassName("modal-show");
     let radios = el[0].querySelectorAll("input[type='radio']:checked");
     let checkboxs = el[0].querySelectorAll("input[type='checkbox']:checked");
     printTotal(inputCheckedTotal(radios, checkboxs));
 }
 
-function findClassAncestor (element, cls) {
-    // while ((el = el.parentElement));
-    // return el;
+// function findClassOffspring (element, cls) {
+//     let els = [], stop = false;
+//     while (element.firstChild !== null && element && stop !== true && !element.classList.contains(cls)) {
+//         els.unshift(element);
+//         if (element.firstChild.nodeName !== "#document") {
+//             element = element.firstChild;
+//         } else
+//             stop = true;
+//
+//     }
+// }
 
+function findClassStartsWithAncestor (element, cls) {
+    let els = [], stop = false, found = false;
+    debugger;
+    while (element.parentNode !== null && element && stop!==true) {
+        els.unshift(element);
+        if(element.className.split(/\s+/).length > 1) {
+            if (element.parentNode.nodeName !== "#document" && element.className.split(/\s+/)[1].startsWith(cls)) {
+                stop = true;
+
+                found = true;
+            } else
+                element = element.parentNode;//stop = true;
+        } else
+            element = element.parentNode;
+
+    }
+    return found;
+}
+
+function findClassAncestor (element, cls) {
     let els = [], stop = false;
     while (element.parentNode !== null && element && stop!==true && !element.classList.contains(cls)) {
         els.unshift(element);
@@ -119,8 +189,6 @@ function findClassAncestor (element, cls) {
 }
 
 function findDataAncestor (element, data) {
-    // while ((el = el.parentElement));
-    // return el;
 
     let els = [], stop = false;
     while (element && stop!==true && !element.getAttribute(data)) {
@@ -136,8 +204,8 @@ function findDataAncestor (element, data) {
 
 //===============creates the modal wrapper where createModalData(response) inserts its innerHTML==================
 
-// =================Beginning of initiateRadioandCheckboxInputs(radios, checkboxs) {...}==============================
-function getCheckboxCount(data_max, checkboxList) {
+// =================Beginning of initiateInputsChecked(radios, checkboxs) {...}==============================
+function getCheckboxCount(data_max, inputs1) {//checkbox or radio input
     let total_data_max = 0;
     debugger;
     //sum all the parent element datamax thats what to compare against
@@ -148,37 +216,55 @@ function getCheckboxCount(data_max, checkboxList) {
     let parents = document.querySelectorAll('div.option-board[data-max]:not([data-max="0"])');
     let countBothChecked = 0;
     let countCheckboxChecked = 0;
-    let hasRadio = true;
+    let hasInnerInputCheck = true;
+    let innerInputCheckedOnce = false;
     arraySaleNames = [];
+    arraySalePrices = [];
+
     "use strict";
     parents.forEach((parent)=>{
-        Array.from(checkboxList).forEach((checkbox) => {
-            if(parseBoolean(checkbox.getAttribute("data-singleProduct")) === false) {
-                let radios = typeof checkbox.parentElement.children[2] !== 'undefined'
-                    ? checkbox.parentElement.children[2].querySelectorAll("input") : [];
-                Array.from(radios).forEach((radio) => {
-                    if (checkbox.checked && radio.checked && parent.isSameNode(checkbox.parentElement.parentElement.parentElement) &&
-                        parent.isSameNode(radio.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement))
-                        countBothChecked++;
+        Array.from(inputs1).forEach((input1) => {
+            if(input1.hasAttribute("data-singleProduct"))
+                if(parseBoolean(input1.getAttribute("data-singleProduct")) === false) {
+                    let inputs2 = typeof input1.parentElement.children[2] !== 'undefined'
+                        ? input1.parentElement.querySelectorAll(`input[type='${parseBoolean(input1.parentElement.getAttribute("data-multiple")) ? "checkbox" : "radio"}'][id^=inner-]`) : [];
+                    Array.from(inputs2).forEach((input2) => {
+                        if (innerInputCheckedOnce === false && input1.checked && input2.checked && parent.isSameNode(findClassAncestor(input1, "option-board")) &&
+                            parent.isSameNode(findClassAncestor(input2, "option-board"))) {
+                            countBothChecked++;
 
-                    if (radio.checked && parent.isSameNode(radio.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement))
-                        arraySaleNames.push(radio.nextElementSibling.textContent.trim());
-                    hasRadio = true;
+                            innerInputCheckedOnce = true;//the inner input of that block(div.inner-..or family is checked at least once satisfies condition
+                        }
 
-                    data_max = radio.parentElement.parentElement.parentElement.className.split(/\s+/)[1].startsWith("inner-option-") ?
-                        radio.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-max') : data_max;
-                });
-                if (checkbox.checked && parent.isSameNode(checkbox.parentElement.parentElement.parentElement)) {
-                    countCheckboxChecked++;
-                    arraySaleNames.push(checkbox.nextElementSibling.textContent.trim());
+                        if (input2.checked && parent.isSameNode(findClassAncestor(input2, "option-board"))) {
+                            arraySaleNames.push(input2.getAttribute("data-option").trim());
+                            arraySalePrices.push(input2.value.trim());
+                        }
+
+                        hasInnerInputCheck = true;
+
+                        data_max = findClassAncestor(input2, "inner-option-board").className.split(/\s+/)[1].startsWith("inner-option-") ?
+                            findClassAncestor(input2, "option-board").getAttribute('data-max') : data_max;
+                    });
+                    if (input1.checked && parent.isSameNode(findClassAncestor(input1, "option-board"))) {
+                        countCheckboxChecked++;
+                        arraySaleNames.push(input1.getAttribute("data-option").trim());
+                        arraySalePrices.push(input1.value.trim());
+                    }
+                    if (input1.checked && countCheckboxChecked === parseInt(data_max) && hasInnerInputCheck === false && countBothChecked !== 0 && parent.isSameNode(findClassAncestor(input1, "option-board")))
+                        countBothChecked = countCheckboxChecked;
+
+                    hasInnerInputCheck = false;
+                    innerInputCheckedOnce = false;
                 }
-                if(checkbox.checked && countCheckboxChecked === parseInt(data_max) && hasRadio === false && countBothChecked !== 0 && parent.isSameNode(checkbox.parentElement.parentElement.parentElement))
-                    countBothChecked = countCheckboxChecked;
-
-                hasRadio = false;
-            }
         });
     });
+
+    document.querySelectorAll('div.option-board[class^=option-]:first-child input').forEach((input)=>{
+        arraySaleNames.push(input.getAttribute("data-option").trim());
+        arraySalePrices.push(input.value.trim());
+    });
+
 
     return countCheckboxChecked === countBothChecked && countBothChecked === total_data_max && countCheckboxChecked === total_data_max ? countBothChecked : 0;
 }
@@ -186,20 +272,21 @@ function getCheckboxCount(data_max, checkboxList) {
 function getParentDataMax(element) {
     let els = [];
     let data = null;
-    if (element.classList)
-        while (element.nodeType === 1 ) {
-            try {
-                if (element.hasAttribute('data-max')) {
-                    data = element.getAttribute('data-max');
+    if(typeof element !== "undefined")
+        if (element.classList)
+            while (element.nodeType === 1 ) {
+                try {
+                    if (element.hasAttribute('data-max')) {
+                        data = element.getAttribute('data-max');
+                    }
+                    els.unshift(element);
+                    element = element.parentNode;
+                } catch (err) {
+                    console.log(err);
+                    els.unshift(element);
+                    element = element.parentNode;
                 }
-                els.unshift(element);
-                element = element.parentNode;
-            }catch (err) {
-                console.log(err);
-                els.unshift(element);
-                element = element.parentNode;
             }
-        }
     debugger;
     return data;
 }
@@ -219,60 +306,68 @@ function checkOptionClassExistence() {
 }
 
 function if_required(option_board_class, data_max, element) {
-  //=========first check if button has all option classes, not then return them=============
+    //=========first check if button has all option classes, not then return them=============
     checkOptionClassExistence();
-
+//if multiple then radio here cause checkbox is for multiple nd radio for datamax
     return (addBtn.classList.contains(option_board_class) &&
-        (parseInt(data_max) === 0 && !addBtn.hasAttribute("disabled")) || (parseInt(data_max) !==0 &&
-            parseInt(data_max) === getCheckboxCount(data_max, document.querySelectorAll("div.option-board[class^=option-] input[type='checkbox']"))) &&
-        element[0].type === "checkbox")  || (addBtn.classList.contains(option_board_class) && (
-        (getParentDataMax(element) === null && getCheckboxCount(data_max, document.querySelectorAll("div.option-board[class^=option-] input[type='checkbox']")) !== 0) ||
-        parseInt(getParentDataMax(element)) === getCheckboxCount(data_max, document.querySelectorAll("div.option-board[class^=option-] input[type='checkbox']"))) &&
-        element.type === "radio");
+        (parseInt(getParentDataMax(element[0])) === 0 && !addBtn.hasAttribute("disabled")) || (parseInt(getParentDataMax(element[0])) !== 0 &&
+            parseInt(getParentDataMax(element[0])) === getCheckboxCount(data_max, document.querySelectorAll('div.option-board[class^=option-][data-max]:not([data-max="0"]) input[type="checkbox"]:not([id^=inner-check])'))) &&
+        element[0].type === "checkbox") || (addBtn.classList.contains(option_board_class) && (
+        (getParentDataMax(element) === null && getCheckboxCount(data_max, document.querySelectorAll('div.option-board[class^=option-][data-max]:not([data-max="0"]) input[type="checkbox"]:not([id^=inner-check])')) !== 0) ||
+        parseInt(getParentDataMax(element)) === getCheckboxCount(data_max, document.querySelectorAll('div.option-board[class^=option-][data-max]:not([data-max="0"]) input[type="checkbox"]:not([id^=inner-check])'))));
 }
 
 function printTotal(total){
     document.getElementById('item-add-value').textContent = "Add to bag : $" + parseFloat(total).toFixed(2);
 }
 
-function initiateRadioandCheckboxInputs(radios, checkboxs){
-    for (let i = 0; i < radios.length; i++) {
-        radios[i].addEventListener('change', function() {
+function initiateInputsChecked(inputCheckElement1, inputCheckElement2){
+    let boolRadioOrCheckbox = true;
+    let inputsCheckList = [];
+    debugger;
+    // if the first input element has data-multiple, the unlocking depends on the first elemen parent data multiple attr.
+    if(inputCheckElement1.length === 0 || parseBoolean(findClassAncestor(inputCheckElement2[0], "checkbox").getAttribute("data-multiple"))) {
 
-            checkboxs.forEach((checkbox) => {
-                checkbox.removeAttribute("disabled");
-                checkbox.onclick = function () {
+        inputsCheckList.push(...inputCheckElement2);
+
+        boolRadioOrCheckbox =false;
+    }
+
+    if(inputCheckElement1.length > 0){
+
+        inputsCheckList.push(...inputCheckElement1);
+
+    }
+
+    if(boolRadioOrCheckbox === false) {
+
+        let inputs = document.querySelectorAll('div.option-board[class^=option-][data-max]:not([data-max="0"]) input[id^=inner-]');
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].type === "radio") {
+                inputsCheckList.push(inputs[i]);
+            }
+        }
+    }
+
+    for (let i = 0; i < inputsCheckList.length; i++) {
+        inputsCheckList[i].addEventListener('change', function(event) {
+
+            if (!event.target.checked) {
+                let inputCheckElement = typeof event.target.parentElement.children[2] !== 'undefined'
+                    ? event.target.parentElement.children[2].querySelectorAll("input") : [];
+                Array.from(inputCheckElement).forEach((inputElement) => {
+                    if (inputElement.checked)
+                        inputElement.checked = false;
+                });
+            }
+
+            inputCheckElement2.forEach((inputCheck) => {
+                inputCheck.removeAttribute("disabled");
+                inputCheck.onclick = function () {
                     debugger;
-                    if(cart_item !== null)
-                        if (parseBoolean(checkbox.getAttribute("data-singleProduct")) === true &&
-                                findDataAncestor(cart_item, "data-option").getAttribute("data-option") === checkbox.getAttribute("data-option")) {
-                            if (confirm("you are about to make changes, these would affect the extra products, please note that any changes you've made would be discarded, " +
-                                "would you like to proceed")) {
-                                singleProcuctEdited = false;//prevent the edit template from been put in the cart.
-                                singleProcuctClicked = true;//allow the add template to be put in the cart.
-                            }
-                        }
 
                     printTotal(inputCheckedTotal(document.querySelectorAll("input[type='radio']:checked"),
                         document.querySelectorAll("input[type='checkbox']:checked")));
-                    if (if_required(checkbox.parentElement.parentElement.parentElement.className.split(/\s+/)[1],
-                        checkbox.parentElement.parentElement.parentElement.getAttribute('data-max'), checkboxs) ||
-                        (!addBtn.hasAttribute("disabled") && typeof checkbox[i] !== "undefined" &&
-                            parseBoolean(checkbox[i].getAttribute("data-singleProduct")) === true) &&
-                        document.querySelectorAll("div.option-1 div.option-list  input[type='radio']:checked").length > 0)//get true of false if this is a single product unaffected by button activation, and total price, its a stand alone product
-                        addBtn.removeAttribute("disabled");
-                    else
-                        addBtn.setAttribute("disabled", "disabled");
-                    //end check if option require another before button is enabled
-
-                    if (!checkbox.checked) {
-                        let radios = typeof checkbox.parentElement.children[2] !== 'undefined'
-                            ? checkbox.parentElement.children[2].querySelectorAll("input") : [];
-                        Array.from(radios).forEach((radio) => {
-                            if (radio.checked)
-                                radio.checked = false;
-                        });
-                    }
                 }
             });
             debugger;
@@ -280,15 +375,14 @@ function initiateRadioandCheckboxInputs(radios, checkboxs){
             printTotal(inputCheckedTotal(document.querySelectorAll("input[type='radio']:checked"),
                 document.querySelectorAll("input[type='checkbox']:checked")));
 
-            let bool_outer_radio = radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1].startsWith("option-");
-            let bool_inner_radio = radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1].startsWith("inner-option-");
+            let bool_outer_inputCheck_element = findClassStartsWithAncestor(inputsCheckList[i], "option-");
+            let bool_inner_inputCheck_element = findClassStartsWithAncestor(inputsCheckList[i], "inner-option-");
 
-            let radio_Max;
-            radio_Max = radios[i].parentElement.parentElement.parentElement.getAttribute('data-max');
+            let inputElement_Max = inputsCheckList[i].parentElement.parentElement.parentElement.getAttribute('data-max');
 
-            if(bool_outer_radio || bool_inner_radio) {
-                if (if_required(radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1],
-                    radio_Max, radios[i]) && document.querySelectorAll("div.option-1 div.option-list  input[type='radio']:checked").length > 0)//if loophole on html, check would still work//set data-max in radio to zero("0") if there'll be requied no. of input to activate button and 1 since one radio click anyway
+            if((bool_outer_inputCheck_element || bool_inner_inputCheck_element) && inputsCheckList[i].id.startsWith("inner-")) {
+                if (if_required(inputsCheckList[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1],
+                    inputElement_Max, inputsCheckList[i]) && document.querySelectorAll(`div.option-1 div.option-list  input[${boolRadioOrCheckbox ? "type='radio']:checked" : "type='checkbox']:checked"}`).length > 0)//if loophole on html, check would still work//set data-max in radio to zero("0") if there'll be requied no. of input to activate button and 1 since one radio click anyway
                     addBtn.removeAttribute("disabled");
                 else
                     addBtn.setAttribute("disabled", "disabled");
@@ -297,7 +391,7 @@ function initiateRadioandCheckboxInputs(radios, checkboxs){
         })
     }
 }
-// =================End of initiateRadioandCheckboxInputs(radios, checkboxs) {...}==============================
+// =================End of initiateInputsChecked(inputCheckElement1, inputCheckElement2) {...}==============================
 
 
 //======Begin perform all cart item click operation for edit and single product add button===========
@@ -322,11 +416,13 @@ function initializeSingleProductAddBtn() {
     singleProductBtn.addEventListener('click', function (event) {
         triggerClick(increaseSingleProductBtn);
         document.getElementById("singleProd-decrease").disabled = false;
-
 debugger;
         singleCartItems = [];
+
         singleProcuctEdited = true;//allow the Edit template to be put in the cart.
         singleProcuctClicked = false;//prevent the normal add template from been put in the cart
+
+        let cartParent = null;
 
         let modal = findClassAncestor(event.target, "p-modal");
         let formId = modal.getAttribute("data-formId");
@@ -334,26 +430,34 @@ debugger;
         let cart_Item = null;
 
         let cartItemList = document.getElementsByClassName("cart-item");
-        'use strict';
+        'use strict';//Create modal for single product here if any modal has existed just replace the values with single products vals
         Array.from(cartItemList).forEach((cartItem)=>{
             cartItem.querySelectorAll(".single-product").forEach((singleProduct)=>{
+                //===only keep single cart item data that have the same parntt===
+                if(findClassAncestor(singleProduct, "cart-item").querySelector(`div.single-product[data-formId='${formId}']`) && cartParent === null)
+                    cartParent = findClassAncestor(singleProduct, "cart-item");
+
                 if(singleProduct.hasAttribute("data-formId") && singleProduct.getAttribute("data-formId") === formId){
-                    let parentEl =  findClassAncestor(event.target, "order-wrapper");
-                    let singleProductQtty = parentEl.children[1].children[0].children[2];
+
+                    let modalParentEl =  findClassAncestor(event.target, "order-wrapper");
+                    let singleProductQtty = modalParentEl.children[1].children[0].children[2];
                     singleProduct.children[0].textContent = singleProductQtty.value;
                     singleProduct.children[2].textContent = "$" + singleProductBtn.textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0].toString();
 
                     cart_Item = singleProduct;
                 }
 
-                singleCartItems.push(singleProduct);
+                //===only keep single cart item data that have the same parntt===
+                if(cartParent !== null)
+                    if(cartParent.isSameNode(findClassAncestor(singleProduct, "cart-item")))
+                        singleCartItems.push(singleProduct);
             })
         });
 
         document.getElementById("total").textContent = "$" + getTotalPrice();
 
         cacheSaveCartItemData(modal, formId, cart_Item, true);
-        singleCartItems = [];
+        // singleCartItems = [];
     });
 }
 
@@ -367,12 +471,15 @@ function createEditHtmlForSingleProduct(formId, name, price, quantity) {
                     <div class="order-wrapper">
                         <div class="image-wrapper">
                             <div class="mbr-figure" style="height: 250px;">
-                                
+                                <img src="../images/Placeholder.png" alt="restaurant" title="product">
                                 <!--food display title-->
                                 <div class="img-caption">
                                     <p class="mbr-fonts-style align-left mbr-white display-5 mbr-figure ">
                                         ${name}
                                     </p>
+                                    <h3 class="mbr-fonts-style align-left main-price mbr-white display-5 mbr-figure ">
+                                        $${price}
+                                    </h3>
                                 </div>
                             </div>
                         </div>
@@ -479,14 +586,6 @@ function loadShoppingCartMenu(element) {
                 }
                 cartMenuData.firstChild.classList.add("cached");
                 document.body.appendChild(cartMenuData);
-
-                if(document.querySelectorAll(`input[type='checkbox'][data-singleproduct='true']`).length > 0){
-                   if (confirm("you are about to make changes, these would affect the extra products, please note that any changes you make would be discarded on clicking the Add Button, " +
-                            "would you like to proceed")) {
-                            // singleProcuctEdited = false;//prevent the edit template from been put in the cart.
-                            // singleProcuctClicked = true;//allow the add template to be put in the cart.
-                        }
-                }
             }
         });
     }
@@ -500,19 +599,23 @@ function doEdit(clickedElement) {
             if ((clickedElement[i].classList.contains("cart-product") ||
                 clickedElement[i].classList.contains("cart-description"))) {
                 if(!findClassAncestor(clickedElement[i], "cached") && document.querySelectorAll('.p-modal').length > 0)
-                    document.querySelectorAll('.p-modal').forEach((element)=>{
-                        if(element.hasAttribute('data-formId') && element.getAttribute('data-formId').trim() === formId) {
-                            if(document.getElementById("close-modal"))
+                    document.querySelectorAll('.p-modal').forEach((element)=> {
+                        if (element.hasAttribute('data-formId') && element.getAttribute('data-formId').trim() === formId) {
+                            if (document.getElementById("close-modal"))
                                 triggerClick(document.getElementById("close-modal"));
-                            if(document.getElementById("singleProdclose-modal"))
+                            if (document.getElementById("singleProdclose-modal"))
                                 triggerClick(document.getElementById("singleProdclose-modal"));
 
                             element.classList.add('modal-show');
-                        } else loadShoppingCartMenu(clickedElement[i]);
+                        } else
+                            loadShoppingCartMenu(clickedElement[i]);
                     });
                 else
                     loadShoppingCartMenu(clickedElement[i]);
+
                 activeMenuElements();
+
+                response = true;//incase it became false make possible to activeMenuElements();
             }else {
                 singleProductPrice = 0; //reset the price for other singleproduct
 
@@ -521,7 +624,7 @@ function doEdit(clickedElement) {
                 if(document.getElementById("singleProdclose-modal"))
                     triggerClick(document.getElementById("singleProdclose-modal"));
 
-                createEditHtmlForSingleProduct(formId, clickedElement[i].children[1].textContent, clickedElement[i].children[2].textContent,
+                createEditHtmlForSingleProduct(formId, clickedElement[i].children[1].textContent, clickedElement[i].getAttribute("data-priceVal"),
                     clickedElement[i].children[0].textContent);
                 initializeSingleProductAddBtn();
                 activateCloseModalForm();
@@ -657,24 +760,74 @@ function mainProductTemplate(image, name, price, data_formId, quantity, arraySal
     singleCartItems.forEach((singleCartItem)=>{
         cart_item.innerHTML += singleCartItem.outerHTML;
     });
+
+    if(itemSales.length !== 0){
+        for (let i=0; i<itemSales.length; i++) {
+            if(!itemSales[i].boolSingle) {
+                // get index of object
+                let removeIndex = itemSales.map(function(item) { return item.id; }).indexOf(data_formId);
+                // remove object
+                itemSales.splice(removeIndex, 1);
+
+                i--;//decrement loop once the array is reduced in length
+            }
+        }
+    }
+
+    itemSales.push({
+        salesId : data_formId,
+        quantity : parseInt(quantity),
+        boolSingle : false,
+        arraySaleNames : arraySaleNames,
+        arraySalePrices : arraySalePrices,
+        sale: []
+    });
+
     return cart_item;
 }
 
-function finalCheckOnAddtoCart(radios) {
-    for (let i = 0; i < radios.length; i++) {
-        let bool_outer_radio = radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1].startsWith("option-");
-        let bool_inner_radio = radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1].startsWith("inner-option-");
+function finalCheckOnAddtoCart(inputCheckElement1, inputCheckElement2){
+    let boolRadioOrCheckbox = true;
+    let inputsCheckList = [];
+    debugger;
+    // if the first input element has data-multiple, the unlocking depends on the first elemen parent data multiple attr.
+    if(inputCheckElement1.length === 0 || parseBoolean(findClassAncestor(inputCheckElement2[0], "checkbox").getAttribute("data-multiple"))) {
 
-        let radio_Max;
-        radio_Max = radios[i].parentElement.parentElement.parentElement.getAttribute('data-max');
+        inputsCheckList.push(...inputCheckElement2);
 
-        if (bool_outer_radio || bool_inner_radio) {
-            if (if_required(radios[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1],
-                radio_Max, radios[i]) && document.querySelectorAll("div.option-1 div.option-list  input[type='radio']:checked").length > 0)//if loophole on html, check would still work//set data-max in radio to zero("0") if there'll be requied no. of input to activate button and 1 since one radio click anyway
+        boolRadioOrCheckbox =false;
+    }
+
+    if(inputCheckElement1.length > 0){
+
+        inputsCheckList.push(...inputCheckElement1);
+
+    }
+
+    if(boolRadioOrCheckbox === false) {
+
+        let inputs = document.querySelectorAll('div.option-board[class^=option-][data-max]:not([data-max="0"]) input[id^=inner-]');
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].type === "radio") {
+                inputsCheckList.push(inputs[i]);
+            }
+        }
+    }
+
+    for (let i = 0; i < inputsCheckList.length; i++) {
+        let bool_outer_inputCheck_element = findClassStartsWithAncestor(inputsCheckList[i], "option-");
+        let bool_inner_inputCheck_element = findClassStartsWithAncestor(inputsCheckList[i], "inner-option-");
+
+        let inputElement_Max = inputsCheckList[i].parentElement.parentElement.parentElement.getAttribute('data-max');
+
+        if((bool_outer_inputCheck_element || bool_inner_inputCheck_element) && inputsCheckList[i].id.startsWith("inner-")) {
+            if (if_required(inputsCheckList[i].parentElement.parentElement.parentElement.className.split(/\s+/)[1],
+                inputElement_Max, inputsCheckList[i]) && document.querySelectorAll(`div.option-1 div.option-list  input[${boolRadioOrCheckbox ? "type='radio']:checked" : "type='checkbox']:checked"}`).length > 0)//if loophole on html, check would still work//set data-max in radio to zero("0") if there'll be requied no. of input to activate button and 1 since one radio click anyway
                 addBtn.removeAttribute("disabled");
             else
                 addBtn.setAttribute("disabled", "disabled");
         }
+        //end radio&check if option require another before button is enabled
     }
 }
 
@@ -711,7 +864,10 @@ function createmodalInputsJSON(modalInputs, modalInputsJSON) {
 function cacheSaveCartItemData(getModal, data_formId, cart_item, boolSingle) {
     let counterDel = 0;
     debugger;
-    let cartItems = [], cartModal = [], cartModalInputStatus = [];
+    let cartSales = [], cartItems = [], cartModal = [], cartModalInputStatus = [];
+
+    if(localStorage.getItem('sales'))
+        cartSales = JSON.parse(localStorage.getItem('sales'));
 
     if(localStorage.getItem('cart'))
         cartItems = JSON.parse(localStorage.getItem('cart'));
@@ -722,6 +878,18 @@ function cacheSaveCartItemData(getModal, data_formId, cart_item, boolSingle) {
     if(localStorage.getItem('cart-modal-input'))
         cartModalInputStatus = JSON.parse(localStorage.getItem('cart-modal-input'));
 
+    for (let i=0; i<cartSales.length; i++) {
+        let cartEls = cart_item.querySelectorAll(`div.single-product[data-formid], div.cart-description[data-formid]`);
+        cartEls.forEach((els, jIndex) => {
+            if (typeof cartSales[i] !== "undefined")
+                if (cartSales[i].salesId === els.getAttribute("data-formId")) {
+                    cartSales.splice(i, 1);
+                    i--;
+                }
+        });
+    }
+
+    // counterDel = 0;
     cartItems.forEach((cartData, index)=>{
         if(boolSingle === true) {
             if (createNodeElement(cartData).firstChild.getAttribute("data-formId") === cart_item.parentElement.getAttribute("data-formId")) {
@@ -766,24 +934,45 @@ function cacheSaveCartItemData(getModal, data_formId, cart_item, boolSingle) {
 
     cartModalInputStatus.push(modalInputsJSON);
     localStorage.setItem('cart-modal-input', JSON.stringify(cartModalInputStatus));
+
     cartItems.push(cart_item.outerHTML);
     localStorage.setItem('cart', JSON.stringify(cartItems));
+
+
+    document.getElementsByClassName("navbar-res")[0].style.top = "-50px";
     cartModal.push(getModal.outerHTML);
     localStorage.setItem('cart-modal', JSON.stringify(cartModal));
+
+    for (let i=0; i<itemSales.length; i++) {
+        itemSales[i].sale = [];
+
+        itemSales[i].arraySaleNames.forEach((name, index) => {
+            itemSales[i].arraySalePrices.forEach((price, jIndex) => {
+                if (index === jIndex) {
+                    if(itemSales[i].boolSingle) {
+                        if(singleprodqtyInput)
+                            if(findClassAncestor(singleprodqtyInput, "p-modal").getAttribute("data-formid") === itemSales[i].salesId) itemSales[i].quantity = parseInt(singleprodqtyInput.value);
+                    }else  {
+                        itemSales[i].quantity = parseInt(qtyInput.value);
+                    }
+
+                    itemSales[i].sale.push({ "productName": name, "productPrice": price });
+                }
+            });
+        });
+    }
+
+    cartSales = itemSales;
+    localStorage.setItem('sales', JSON.stringify(cartSales));
 }
 
 function initiateAddToCartButton(cartBtn){
-    let target = null;
     cartBtn.forEach(function (btn) {
         btn.addEventListener('click', function (event) {debugger;
-            target = event.target;
-
             let radios = document.querySelectorAll("input[type='radio']"); // or document.querySelectorAll("li");
+            let checkboxs = document.querySelectorAll("input[type='checkbox']"); // or document.querySelectorAll("li");
 
-            finalCheckOnAddtoCart(radios);
-
-            // singleProcuctClicked = false;//prevent the add template from being removed from the cart.
-            //divOptionWrapper(addDataAtrribte).push(findancestor(button, class=optionwrappper)...save all the htmlstring for the each product modal for editing
+            finalCheckOnAddtoCart(radios, checkboxs);
 
             if (event.target.parentElement.classList.contains("add-btn") && !document.getElementById("add-btn").getAttribute("disabled")) {//event.target.parentElement.classList.contains("add-button-wrapper") ||
                 let fullPath =event.target.parentElement.parentElement.parentElement.parentElement.children[0].children[0].children[0].src;
@@ -791,16 +980,15 @@ function initiateAddToCartButton(cartBtn){
 
                 let partialPath = fullPath.slice(positn);
                 let name = event.target.parentElement.parentElement.parentElement.parentElement.children[0].children[0].children[1].children[0].textContent.trim();
-                let price = event.target.textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0].toString();
-                // let singlePrice = document.querySelector('input[name^="radio"]:checked').getAttribute('value');
+                let initialCost = event.target.parentElement.parentElement.parentElement.parentElement.children[0].children[0].children[1].children[1].textContent.trim();
 
-                // console.log(event.target.parentElement.parentElement.parentElement.parentElement);
+                let price = event.target.textContent.match(/[+-]?\d+(\.\d+)?/g).map(function(v) { return parseFloat(v); })[0].toString();
 
                 let quantity =
                     event.target.parentElement.parentElement.parentElement.parentElement.children[1].children[1].children[2].value;
 
                 // ----get the checked data option to set on the cart list-------------------
-                let data_option = document.querySelector('input[name^="radio"]:checked').getAttribute('data-option');
+                // let data_option = document.querySelector('input[name^="radio"]:checked').getAttribute('data-option');
 
                 // ----get the modal data formId to set on the cart list description or image-------------------
                 let getModal = findClassAncestor(event.target, 'p-modal');
@@ -811,17 +999,16 @@ function initiateAddToCartButton(cartBtn){
                 item.name = name;
                 item.price = price;
                 item.data_formId = data_formId;
-                item.data_option = data_option;
-
+                // item.data_option = data_option;
 
                 const cart_item = mainProductTemplate(item.image, item.name, item.price, item.data_formId, quantity, arraySaleNames);
 
-                if(!event.target.isSameNode(target))
-                    singleCartItems = [];
+                //===put the menu initial name and price as first
+                arraySaleNames.unshift(name);
+                arraySalePrices.unshift(initialCost);
 
-                // console.log(item);
                 const cart = document.getElementById("cart");
-                // const total = document.querySelectorAll("");
+
                 const checkout = document.querySelector(".checkout-total");
                 // ---------------check if cart item already exist-----------------
                 let cartItemData = document.querySelector(`.cart-items li[data-formId='${data_formId}']`);
@@ -839,10 +1026,13 @@ function initiateAddToCartButton(cartBtn){
 
                         cartItemData.children[2].children[1].innerText = "includes: " + arraySaleNames.join(", ");
 
+                        singleProcuctEdited = true;
+                        singleProcuctClicked = false;
+
                         triggerChange(qtyInput);
                     }
                     if (qtyInput.classList.contains("touched")) {
-                        // new_Qty = parseInt(quantity)+1;
+
                         document.querySelectorAll(".quantity")[0].innerText = '' + parseInt(quantity)+1;
                         cartItemData.children[2].children[1].innerText = "includes: " + arraySaleNames.join(", ");
                         //remove changed class from qtty input
@@ -869,7 +1059,7 @@ function initiateAddToCartButton(cartBtn){
 
   // ==============increase or decrease input value=================== changeValue
 function changesingleProdValue(val, price){
-    let singleprodqtyInput = document.getElementById('singleProd-quantity');//global element
+    singleprodqtyInput = document.getElementById('singleProd-quantity');//global element
     let value = parseInt(singleprodqtyInput.value, 10);
     value = isNaN(value) ? 0 : value;
     if(val === "decrease")
@@ -918,6 +1108,12 @@ function createModalWrapper($this, html, id) {
     let productCost = $this.children[0].children[0].children[1].children[0].children[0].children[1].textContent.trim();
     let productDesc = $this.children[0].children[0].children[1].children[0].children[1].children[0].textContent.trim();
 
+    const navWrapper = document.createElement("div");
+    navWrapper.classList.add("navbar-res");
+    const navDescr = document.createElement("p");
+    navDescr.classList.add("navDescr");
+    navDescr.textContent = productName;
+    navWrapper.appendChild(navDescr);
 
     const orderWrapper = document.createElement("div");
     orderWrapper.classList.add("order-wrapper");
@@ -979,6 +1175,7 @@ debugger;
 
                             `;
     orderWrapper.appendChild(innerFooter);
+    orderWrapper.appendChild(navWrapper);
 
     let modals = document.getElementsByClassName("p-modal");
     //
@@ -1018,11 +1215,14 @@ function activeMenuElements(){
     let radios = document.querySelectorAll("input[type='radio']"); // or document.querySelectorAll("li");
     let checkboxs = document.querySelectorAll("input[type='checkbox']"); // or document.querySelectorAll("li");
 
-    initiateRadioandCheckboxInputs(radios, checkboxs);
+    initiateInputsChecked(radios, checkboxs);
 
     initiateAddToCartButton(cartBtn);
 
     activateCloseModalForm();
+
+    // When the user scrolls down 20px from the top of the document, slide down the navbar
+    document.getElementsByClassName("order-wrapper")[0].onscroll = function() {scrollFunction()};
 }
 //=============End of creates the modal wrapper where createModalData(response) inserts its innerHTML=====================
 
@@ -1071,6 +1271,8 @@ function doCreateModal(parentItem, pModal, id, test) {
 (function(){
     // let id = guid(15);
     let id = "1YPKTW5EbqX0tcn";
+    let menuCardTarget = null;
+
     document.getElementById('test').setAttribute('data-id', id);
     // toggles.forEach((toggle)=>{
         document.addEventListener('click', (event)=> {
@@ -1080,6 +1282,31 @@ function doCreateModal(parentItem, pModal, id, test) {
             let parentItem = findClassAncestor(event.target, 'toggle');
  //==========================if product card/div is clicked=============================
             if (findClassAncestor(event.target, 'toggle').classList.contains('toggle') && !document.querySelector(`.cart-items li[data-formId='${parentItem.getAttribute('data-id')}']`)) {
+
+                //===only keep single cart item data that have the same parntt===
+                if(menuCardTarget !== null)
+                    if(!findClassAncestor(event.target, 'toggle').isSameNode(menuCardTarget)){
+                    singleProcuctEdited = false;//prevent the edit template from been put in the cart.
+                    singleProcuctClicked = true;//allow the add template to be put in the cart.
+
+                    singleCartItems = [];
+
+                    if(itemSales.length !== 0) {
+                        for (let i=0; i<itemSales.length; i++) {
+                            if (itemSales[i].boolSingle) {
+                                // get index of object
+                                let removeIndex = itemSales.map(function (item) {return item.boolSingle;}).indexOf(true);
+                                // remove object
+                                itemSales.splice(removeIndex, 1);
+
+                                i--;//decrement loop once the array is reduced in length
+                            }
+                        }
+                    }
+                }
+
+                menuCardTarget = findClassAncestor(event.target, 'toggle');
+                //===only keep single cart item data that have the same parntt===
 
                 if (parentItem.getAttribute('data-id').length === 15)
                 //====for test=============
@@ -1097,6 +1324,7 @@ function doCreateModal(parentItem, pModal, id, test) {
                 let cart_list_item = document.querySelector(`.cart-product[data-formId='${parentItem.getAttribute('data-id')}']`);//cart-product quantity
                 triggerClick(cart_list_item);
             }
+
         });
 
     document.addEventListener("keyup", function(e) {
@@ -1209,7 +1437,7 @@ function loadShoppingCart() {
                 return parseFloat(v)*singleProductQtty;
             })[0].toFixed(2);
         }
-        
+
         printTotal(inputCheckedTotal(document.querySelectorAll("input[type='radio']:checked"),
             document.querySelectorAll("input[type='checkbox']:checked")));
 

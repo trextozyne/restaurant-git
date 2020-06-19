@@ -1,4 +1,3 @@
-
 let menuItem = [];
 let categoryList = [];
 let counter = 0;
@@ -17,8 +16,7 @@ function getBoolean(a) {
 
 //=========onload create the product cards/divs====================
 function createItemListHtml(menu_item, curr_index){
-    if(menuItem[curr_index === 0 ? 0 : curr_index-1].itemCategoryId !== menu_item.itemCategoryId || counter === 0
-        ) {
+    if(menuItem[curr_index === 0 ? 0 : curr_index-1].itemCategoryId !== menu_item.itemCategoryId || counter === 0) {
         sectionContainer = document.createElement('section');
         sectionContainer.classList.add('services6', 'itemCategoryArea');
         //======container=====
@@ -224,6 +222,8 @@ function getMenuData(menuItemId, callback) {
 function createModalData(objData) {
     debugger;
     let menuOptionBoards = [];
+    let divCheckboxCopy = null;
+
     let optionBoard, innerOptionBoard, title, innerTitle, requiredTitle, innerRequiredTitle, optionList, innerOptionList, divRadio, divCheckbox, radioInput, checkboxInput, label4Input, divChecker;
 //replace i with o for first, the other i's would be a count from 1 then count++ so long as they are less than exteaoptions.lengt or something
     let count = 0;
@@ -234,17 +234,23 @@ function createModalData(objData) {
     objData.name.forEach((name, iIndex)=>{
         objData.price.forEach((price, jIndex)=>{
             if(iIndex === jIndex) {
-          //based on multiple choice => true then radio becomes checkbox to open choices and checbox replace radi for multiple selection
-                divRadio = createElement('div', ['radio'], '', [], [], '', '', count, '', '', '', '');
-                radioInput = createElement('input', [], `radio${iIndex+1}`, ['data-option'], [name], '', '', count, 'radio', name, price, 'radio');
-                label4Input = createElement('label', [], `radio${iIndex+1}`, [], [], '', '', count, 'for', '', '', '');
+                //based on multiple choice => true then radio becomes checkbox to open choices and checbox replace radi for multiple selection
+                objData.multiple[0] ? divCheckbox = createElement('div', ['checkbox'], '', ["", 'data-multiple'], ["", objData.multiple[0]], '', '', count, '', '', '', '') :
+                    divRadio = createElement('div', ['radio'], '', [], [], '', '', count, '', '', '', '');
+                objData.multiple[0] ? checkboxInput = createElement('input', [], `check${iIndex+1}`, ['data-option'], [name], '', '', count, 'checkbox', name, price, 'checkbox') :
+                    radioInput = createElement('input', [], `radio${iIndex+1}`, ['data-option'], [name], '', '', count, 'radio', name, price, 'radio');
+                label4Input = createElement('label', [], objData.multiple[0] ? `check${iIndex+1}` : `radio${iIndex+1}`, [], [], '', '', count, 'for', '', '', '');
                 divChecker = createElement('div', ["checker"], ``, [], [], '', '', count, '', '', '', '');
                 label4Input.appendChild(divChecker);
                 label4Input.appendChild(document.createTextNode(name));
-                divRadio.appendChild(radioInput);
-                divRadio.appendChild(label4Input);
 
-                optionList.appendChild(divRadio);
+
+                objData.multiple[0] ? divCheckbox.appendChild(checkboxInput) : divRadio.appendChild(radioInput);
+
+                objData.multiple[0] ? divCheckbox.appendChild(label4Input) : divRadio.appendChild(label4Input);
+
+                optionList.appendChild(objData.multiple[0] ? divCheckbox : divRadio);
+
                 optionBoard.appendChild(title);
                 optionBoard.appendChild(requiredTitle);
 
@@ -261,9 +267,14 @@ function createModalData(objData) {
         let innerOptionIncrementer = 0;
 
         let idIncrementer = 0;
+
+        if(objData.multiple[0])
+            idIncrementer = optionBoard.querySelectorAll('input[type="checkbox"]').length + 1;
+
         for (let i = 0; i < objData.extraOptions.length; i ++) {
             count++;//[objData.extraOptions[i].innerOptions.length > 0 ? (count+1) : 0]
-            optionBoard = createElement('div', ['option-board', 'option-'], '', ['data-max'], [objData.extraOptions[i].innerOptions.length > 0 ? objData.extraOptions[i].dataMax : 0], '', '', count, '', '', '', '');
+
+            optionBoard = createElement('div', ['option-board', 'option-'], '', ['data-max', ''], [objData.extraOptions[i].innerOptions.length > 0 ? objData.extraOptions[i].dataMax : 0, ''], '', '', count, '', '', '', '');
             title = createElement('span', [], '', [], [], '', parseInt(objData.extraOptions[i].dataMax) === 0 ? 'Would you like to add extras?' : 'Select what to go with it?', count, '', '', '', '');
             requiredTitle = createElement('p', [], '', [], [], '', `Required Field - Choose ${parseInt(objData.extraOptions[i].dataMax) === 0 ? "Any or All" : objData.extraOptions[i].dataMax}.`, count, '', '', '', '');//createElement('p', [], '', '', '', `Required Field - Choose ${objData.extraOptions[i].}`, count);
             optionList = createElement('div', ['option-list', 'option-horizontal'], '', [], [], '', '', '', '', '', '', '');
@@ -271,7 +282,7 @@ function createModalData(objData) {
                 objData.extraOptions[i].price.forEach((price, jIndex) => {
                     debugger;
                     if(iIndex === jIndex) {
-                        divCheckbox = createElement('div', ['checkbox'], '', [], [], '', '', count, '', '', '', '');;
+                        divCheckbox = createElement('div', ['checkbox'], '', ["", 'data-multiple'], ["", objData.extraOptions[i].multiple[iIndex]], '', '', count, '', '', '', '');;
                         checkboxInput = createElement('input', [], `check${idIncrementer}`, ['data-singleproduct', 'data-option'], [getBoolean(objData.extraOptions[i].dataSingleproduct), name], '', '', count, 'checkbox', name, price, 'checkbox');
                         label4Input = createElement('label', [], `check${idIncrementer}`, [], [], '', '', count, 'for', '', '', '');
                         divChecker = createElement('div', ["checker"], ``, [], [], '', '', count, '', '', '', '');
@@ -281,50 +292,58 @@ function createModalData(objData) {
                         divCheckbox.appendChild(checkboxInput);
                         divCheckbox.appendChild(label4Input);
 
+                        if(objData.extraOptions[i].multiple[iIndex])
+                            divCheckboxCopy = divCheckbox;
+
                         if(objData.extraOptions[i].innerOptions.length > 0){
                             innerOptionBoard = createElement('div', ['inner-option-board', 'inner-option-'], '', [], [], '', '', count-1, '', '', '', '');
                             innerTitle = createElement('span', [], '', [], [], '', 'Choose your size', count-1, '', '', '', '');
                             innerRequiredTitle = createElement('p', [], '', [], [], '', `Required Field - Choose 1.`, count-1, '', '', '', '');//createElement('p', [], '', '', '', `Required Field - Choose ${objData.extraOptions[i].}`, count);
 
-                            let radioList = optionList.querySelectorAll('input[type="radio"]');//help assign id
+                            let inputCheckList = objData.multiple[0] ? optionList.querySelectorAll('input[type="checkbox"]') : optionList.querySelectorAll('input[type="radio"]');//help assign id
                             let boolInnerOption = false;
                             for (let x = 0; x < objData.extraOptions[i].innerOptions.length; x++) {
-                                let divRadioArray = [];
+                                let divInputCheckerArray = [];
 
-                                let radioCount = radioList.length;//help assign id
+                                let inputCheckCount = inputCheckList.length;//help assign id
 
-                                    objData.extraOptions[i].innerOptions[x].name.forEach((innerName, inner_iIndex) => {
-                                        objData.extraOptions[i].innerOptions[x].price.forEach((innerPrice, inner_jIndex) => {
-                                            if (inner_iIndex === inner_jIndex) {
+                                objData.extraOptions[i].innerOptions[x].name.forEach((innerName, inner_iIndex) => {
+                                    objData.extraOptions[i].innerOptions[x].price.forEach((innerPrice, inner_jIndex) => {
+                                        if (inner_iIndex === inner_jIndex) {
+                                            objData.extraOptions[i].multiple[iIndex] ? divCheckbox = createElement('div', ['checkbox'], '', [], [], '', '', count - 1, '', '', '', '') :
                                                 divRadio = createElement('div', ['radio'], '', [], [], '', '', count - 1, '', '', '', '');
-                                                radioInput = createElement('input', [], `inner-radio${radioCount + 1}`, ['data-option'], [innerName], '', '', count - 1, 'radio', innerName, innerPrice, `radio${iIndex + 1}`);
-                                                label4Input = createElement('label', [], `inner-radio${radioCount + 1}`, [], [], '', '', count - 1, 'for', '', '', '');
-                                                divChecker = createElement('div', ["checker"], ``, [], [], '', '', count - 1, '', '', '', '');
-                                                label4Input.appendChild(divChecker);
-                                                label4Input.appendChild(document.createTextNode(innerName));
-                                                divRadio.appendChild(radioInput);
-                                                divRadio.appendChild(label4Input);
+                                            objData.extraOptions[i].multiple[iIndex] ? checkboxInput = createElement('input', [], `inner-check${inputCheckCount}`, ['data-option'], [innerName], '', '', count - 1, 'checkbox', innerName, innerPrice, `checkbox`) :
+                                                radioInput = createElement('input', [], `inner-radio${inputCheckCount + 1}`, ['data-option'], [innerName], '', '', count - 1, 'radio', innerName, innerPrice, `radio${iIndex + 1}`);
+                                            objData.extraOptions[i].multiple[iIndex] ? label4Input = createElement('label', [], `inner-check${inputCheckCount}`, [], [], '', '', count - 1, 'for', '', '', '') :
+                                                label4Input = createElement('label', [], `inner-radio${inputCheckCount + 1}`, [], [], '', '', count - 1, 'for', '', '', '');
+                                            divChecker = createElement('div', ["checker"], ``, [], [], '', '', count - 1, '', '', '', '');
+                                            label4Input.appendChild(divChecker);
+                                            label4Input.appendChild(document.createTextNode(innerName));
 
-                                                innerOptionBoard.appendChild(innerTitle);
-                                                innerOptionBoard.appendChild(innerRequiredTitle);
+                                            objData.extraOptions[i].multiple[iIndex] ? divCheckbox.appendChild(checkboxInput) : divRadio.appendChild(radioInput);
 
+                                            objData.extraOptions[i].multiple[iIndex] ? divCheckbox.appendChild(label4Input) : divRadio.appendChild(label4Input);
 
-                                                divRadioArray.push(divRadio);
-                                                radioCount++;
+                                            innerOptionBoard.appendChild(innerTitle);
+                                            innerOptionBoard.appendChild(innerRequiredTitle);
 
-                                                if (divRadioArray.length === objData.extraOptions[i].innerOptions[x].name.length && inner_iIndex === objData.extraOptions[i].innerOptions[x].name.length-1 && boolInnerOption === false && jIndex === x && innerOptionIncrementer === x && extraOptionIncrementer === i) {
-                                                    boolInnerOption = true;
-                                                    innerOptionIncrementer = x+1;
+                                            divInputCheckerArray.push(objData.extraOptions[i].multiple[iIndex] ? divCheckbox : divRadio);
 
-                                                    innerOptionList = createElement('div', ['option-list'], '', [], [], '', '', count - 1, '', '', '', '');
-                                                    divRadioArray.forEach((radioDiv) => {
-                                                        innerOptionList.appendChild(radioDiv);
-                                                    });
-                                                    innerOptionBoard.appendChild(innerOptionList);
-                                                }
+                                            inputCheckCount++;
+
+                                            if (divInputCheckerArray.length === objData.extraOptions[i].innerOptions[x].name.length && inner_iIndex === objData.extraOptions[i].innerOptions[x].name.length-1 && boolInnerOption === false && jIndex === x && innerOptionIncrementer === x && extraOptionIncrementer === i) {
+                                                boolInnerOption = true;
+                                                innerOptionIncrementer = x+1;
+
+                                                innerOptionList = createElement('div', ['option-list'], '', [], [], '', '', count - 1, '', '', '', '');
+                                                divInputCheckerArray.forEach((InputCheckerDiv) => {
+                                                    innerOptionList.appendChild(InputCheckerDiv);
+                                                });
+                                                innerOptionBoard.appendChild(innerOptionList);
                                             }
-                                        });
+                                        }
                                     });
+                                });
                                 boolInnerOption = false;
                             }
                         }
@@ -345,9 +364,9 @@ function createModalData(objData) {
                         }
 
                         if(objData.extraOptions[i].innerOptions.length > 0)
-                            divCheckbox.appendChild(innerOptionBoard);
+                            objData.extraOptions[i].multiple[iIndex] ? divCheckboxCopy.appendChild(innerOptionBoard) : divCheckbox.appendChild(innerOptionBoard);
 
-                        optionList.appendChild(divCheckbox);
+                        optionList.appendChild(objData.extraOptions[i].multiple[iIndex] ? divCheckboxCopy : divCheckbox);
                         optionBoard.appendChild(title);
                         optionBoard.appendChild(requiredTitle);
 
@@ -364,7 +383,7 @@ function createModalData(objData) {
 
             menuOptionBoards.push(optionBoard.outerHTML);
         }
-        // if(count === )
+
         let textAreaOptionBoard = document.createElement('div');
         textAreaOptionBoard.classList.add("option-board");
         textAreaOptionBoard.innerHTML = `
@@ -387,8 +406,6 @@ function createModalData(objData) {
         menuOptionBoards = ('' + [...menuOptionBoards]).replace(/,/g , "");
         return menuOptionBoards;
     }
-    // menuOptionBoards = optionBoardsClone;
-    // console.log(optionBoards); return optionBoards;
 
     console.log(menuOptionBoards)
     // }
@@ -417,7 +434,8 @@ function createElement(Element, $class, id, data, dataVal, innerHtml, innerText,
         htmlElement.setAttribute("disabled", "disabled");
     if (data !== [])
         data.forEach(($data, i)=> {
-            htmlElement.setAttribute($data, dataVal[i]);
+            if($data !== "")
+                htmlElement.setAttribute($data, dataVal[i]);
         });
     if (value !== '')
         htmlElement.setAttribute("value", value);

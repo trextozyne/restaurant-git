@@ -7,7 +7,8 @@ let prices = '\r\nPrices here: ';
 let boolfirstAdd = false;
 let saveBtn = document.getElementById('submit-options');
 let singleProductChecked = false;
-let createdDivs = []
+let createdDivs = [];
+let boolMultipleArray = [];
 
 var data = {
     completeOrder: []
@@ -163,6 +164,7 @@ function operationButtonStatusOnEmptyField(elementButton) {
 
 function extraOptionInputs(productInfo, intChoices) {
     for (let i = 0; i < intChoices; i++) {
+        let div = null;
         if(i === 0) {
             let div = document.createElement('div');
             div.innerHTML = `<h3>Add the Extra Menu-Item here.</h3>`;
@@ -213,13 +215,33 @@ function createOptionRequiredList(id, optionInput) {
     }
 }
 
-document.addEventListener('focusout', function(e) {
+document.addEventListener('focusout', function(e) {//    let cloneMultipleCheckbox = document.getElementById("myList2").lastChild.cloneNode(true);
     if(e.target && (e.target.id === 'options' || e.target.id === 'optionList') && e.target.value !== '' && boolfirstAdd === true) {
         totalInputItems = previousElemnt('optionList');
         if(previousElemnt('optionList').value !=='' && !document.getElementById('addProductForm').children[0].classList.contains('single-items')) {
             createOptionRequiredList('requiredOption', previousElemnt('optionList'));
-            if(e.target.id === 'options')
+            if (e.target.id === 'options')
                 createExtraOptionInputs(parseInt(e.target.value));
+
+            if (e.target.id === 'optionList') {
+                let productInfo = document.getElementById('optionList').value;
+
+                if (arrayItemNames(textareaVal(productInfo, items, prices), previousElemnt('optionList')).length === parseInt(document.getElementById("options").value)) {
+                    document.getElementById("checkboxMultiple").innerHTML = "";
+
+                    for (let i = 0; i < parseInt(document.getElementById("options").value); i++) {
+                        let multipleHtml = `<div class="form-check form-check-flat form-check-primary">
+                                                <label class="form-check-label">                      
+                                                    <input type="checkbox" id="multiple${i + 1}" class="form-check-input multiple">
+                                                    Multiple Selection for ${arrayItemNames(textareaVal(productInfo, items, prices), previousElemnt('optionList'))[i]}(Leave unchecked if its single selection) Items
+                                                    <i class="input-helper"></i>
+                                                </label>
+                                            </div>`;
+
+                        document.getElementById("checkboxMultiple").innerHTML += multipleHtml;
+                    }
+                }
+            }
         } else {
             let select = document.getElementById("requiredOption");
             if(select !== null) {
@@ -293,6 +315,7 @@ function doneAdding() {
 
 document.addEventListener('click', function (e) {
     if (e.target && e.target.classList.contains('md-ok')) {
+        boolMultipleArray.push(false);
 
         boolfirstAdd = true;
 
@@ -307,9 +330,15 @@ document.addEventListener('click', function (e) {
 
         doneAdding();
     }
+    debugger;
+
     if (e.target && e.target.id === 'add-options' && checkFormValid() === true && menuItemId !== null) {
+        let checkboxMultiple = document.querySelectorAll("input.multiple[type='checkbox']");
+        checkboxMultiple.forEach((checkbox, i) => {
+            boolMultipleArray.push(checkbox.checked);
+        });
+
         addProduct(e.target.parentElement);
-        debugger;
         if (boolfirstAdd === false) {
             let alert = alertModal('Added!!!, Fill the form to add other choices to customers orders for that product: ' + document.getElementById('item-name-order').textContent);
             if (document.querySelectorAll('.md-modal').length < 1)
@@ -327,7 +356,7 @@ document.addEventListener('click', function (e) {
                 createExtraOptionInputs(parseInt(e.target.value));
         }
 debugger;
-        document.querySelector(['div[id="addProductForm"]']).children[4].removeAttribute('hidden');
+        document.querySelector(['div[id="addProductForm"]']).children[6].removeAttribute('hidden');
 
         e.preventDefault()
     }
@@ -368,7 +397,7 @@ function createMpdalPreview(modalHtml) {
     imageWrapper.classList.add("image-wrapper");
     imageWrapper.innerHTML = `
             <div class="mbr-figure">
-                <img src="../images/Placeholder.png" alt="Mobirise" title="product">
+                <img src="../images/Placeholder.png" alt="restaurant" title="product">
                 <!--<div>food display title</div>-->
                 <div class="img-caption">
                     <p class="mbr-fonts-style align-left mbr-white display-5 mbr-figure ">
@@ -462,6 +491,7 @@ function addProduct(form) {
         data.completeOrder.push({
             optionDescription: optionDescription,
             optionTotal: parseInt(optionTotal),
+            multiple: boolMultipleArray,
             dataMax: parseInt(dataMax),
             name: arrayItemNames(textareaVal(productInfo, items, prices), previousElemnt(form.productInfo.id)),
             price: arrayItemPrices(textareaVal(productInfo, items, prices), previousElemnt(form.productInfo.id)),
@@ -477,6 +507,7 @@ function addProduct(form) {
         data.completeOrder[0].extraOptions.push({
             optionDescription: optionDescription,
             optionTotal: parseInt(optionTotal),
+            multiple: boolMultipleArray,
             dataMax: parseInt(dataMax),
             name: arrayItemNames(textareaVal(productInfo, items, prices), previousElemnt(form.productInfo.id)),
             price: arrayItemPrices(textareaVal(productInfo, items, prices), previousElemnt(form.productInfo.id)),
@@ -499,7 +530,16 @@ function addProduct(form) {
 
         singleProductChecked = false;
     }
-    // orderCount++;
+
+    boolMultipleArray = [];
+
+    if(document.getElementById("multiple") && orderCount === 0)
+        document.getElementById("multiple").setAttribute("hidden", "hidden");
+
+    let checkboxMultiple = document.querySelectorAll("input.multiple[type='checkbox']");
+    checkboxMultiple.forEach((checkbox, i) => {
+        checkbox.checked = false;
+    });
 }
 
 function save() {
@@ -526,7 +566,7 @@ debugger;
 
             let menuItemAllList = document.getElementsByClassName("todo-list")[1];
             let length = menuItemAllList.querySelectorAll('input[type="radio"]').length - 1 || 0;
-            menuItemAllList.querySelectorAll('label')[length].innerText = menuItemAllList.querySelectorAll('label')[length].innerText.replace(' (NA)','');
+            // menuItemAllList.querySelectorAll('label')[length].innerText = menuItemAllList.querySelectorAll('label')[length].innerText.replace(' (NA)','');
         });
 
         data = {

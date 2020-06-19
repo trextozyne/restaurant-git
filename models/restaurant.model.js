@@ -4,10 +4,12 @@ const Schema = mongoose.Schema;
 let RestaurantSchema = new Schema({
         completeOrder: [
             {
+                restaurant_id: "string",
                 menuId: "string",
                 menuItemId: "string",
                 optionDescription: "string",
                 optionTotal: "Number",
+                multiple: [],
                 dataMax: "Number",
                 name: [],
                 price: [],

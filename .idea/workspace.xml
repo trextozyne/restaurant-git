@@ -2,24 +2,183 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ae3c312-a515-45f3-a985-c28b56dd8127" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/Placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/gallery/images2020-06-04T20-55-23.203Z.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/gallery/images2020-06-05T04-12-31.201Z.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/gallery/images2020-06-05T21-12-39.921Z.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/gallery/images2020-06-05T21-45-34.512Z.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/add-to-cart/js/checkout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/add-to-cart/js/scrolltop.menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/css/file-upload.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/css/registeration_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/js/customer.form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/js/file-upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/js/login.form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/js/restaurant_register.form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/city.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/customer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/in_offer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/in_order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/offer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/placed.order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/restaurant_register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/city.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/comments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/customer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/offer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/restaurant_register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/forgot-reset/forgot-reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/city.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/customer.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/restaurant_register.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/user.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/city.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/customer.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/restaurant_register.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ansi-styles/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ansi-styles/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ansi-styles/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ansi-styles/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/async/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/async/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/async/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/async/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/async/component.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/async/lib/async.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/async/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/async/support/sync-package-managers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/brace-expansion/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/brace-expansion/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/brace-expansion/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/brace-expansion/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/chalk/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/chalk/index.js.flow" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/chalk/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/chalk/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/chalk/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/chalk/templates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/chalk/types/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/conversions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-name/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-name/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-name/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-name/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-name/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-name/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/color-name/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/README.markdown" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/example/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/test/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/bin/cli.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/ejs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/ejs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/jakefile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/lib/ejs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/lib/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/postinstall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/usage.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/escape-string-regexp/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/escape-string-regexp/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/escape-string-regexp/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/escape-string-regexp/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/filelist/Jakefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/filelist/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/filelist/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/filelist/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/has-flag/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/has-flag/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/has-flag/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/has-flag/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/bin/bash_completion.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/bin/cli.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/jakefile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/jake.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/loader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/namespace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/package_task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/parseargs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/program.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/publish_task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/rule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/task/directory_task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/task/file_task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/task/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/task/task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/test_task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/utils/file.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/utils/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/utils/logger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/concurrent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/file.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/file_task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/helpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakefile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakelib/concurrent.jake.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakelib/publish.jake.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakelib/required_module.jake.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakelib/rule.jake.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/publish_task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/rule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/selfdep.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/task_base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/unit/jakefile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/unit/namespace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/unit/parseargs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jake/usage.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/minimatch/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/minimatch/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/minimatch/minimatch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/minimatch/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/license" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/city.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/customer.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/restaurant_register.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/user.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/forgot.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/reset-user.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/css/admin-alert-modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/admin-alert-modal.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/admin/js/admin-alert-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/admin-alert-modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/admin/js/create.modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/create.modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/menu-item.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/menu-item.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/restaurant.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/restaurant.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/json.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/menu-item-data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/menu-item-data.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/all-data/menu-item-json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/menu-item-json.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/menu.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,81 +189,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin.html">
+      <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2244">
-              <caret line="132" column="12" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-323">
+              <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-add-menu-item-list-functionality.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
-              <caret line="108" column="20" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="101" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin-add-menu-list-functionality.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="209" column="41" lean-forward="true" selection-start-line="209" selection-start-column="41" selection-end-line="209" selection-end-column="41" />
-              <folding>
-                <element signature="n#!!block;n#previousElemnt#0" />
-                <element signature="n#!!block;n#operationButtonStatusOnEmptyField#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/all-data/data.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="646" column="31" selection-start-line="646" selection-start-column="25" selection-end-line="646" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.modal.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/admin/js/create.modal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="238" column="112" selection-start-line="238" selection-start-column="112" selection-end-line="238" selection-end-column="112" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu-item.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/menu-item.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3757">
-              <caret line="221" column="6" selection-start-line="221" selection-start-column="6" selection-end-line="221" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add-to-cart-functionality.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7208">
-              <caret line="424" column="49" lean-forward="true" selection-start-line="424" selection-start-column="49" selection-end-line="424" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="restaurant.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/restaurant.controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3230">
-              <caret line="190" column="9" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
+            <state relative-caret-position="-85">
+              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -114,79 +212,79 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>products</find>
-      <find>addProductForm</find>
-      <find>createSingleItemsInputs</find>
-      <find>item-add-value</find>
-      <find>createM</find>
-      <find>createModalHtml</find>
-      <find>els = []</find>
-      <find>findClassAncestor</find>
-      <find>2</find>
-      <find>parseInt</find>
-      <find>#editOrder.filled</find>
-      <find>createModalData</find>
-      <find>createModalWrapper</find>
+      <find>location</find>
+      <find>;</find>
+      <find>menu</find>
+      <find>menuItemId</find>
+      <find>menuItem</find>
+      <find>customerId</find>
+      <find>.id</find>
+      <find>saveMenuItem</find>
+      <find>MenuItem</find>
       <find>alert</find>
-      <find>activateCloseModal</find>
-      <find>radioInput</find>
-      <find>3</find>
-      <find>max</find>
-      <find>if(select !== null) {</find>
-      <find>targetElement.insertAdjacentElement('afterend', sectionContainer);</find>
-      <find>rest</find>
-      <find>createExtraOptionInputs</find>
-      <find>radioList</find>
-      <find>objData.extraOptions[i]</find>
-      <find>inner-option-</find>
-      <find>option-</find>
-      <find>option-li</find>
-      <find>idIncrementer</find>
-      <find>Select what to go with it?</find>
-      <find>gfgfgf</find>
+      <find>drag-text</find>
+      <find>response</find>
+      <find>this.response</find>
+      <find>FormData</find>
+      <find>file</find>
+      <find>image-upload-wrap</find>
+      <find>selcet</find>
+      <find>getMenuData</find>
+      <find>customer_name</find>
+      <find>city</find>
+      <find>im</find>
+      <find>customer</find>
+      <find>views</find>
+      <find>restaurant_name</find>
+      <find>restaurant_registration</find>
+      <find>Customer</find>
+      <find>Restaurant_Registr</find>
+      <find>restaurant_registr</find>
+      <find>customer_</find>
+      <find>RegisterAccount</find>
     </findStrings>
     <replaceStrings>
-      <replace>innerName</replace>
-      <replace>.childNodes.length &gt; 2</replace>
-      <replace>innerPrice</replace>
-      <replace>count</replace>
-      <replace>objData.extraOptions</replace>
-      <replace>objData.extraOptions.</replace>
-      <replace>objData.extraOptions[0].</replace>
-      <replace>menuItems</replace>
-      <replace>radio</replace>
-      <replace>||</replace>
-      <replace>menuItem</replace>
-      <replace>&amp;&amp;</replace>
-      <replace>itemCategoryArea</replace>
-      <replace>&lt;!!</replace>
-      <replace>curr_index</replace>
-      <replace>category</replace>
-      <replace>menu</replace>
-      <replace>event.target</replace>
-      <replace>response</replace>
-      <replace>i</replace>
-      <replace />
-      <replace>statusCode</replace>
+      <replace>inputCheckElement2</replace>
+      <replace>input2</replace>
+      <replace>inputCheck</replace>
+      <replace>checkbox</replace>
+      <replace>:</replace>
+      <replace>,</replace>
+      <replace>===</replace>
+      <replace>x</replace>
+      <replace>select</replace>
+      <replace>&quot;visible&quot;;location.classList.add(invalid);</replace>
+      <replace>e.target</replace>
+      <replace>;</replace>
       <replace>let</replace>
-      <replace>&lt;textaarea data-gramm_editor=&quot;false&quot;</replace>
-      <replace>&lt;textarea</replace>
-      <replace>e.target &amp;&amp; (e.target.id === 'quantity' || e.target.id === 'singleProd-quantity')</replace>
-      <replace>formId</replace>
-      <replace>Menu-Item</replace>
-      <replace>max</replace>
-      <replace>max+1</replace>
+      <replace>.value.trim()</replace>
+      <replace>Customers</replace>
+      <replace>customerId</replace>
+      <replace>customer</replace>
+      <replace>id</replace>
+      <replace>Customer</replace>
+      <replace>Id</replace>
+      <replace>location</replace>
+      <replace>City</replace>
+      <replace>Citys</replace>
+      <replace>state_name</replace>
+      <replace>city</replace>
+      <replace>restaurant</replace>
+      <replace>Restaurant_Registr</replace>
+      <replace>Restaurant_Registration</replace>
+      <replace>Restaurant_Register</replace>
+      <replace>Login</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>C:\Users\Tozyne\Desktop\Restaurant - Copy\assets\bootstrap</dir>
+      <dir />
     </dirStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
@@ -203,65 +301,69 @@
       <command text="npm uninstall jquery-caret" />
       <command text="npm i @accursoft/jquery-caret" />
       <command text="npm uninstall @accursoft/jquery-caret" />
+      <command text="npm install ejs" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/menu.html" />
-        <option value="$PROJECT_DIR$/assets/add-to-cart/add-to-cart-functionality.js" />
-        <option value="$PROJECT_DIR$/../Restaurant/app.js" />
-        <option value="$PROJECT_DIR$/views/my-page.html" />
-        <option value="$PROJECT_DIR$/assets/admin/css/close-modal-alert.css" />
-        <option value="$PROJECT_DIR$/assets/admin/css/add-to-cart-functionality.css" />
-        <option value="$PROJECT_DIR$/assets/admin/js/close-modal-alert.js" />
-        <option value="$PROJECT_DIR$/assets/add-to-cart/js/Guid.js" />
-        <option value="$PROJECT_DIR$/views/data.html" />
-        <option value="$PROJECT_DIR$/assets/admin/js/admin-funtionality.js" />
-        <option value="$PROJECT_DIR$/assets/admin/css/admin-categorylist-modal.css" />
-        <option value="$PROJECT_DIR$/assets/admin/js/admin-categorylist-modal.js" />
-        <option value="$PROJECT_DIR$/models/category.model.js" />
-        <option value="$PROJECT_DIR$/models/menu-item.model.js" />
-        <option value="$PROJECT_DIR$/assets/admin/js/number-input-validation.js" />
-        <option value="$PROJECT_DIR$/routes/category.route.js" />
-        <option value="$PROJECT_DIR$/routes/menu-item.route.js" />
-        <option value="$PROJECT_DIR$/routes/restaurant.route.js" />
-        <option value="$PROJECT_DIR$/views/all-data/data-json.html" />
-        <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/views/about-us.html" />
-        <option value="$PROJECT_DIR$/views/index.html" />
-        <option value="$PROJECT_DIR$/views/error-not-found.html" />
-        <option value="$PROJECT_DIR$/views/not-found.html" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/all-data/category-json.html" />
-        <option value="$PROJECT_DIR$/assets/admin/js/admin-add-category-list-functionality.js" />
-        <option value="$PROJECT_DIR$/controllers/category.controller.js" />
-        <option value="$PROJECT_DIR$/views/all-data/menu-item-data.css" />
-        <option value="$PROJECT_DIR$/views/all-data/menu-item-data.html" />
-        <option value="$PROJECT_DIR$/views/all-data/mwnu-item-data.html" />
-        <option value="$PROJECT_DIR$/views/all-data/menu-item-json.html" />
-        <option value="$PROJECT_DIR$/controllers/restaurant.controller.js" />
-        <option value="$PROJECT_DIR$/assets/admin/js/admin-alert.js" />
-        <option value="$PROJECT_DIR$/assets/js/todolist.js" />
-        <option value="$PROJECT_DIR$/assets/admin/js/test.modal.js" />
-        <option value="$PROJECT_DIR$/views/all-data/category-data.html" />
-        <option value="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" />
-        <option value="$PROJECT_DIR$/views/menu.html" />
-        <option value="$PROJECT_DIR$/assets/admin/js/admin-alert-modal.js" />
-        <option value="$PROJECT_DIR$/assets/admin/js/all-validations.js" />
-        <option value="$PROJECT_DIR$/views/all-data/json.html" />
-        <option value="$PROJECT_DIR$/models/restaurant.model.js" />
-        <option value="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" />
-        <option value="$PROJECT_DIR$/controllers/menu-item.controller.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/account.information.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/city.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/comment.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/customer.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/placed.order.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/restaurant.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/in_order.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/in_offer.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/offer.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/views/city.html" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/views/offer.html" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/views/comments.html" />
         <option value="$PROJECT_DIR$/views/admin.html" />
-        <option value="$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js" />
-        <option value="$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js" />
-        <option value="$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css" />
-        <option value="$PROJECT_DIR$/views/all-data/data.html" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/customer.js" />
+        <option value="$PROJECT_DIR$/views/menu.html" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/select.dropdown.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/password.match.js" />
+        <option value="$PROJECT_DIR$/controllers/cusomer.controller.js" />
+        <option value="$PROJECT_DIR$/controllers/menu-item.controller.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/file-upload.js" />
+        <option value="$PROJECT_DIR$/routes/customer.route.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/css/file-upload.css" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/css/customer.css" />
         <option value="$PROJECT_DIR$/assets/admin/js/create.modal.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/models/city.js" />
+        <option value="$PROJECT_DIR$/models/customer.model.js" />
+        <option value="$PROJECT_DIR$/models/city.model.js" />
+        <option value="$PROJECT_DIR$/controllers/customer.controller.js" />
+        <option value="$PROJECT_DIR$/routes/city.route.js" />
+        <option value="$PROJECT_DIR$/controllers/city.controller.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/models/restaurant.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/views/restaurant.html" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/restaurant.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/restaurant_register.js" />
+        <option value="$PROJECT_DIR$/models/restaurant_registration.model.js" />
+        <option value="$PROJECT_DIR$/routes/restaurant_registration.route.js" />
+        <option value="$PROJECT_DIR$/controllers/restaurant_registration.controller.js" />
+        <option value="$PROJECT_DIR$/models/restaurant_register.model.js" />
+        <option value="$PROJECT_DIR$/controllers/restaurant_register.controller.js" />
+        <option value="$PROJECT_DIR$/models/restaurant.model.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/models/customer.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/models/restaurant_register.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/customer.form.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/restaurant_register.form.js" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/views/customer.html" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/views/restaurant_register.html" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/css/registeration_all.css" />
+        <option value="$PROJECT_DIR$/assets/customers-restaurants/js/login.form.js" />
+        <option value="$PROJECT_DIR$/views/login.html" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/controllers/user.controller.js" />
       </list>
     </option>
   </component>
@@ -280,8 +382,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="690" />
-    <option name="y" value="18" />
+    <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -334,7 +435,48 @@
               <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="customers-restaurants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="customers-restaurants" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="customers-restaurants" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="customers-restaurants" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="customers-restaurants" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
@@ -349,13 +491,12 @@
             <path>
               <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
               <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Restaurant - Copy" type="b2602c69:ProjectViewProjectNode" />
               <item name="Restaurant - Copy" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="all-data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -375,19 +516,19 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\views\all-data\menu-item-data" />
-      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\views\all-data" />
-      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\restaurant" />
-      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy" />
-      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\assets\customers-restaurants\models" />
+      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\assets\customers-restaurants\js" />
       <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\views\all-data" />
       <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\routes" />
       <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\assets\add-to-cart\css" />
-      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\assets\add-to-cart\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\assets" />
       <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\views" />
+      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\models" />
+      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\controllers" />
+      <recent name="C:\Users\Tozyne\Desktop\Restaurant - Copy\routes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -486,7 +627,18 @@
       <workItem from="1590898435554" duration="68702000" />
       <workItem from="1591306778028" duration="10569000" />
       <workItem from="1591331161016" duration="19094000" />
-      <workItem from="1591420680467" duration="18393000" />
+      <workItem from="1591420680467" duration="39382000" />
+      <workItem from="1591523455660" duration="62966000" />
+      <workItem from="1591725936229" duration="12954000" />
+      <workItem from="1591765189657" duration="4586000" />
+      <workItem from="1591815019546" duration="86138000" />
+      <workItem from="1592103319622" duration="58044000" />
+      <workItem from="1592339413466" duration="14718000" />
+      <workItem from="1592374661296" duration="13355000" />
+      <workItem from="1592440914766" duration="3824000" />
+      <workItem from="1592453958114" duration="510000" />
+      <workItem from="1592454544047" duration="12292000" />
+      <workItem from="1592511991011" duration="18527000" />
     </task>
     <task id="LOCAL-00001" summary="add restaurant repo">
       <created>1588717762291</created>
@@ -530,11 +682,18 @@
       <option name="project" value="LOCAL" />
       <updated>1590983032368</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add restaurant repo">
+      <created>1591484419729</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1591484419729</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1625114000" />
+    <option name="totallyTimeSpent" value="1934017000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -547,17 +706,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21860817" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.32838285" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.3069307" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32838285" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32838285" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3277311" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16717096" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" x="22" y="264" width="1322" height="199" id="Find" order="1" sideWeight="0.49924356" type="FLOATING" weight="0.32838285" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -565,9 +727,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.30842608" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" x="22" y="264" width="1322" height="199" id="Find" order="1" sideWeight="0.49924356" type="FLOATING" weight="0.32838285" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +781,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="56" />
+      <option name="time" value="57" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JavascriptDebugType">
@@ -630,295 +790,293 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/restaurant.route.js">
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/js/select.dropdown.js" />
+    <entry file="file://$PROJECT_DIR$/views/menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/css/admin-categorylist-modal.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/css/admin-alert-modal.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-233">
-          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-categorylist-modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/file-upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/menu-item.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/number-input-validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/chart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9285" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/todo.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T01-30-07.319Z.jpg" />
-    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T01-29-20.138Z.jpg" />
-    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2019-11-26T03-40-18.071Z.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/all-data/category-json.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data/category-data.html" />
-    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T02-38-21.745Z.jpg" />
-    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T02-43-18.014Z.jpg" />
-    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T02-38-21.745Z.jpg" />
-    <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-05-09T02-43-18.014Z.jpg" />
-    <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/category.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-alert.js" />
-    <entry file="file://$PROJECT_DIR$/assets/js/todolist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="70" column="88" lean-forward="true" selection-start-line="70" selection-start-column="88" selection-end-line="70" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-category-list-functionality.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="326" column="1" lean-forward="true" selection-start-line="326" selection-start-column="1" selection-end-line="326" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="90" column="90" selection-start-line="90" selection-start-column="86" selection-end-line="90" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es6.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="15240" column="4" selection-start-line="15240" selection-start-column="4" selection-end-line="15240" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/add-to-cart/js/Guid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" />
-    <entry file="file://$PROJECT_DIR$/views/all-data/category-data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="15875" column="17" selection-start-line="15875" selection-start-column="17" selection-end-line="15875" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/all-validations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="21" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/all-data/json.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-alert-modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-json.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/all-data/menu-item-data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/admin/js/test.modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="24" />
+        <state relative-caret-position="9265">
+          <caret line="545" column="44" selection-start-line="545" selection-start-column="44" selection-end-line="545" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7208">
-          <caret line="424" column="49" lean-forward="true" selection-start-line="424" selection-start-column="49" selection-end-line="424" selection-end-column="49" />
+        <state relative-caret-position="23732">
+          <caret line="1396" column="26" selection-start-line="1396" selection-start-column="26" selection-end-line="1396" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/restaurant.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="37" lean-forward="true" selection-start-column="37" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="83" lean-forward="true" selection-start-line="19" selection-start-column="83" selection-end-line="20" selection-end-column="83" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/models/category.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
-          <caret line="132" column="12" selection-start-line="132" selection-start-column="12" selection-end-line="132" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="72">
+          <caret line="503" column="59" lean-forward="true" selection-start-line="503" selection-start-column="59" selection-end-line="504" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/restaurant.controller.js">
+    <entry file="file://$PROJECT_DIR$/models/menu-item.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3230">
-          <caret line="190" column="9" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
+        <state relative-caret-position="272">
+          <caret line="16" column="13" lean-forward="true" selection-end-line="28" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/menu-item.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3757">
-          <caret line="221" column="6" selection-start-line="221" selection-start-column="6" selection-end-line="221" selection-end-column="6" />
+        <state relative-caret-position="3808">
+          <caret line="224" column="39" selection-start-line="224" selection-start-column="39" selection-end-line="226" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-06-17T22-21-04.174Z.jpg" />
+    <entry file="file://$PROJECT_DIR$/assets/images/gallery/images2020-06-09T03-55-50.767Z.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/css/file-upload.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/js/file-upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-item-list-functionality.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="108" column="20" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="101" />
+        <state relative-caret-position="-4556">
+          <caret line="100" column="49" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="209" column="41" lean-forward="true" selection-start-line="209" selection-start-column="41" selection-end-line="209" selection-end-column="41" />
-          <folding>
-            <element signature="n#!!block;n#previousElemnt#0" />
-            <element signature="n#!!block;n#operationButtonStatusOnEmptyField#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="233" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/all-data/data.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="646" column="31" selection-start-line="646" selection-start-column="25" selection-end-line="646" selection-end-column="31" />
+        <state relative-caret-position="194">
+          <caret line="466" lean-forward="true" selection-start-line="466" selection-end-line="466" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/admin/js/create.modal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="238" column="112" selection-start-line="238" selection-start-column="112" selection-end-line="238" selection-end-column="112" />
+        <state relative-caret-position="326">
+          <caret line="210" column="4" selection-start-line="210" selection-start-column="4" selection-end-line="210" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!block;n#createItemListHtml#0" />
+            <element signature="e#597#1573#0" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/models/city.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="93" selection-start-line="1" selection-start-column="85" selection-end-line="1" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/all-data/customer-json.html" />
+    <entry file="file://$PROJECT_DIR$/routes/city.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/customer.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1904">
+          <caret line="112" column="128" selection-start-line="112" selection-start-column="128" selection-end-line="112" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/all-data/city-json.html" />
+    <entry file="file://$PROJECT_DIR$/models/city.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/views/city.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/city.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3366">
+          <caret line="198" column="24" selection-start-line="198" selection-start-column="24" selection-end-line="198" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/all-data/customer-data.html" />
+    <entry file="file://$PROJECT_DIR$/models/customer.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="3" lean-forward="true" selection-end-line="27" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/all-data/city-data.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/customer.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/restaurant_register.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/all-data/restaurant_register-data.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/restaurant.route.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/restaurant_register.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/restaurant_register.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="213" column="37" lean-forward="true" selection-start-line="213" selection-start-column="37" selection-end-line="213" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/restaurant.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/models/customer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/views/comments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/js/restaurant_register.form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/views/customer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="72" selection-start-line="72" selection-end-line="81" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/js/customer.form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/models/restaurant_register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/login-logout/js/logout.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/login-logout/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1479" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/css/registeration_all.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/css/login.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/js/login.form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/customers-restaurants/views/restaurant_register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="136" column="47" selection-start-line="135" selection-start-column="114" selection-end-line="136" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/user.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/forgot.ejs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/forgot-reset/forgot-reset.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.route.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
         </state>
       </provider>
     </entry>

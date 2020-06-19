@@ -86,4 +86,5 @@ button.md-close {
     -ms-transform: scale(1);
     transform: scale(1);
     opacity: 1;
+    text-align: -webkit-center;
 }

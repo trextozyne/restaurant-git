@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="../admin/css/admin-alert-modal.css">
+    <link rel="stylesheet" href="../customers-restaurants/css/file-upload.css">
+    <link rel="stylesheet" href="../customers-restaurants/css/registeration_all.css">
+    <link rel="stylesheet" href="https://raubarrera.neocities.org/cdpn/style.css">
+
+    <style>
+        .invalid{
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        .invalid:focus {
+            box-shadow: none;
+        }
+
+        span.error p{
+            margin: 0;
+        }
+        span.error {
+            background: red;
+            padding: 5px 3px;
+            font-size: 14px;
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            float: right;
+            visibility: hidden;
+        }
+
+        .md-content h3 {
+            color: #000;
+        }
+
+        div.location-wrapper {
+            width: 100%;
+            display: inline-block;
+        }
+        div.location-inner-wrapper {
+            width: 30%;
+            float: left;
+            margin-right: 25px;
+        }
+    </style>
+</head>
+<body>
+<form name="RegisterAccount" id="RegisterAccount">
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <div class="file-upload">
+            <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+            <div class="image-upload-wrap">
+                <input class="file-upload-input" name="file" id="file" type='file' onchange="readURL(this);" accept="image/*" />
+                <div class="drag-text">
+                    <h3>Drag and drop a file or select add Image</h3>
+                </div>
+            </div>
+            <div class="file-upload-content">
+                <img class="file-upload-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                </div>
+            </div>
+        </div>
+        <span class="error">required: You need to upload and image or avatar</span><br>
+
+        <label for="user_name"><b>Name</b></label>
+        <input type="text" pattern="^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$" placeholder="Enter user name" name="user_name" id="user_name" required>
+        <span class="error">required:
+                                    <p>Only contains alphanumeric characters, underscore and dot.</p>
+                                    <p>Underscore and dot can't be at the end or start of a username (e.g _username / username_ / .username / username.).</p>
+                                    <p>Underscore and dot can't be next to each other (e.g user_.name).</p>
+                                    <p>Underscore or dot can't be used multiple times in a row (e.g user__name / user..name).</p>
+                                    <p>Number of characters must be between 8 to 20.</p>
+            </span><br>
+
+        <label for="restaurant_name"><b>Name</b></label>
+        <input type="text" placeholder="Enter restaurant name" name="restaurant_name" id="restaurant_name" required>
+        <span class="error">required: Restaurant name</span><br>
+
+        <div class="location-wrapper">
+            <div class="location-inner-wrapper">
+                <label for="stateId"><b>State</b></label>
+                <input type="hidden" name="country" id="countryId" value="US">
+                <div class="select">
+                    <select name="state" onchange="checkforblank(this)" class="states order-alpha" id="stateId">
+                        <option value="">Select State</option>
+                    </select>
+                </div>
+                <span class="error" style="visibility: visible;">required: Seclect a state</span>
+            </div>
+            <div class="location-inner-wrapper">
+                <label for="cityId"><b>City</b></label>
+                <div class="select">
+                    <select name="city" onchange="checkforblank(this)" class="cities order-alpha" id="cityId">
+                        <option value="">Select City</option>
+                    </select>
+                </div>
+                <span class="error" style="visibility: visible;">required: Seclect a state, then city</span>
+            </div>
+            <div class="location-inner-wrapper" style="margin: 0">
+                <label for="cityId"><b>City</b></label>
+                <input type="text" pattern="^\d{5}(?:[-\s]\d{4})?$" placeholder="Enter ZipCode" name="zip_code" id="zip_code" required>
+                <span class="error">required: 5 numbers only</span><br>
+            </div>
+        </div>
+
+        <br>
+
+        <label for="address"><b>Address</b></label>
+        <input type="text" placeholder="Enter address" name="address" id="address" required>
+        <span class="error">required</span><br>
+
+        <label for="contact_phone"><b>Phone</b></label>
+        <input type="tel" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" placeholder="Enter Phone" name="contact_phone" id="contact_phone" required>
+        <span class="error">required: Format = *** *** ****</span><br>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+        <span class="error">required:
+                <p>Submit [8 to 15 characters </p>
+                <p>contains at least one lowercase letter</p>
+                <p>contains at least one uppercase letter</p>
+                <p>contains at least one numeric digit, and one special character</p>
+                <p>contains at least one special character</p>
+            </span><br>
+
+        <label for="password-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="password-repeat" id="password-repeat" required>
+        <span class="error">required</span><br>
+        <hr>
+
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        <button type="submit" class="registerbtn" id="register">Register</button>
+    </div>
+
+    <div class="container signin">
+        <p>Already have an account? <a href="#">Sign in</a>.</p>
+    </div>
+</form>
+</body>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//geodata.solutions/includes/statecity.js"></script>
+<script src="../add-to-cart/js/Guid.js"></script>
+<script src="../admin/js/admin-alert-modal.js"></script>
+<script src="../customers-restaurants/js/file-upload.js"></script>
+<script src="../customers-restaurants/models/restaurant_register.js"></script>
+<script src="../customers-restaurants/models/city.js"></script>
+<script src="../customers-restaurants/js/restaurant_register.form.js"></script>
+</html>

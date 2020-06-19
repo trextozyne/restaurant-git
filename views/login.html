@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="../admin/css/admin-alert-modal.css">
+    <link rel="stylesheet" href="../customers-restaurants/css/file-upload.css">
+    <link rel="stylesheet" href="../customers-restaurants/css/login.css">
+    <link rel="stylesheet" href="https://raubarrera.neocities.org/cdpn/style.css">
+
+    <style>
+        .invalid{
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        .invalid:focus {
+            box-shadow: none;
+        }
+
+        span.error p{
+            margin: 0;
+        }
+        span.error {
+            background: red;
+            padding: 5px 3px;
+            font-size: 14px;
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            float: right;
+            visibility: hidden;
+        }
+
+        .md-content h3 {
+            color: #000;
+        }
+
+        div.location-wrapper {
+            width: 100%;
+            display: inline-block;
+        }
+        div.location-inner-wrapper {
+            width: 30%;
+            float: left;
+            margin-right: 25px;
+        }
+    </style>
+</head>
+<body>
+<form name="Login" id="Login">
+    <div class="container">
+        <h1>Login</h1>
+        <hr>
+
+        <label for="user_name"><b>Name</b></label>
+        <input type="text" placeholder="Enter user name" name="user_name" id="user_name" required>
+        <span class="error">required</span><br>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+        <span class="error">required</span><br>
+        <hr>
+
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        <button type="submit" class="registerbtn" id="register">Login</button>
+    </div>
+
+    <div class="container signin">
+        <p>Don't have an account? <a href="#">Sign up</a>.</p>
+    </div>
+</form>
+</body>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../admin/js/admin-alert-modal.js"></script>
+<script src="../customers-restaurants/js/login.form.js"></script>
+</html>
