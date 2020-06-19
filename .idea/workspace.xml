@@ -2,183 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ae3c312-a515-45f3-a985-c28b56dd8127" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/add-to-cart/js/checkout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/add-to-cart/js/scrolltop.menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/css/file-upload.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/css/registeration_all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/js/customer.form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/js/file-upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/js/login.form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/js/restaurant_register.form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/city.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/comment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/customer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/in_offer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/in_order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/offer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/placed.order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/models/restaurant_register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/city.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/comments.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/customer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/offer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/customers-restaurants/views/restaurant_register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/forgot-reset/forgot-reset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/city.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/customer.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/restaurant_register.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/user.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/city.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/customer.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/restaurant_register.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ansi-styles/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ansi-styles/license" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ansi-styles/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ansi-styles/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/async/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/async/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/async/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/async/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/async/component.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/async/lib/async.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/async/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/async/support/sync-package-managers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/balanced-match/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/brace-expansion/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/brace-expansion/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/brace-expansion/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/brace-expansion/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/chalk/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/chalk/index.js.flow" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/chalk/license" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/chalk/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/chalk/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/chalk/templates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/chalk/types/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/conversions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-convert/route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-name/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-name/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-name/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-name/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-name/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-name/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/color-name/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/README.markdown" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/example/map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/concat-map/test/map.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/bin/cli.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/ejs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/ejs.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/jakefile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/lib/ejs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/lib/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/postinstall.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/ejs/usage.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/escape-string-regexp/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/escape-string-regexp/license" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/escape-string-regexp/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/escape-string-regexp/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/filelist/Jakefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/filelist/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/filelist/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/filelist/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/has-flag/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/has-flag/license" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/has-flag/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/has-flag/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/bin/bash_completion.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/bin/cli.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/jakefile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/jake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/loader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/namespace.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/package_task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/parseargs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/program.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/publish_task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/rule.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/task/directory_task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/task/file_task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/task/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/task/task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/test_task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/utils/file.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/utils/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/lib/utils/logger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/concurrent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/file.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/file_task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/helpers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakefile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakelib/concurrent.jake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakelib/publish.jake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakelib/required_module.jake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/jakelib/rule.jake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/publish_task.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/rule.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/selfdep.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/integration/task_base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/unit/jakefile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/unit/namespace.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/test/unit/parseargs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/jake/usage.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/minimatch/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/minimatch/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/minimatch/minimatch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/minimatch/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/license" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/supports-color/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/city.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/customer.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/restaurant_register.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/user.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/forgot.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/reset-user.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/add-to-cart/css/add-to-cart-functionality.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/add-to-cart/js/add-to-cart-functionality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/css/admin-alert-modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/css/admin-alert-modal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/admin-add-menu-list-functionality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/admin-alert-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/admin-alert-modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/admin/js/create.modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/admin/js/create.modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/mobirise/css/mbr-additional.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/restaurant.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/restaurant.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/all-data/data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/all-data/json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/json.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/all-data/menu-item-data.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/menu-item-data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/all-data/menu-item-json.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/all-data/menu-item-json.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/menu.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -189,16 +13,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-323">
+            <state relative-caret-position="-51">
               <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-85">
@@ -638,7 +462,7 @@
       <workItem from="1592440914766" duration="3824000" />
       <workItem from="1592453958114" duration="510000" />
       <workItem from="1592454544047" duration="12292000" />
-      <workItem from="1592511991011" duration="18527000" />
+      <workItem from="1592511991011" duration="18810000" />
     </task>
     <task id="LOCAL-00001" summary="add restaurant repo">
       <created>1588717762291</created>
@@ -689,11 +513,18 @@
       <option name="project" value="LOCAL" />
       <updated>1591484419729</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add restaurant repo">
+      <created>1592558131681</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592558131681</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1934017000" />
+    <option name="totallyTimeSpent" value="1934300000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -706,7 +537,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.32838285" />
@@ -1066,17 +896,17 @@
     <entry file="file://$PROJECT_DIR$/routes/user.route.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-85">
           <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
         </state>
       </provider>
     </entry>
